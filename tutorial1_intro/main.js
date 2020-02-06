@@ -5,7 +5,7 @@ d3.csv("../data/mmad_reports.csv").then(data => {
   
     // select the `table` container in the HTML
     const table = d3.select("#d3-table");
-  
+
     /** HEADER */
     const thead = table.append("thead");
     thead
