@@ -1,5 +1,5 @@
 // load in csv
-d3.csv("Interactive-Data-Vis-Sp2020/data/mmad_reports.csv").then(data => {
+d3.csv("../../data/mmad_reports.csv").then(data => {
     // once the data loads, console log it
     console.log("data", data);
   
