@@ -11,8 +11,7 @@ d3.csv("../../data/mmad_reports.csv").then(data => {
     thead
       .append("tr")
       .append("th")
-      .attr("colspan", "4")
-      .text("Title")
+      .attr("colspan", "4");
   
     thead
       .append("tr")
@@ -40,13 +39,13 @@ d3.csv("../../data/mmad_reports.csv").then(data => {
 
     // set a class attribute for all rows where 'issue' column contains 'revolution'
     const revolution_rows = rows
-        .attr("class", d=> String(d["issue"]).includes("revolution") ? 'revol':null)
+        .attr("class", d=> String(d["issue"]).includes("revolution") ? 'revol':null);
     
     // for rows with 'revol' class, select all cells and apply class 'revol' to format bg color
     revolution_rows
         .filter('.revol')
         .selectAll('td')
-        .attr("class","revol")
+        .attr("class","revol");
    
   });
   
