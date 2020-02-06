@@ -12,7 +12,7 @@ d3.csv("../../data/mmad_reports.csv").then(data => {
       .append("tr")
       .append("th")
       .attr("colspan", "4")
-      .text("Mass Mobilization in Autocracies - Events");
+      .text("Mass Mobilization in Autocracies - Reports");
   
     thead
       .append("tr")
