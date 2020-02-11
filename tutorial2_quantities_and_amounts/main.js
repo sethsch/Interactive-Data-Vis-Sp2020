@@ -8,14 +8,14 @@ d3.csv("../../data/squirrelActivities.csv", d3.autoType).then(data => {
     const width = window.innerWidth * 0.9,
       height = window.innerHeight / 1.5,
       paddingInner = 0.2,
-      margin = { top: 20, bottom: 40, left: 60, right: 40 };
+      margin = { top: 20, bottom: 40, left: 75, right: 40 };
   
     /** SCALES */
     // reference for d3.scales: https://github.com/d3/d3-scale
     const xScale = d3
       .scaleLinear()
       .domain([0,d3.max(data, d => d.count)])
-      .range([margin.right,width - margin.left]);
+      .range([margin.left,width - margin.right]);
       
   
     const yScale = d3
@@ -27,8 +27,8 @@ d3.csv("../../data/squirrelActivities.csv", d3.autoType).then(data => {
     // reference for d3.axis: https://github.com/d3/d3-axis
     const yAxis = d3.axisLeft(yScale)
         .ticks(data.length)
-        .tickSizeInner(15)
-        .tickSizeOuter(15);
+        .tickSizeInner(5)
+        .tickSizeOuter(5);
   
     /** MAIN CODE */
     const svg = d3
@@ -43,7 +43,7 @@ d3.csv("../../data/squirrelActivities.csv", d3.autoType).then(data => {
       .data(data)
       .join("rect")
       .attr("y", d => yScale(d.activity))
-      .attr("x", d => 0)
+      .attr("x", d => margin.left)
       .attr("height", yScale.bandwidth())
       .attr("width", d => xScale(d.count));
   
@@ -62,7 +62,9 @@ d3.csv("../../data/squirrelActivities.csv", d3.autoType).then(data => {
     svg
       .append("g")
       .attr("class", "axis")
-      //.attr("transform", `translate(0, 0)`)
+      .attr("transform", `translate(${margin.left}, 0)`)
       .call(yAxis);
+    
+        
 
   });
