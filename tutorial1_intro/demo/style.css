@@ -19,6 +19,9 @@ tr {
   border-bottom: solid 1px #d3d3d3;
   line-height: 1.75;
 }
+.opponents {
+  background-color: aqua;
+}
 
 td {
   text-align: right;
