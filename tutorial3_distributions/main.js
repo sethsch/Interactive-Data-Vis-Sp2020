@@ -6,6 +6,8 @@ const width = window.innerWidth * 0.7,
   margin = { top: 20, bottom: 70, left: 60, right: 40 },
   radius = 5;
 
+const colors = ["#94a6fd", "#8fb856", "#cf7b5d", "#27bfb3", "#e22959", "#0f767a"];
+
 /** these variables allow us to access anything we manipulate in
  * init() but need access to in draw().
  * All these variables are empty before we assign something to them.*/
@@ -54,7 +56,7 @@ function init() {
   circScale = d3
     .scaleLinear()
     .domain(d3.extent(state.data, d => d['tot_pop']))
-    .range([2.5,15]);
+    .range([3,18]);
 
   // AXES
   const xAxis = d3.axisBottom(xScale);
@@ -146,10 +148,10 @@ function init() {
  * we call this everytime there is an update to the data/state
  * */
 function draw() {
-  // filter the data for the selectedCounties
+  // filter the data for the selected categories
   let filteredData = state.data;
 
-  // if there is a selectedCounties, filter the data before mapping it to our elements
+  // if there is selectedCounties, filter the data before mapping it to our elements
   if (state.selectedCounties !== "All") {
     filteredData = state.data.filter(d => d.Economic_Type_Label === state.selectedCounties);
     if (state.selectedRegion !== "All") {
@@ -175,14 +177,14 @@ function draw() {
           .append("circle")
           .attr("class", "dot") // Note: this is important so we can identify it in future updates
           .attr("stroke", "lightgrey")
-          .attr("opacity", 0.65)
+          .attr("opacity", 0.75)
           .attr("fill", d => {
-            if (d.Economic_Type_Label === "Recreation") return "blue";
-            else if (d.Economic_Type_Label === "Manufacturing") return "red";
-            else if (d.Economic_Type_Label === "Federal/State Government") return "green";
-            else if (d.Economic_Type_Label === "Farming") return "yellow";
-            else if (d.Economic_Type_Label === "Mining") return "purple";
-            else return "brown";
+            if (d.Economic_Type_Label === "Recreation") return colors[0];
+            else if (d.Economic_Type_Label === "Manufacturing") return colors[1];
+            else if (d.Economic_Type_Label === "Federal/State Government") return colors[2];
+            else if (d.Economic_Type_Label === "Farming") return colors[3];
+            else if (d.Economic_Type_Label === "Mining") return colors[4];
+            else return colors[5];
           })
           .attr("r", 0)
           .attr("cy", d => yScale(d['governor']))
