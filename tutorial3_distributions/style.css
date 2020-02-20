@@ -12,7 +12,14 @@ body {
     fill: orange;
   }
   
-  .axis-label {
+  .axis-label-vert {
+    font-size: 14px;
+    fill: black;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .axis-label-horiz {
     font-size: 14px;
     fill: black;
     text-anchor: middle;

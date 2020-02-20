@@ -23,7 +23,7 @@ let state = {
   selectedCounties: "All",
   selectedRegion: "All",
   //selectedX: "congress",
-  //selectedY: "governor",
+  //selectedY: "personal",
 };
 
 
@@ -50,7 +50,7 @@ function init() {
 
   yScale = d3
     .scaleLinear()
-    .domain(d3.extent(state.data, d => d['governor']))
+    .domain(d3.extent(state.data, d => d['personal']))
     .range([height - margin.bottom, margin.top]);
 
   circScale = d3
@@ -122,10 +122,10 @@ function init() {
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(xAxis)
     .append("text")
-    .attr("class", "axis-label")
+    .attr("class", "axis-label-horiz")
     .attr("x", "50%")
     .attr("dy", "3em")
-    .text("Congress");
+    .text("% of Pop. that believes Congress should be doing more");
 
   // add the yAxis
   svg
@@ -134,11 +134,11 @@ function init() {
     .attr("transform", `translate(${margin.left},0)`)
     .call(yAxis)
     .append("text")
-    .attr("class", "axis-label")
-    .attr("y", "50%")
-    .attr("dx", "-3em")
+    .attr("class", "axis-label-vert")
+    .attr("y", "-10%")
+    .attr("dx", "3em")
     .attr("writing-mode", "vertical-rl")
-    .text("Governor");
+    .text("% Pop. believing global warming has personal effects");
 
   draw(); // calls the draw function
 }
@@ -187,7 +187,7 @@ function draw() {
             else return colors[5];
           })
           .attr("r", 0)
-          .attr("cy", d => yScale(d['governor']))
+          .attr("cy", d => yScale(d['personal']))
           .attr("cx", d => xScale(d['congress'])) // initial value - to be transitioned
           .call(enter =>
             enter
