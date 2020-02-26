@@ -11,7 +11,11 @@ body {
   }
   
   .dot:hover {
-    fill: orange;
+    fill: lightgoldenrodyellow;
+  }
+
+  .line {
+    stroke-width: 15px;
   }
   
   .axis-label {

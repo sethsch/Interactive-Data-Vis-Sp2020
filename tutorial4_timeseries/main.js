@@ -1,20 +1,23 @@
 /**
  * CONSTANTS AND GLOBALS
  * */
-const width = window.innerWidth * 0.7,
-  height = window.innerHeight * 0.7,
+const width = window.innerWidth * 0.5,
+  height = window.innerHeight * 0.5,
   margin = { top: 20, bottom: 50, left: 60, right: 40 },
   radius = 3,
-  default_selection = "Select a Country";
+  default_selection = "Select a Directorate";
 
 /** these variables allow us to access anything we manipulate in
  * init() but need access to in draw().
  * All these variables are empty before we assign something to them.*/
 let svg;
+let svg2;
 let xScale;
 let yScale;
 let yAxis;
 let colorScale;
+let area_plot;
+
 
 /* 
 this extrapolated function allows us to replace the "G" with "B" min the case of billions.
@@ -28,25 +31,29 @@ and replace needs to act on the text (result of the function).
  * */
 let state = {
   data: [],
-  selectedCountry: null,
+  selectedDivision: null,
 };
 
 /**
  * LOAD DATA
  * */
-d3.csv("../../data/V-Dem_subset_ExclInclVar.csv", d => ({
-  year: new Date(d.year, 0, 1),
-  country: d.country_name,
-  bus_gen: new Number(d.v2peasbgen),
+d3.csv("../../data/NSF_directorates_activityperyear_update.csv", d => ({
+  year: new Date(d.eff_year, 0, 1),
+  division: d.direct_fixed,
+  award_id: new Number(d.award_id),
+  pt_id: d.id,
 })).then(raw_data => {
   console.log("raw_data", raw_data);
-  console.log("max",d3.max(raw_data,d=>d.bus_gen));
-  console.log("max",d3.min(raw_data,d=>d.bus_gen));
+  console.log("max",d3.max(raw_data,d=>d.award_id));
+  console.log("max",d3.min(raw_data,d=>d.award_id));
 
 
   state.data = raw_data;
   init();
 });
+
+
+
 
 /**
  * INITIALIZING FUNCTION
@@ -61,14 +68,15 @@ function init() {
 
   yScale = d3
     .scaleLinear()
-    .domain([d3.min(state.data,d => d.bus_gen), d3.max(state.data, d => d.bus_gen)])
+    .domain([d3.min(state.data,d => d.award_id), d3.max(state.data, d => d.award_id)])
     .range([height - margin.bottom, margin.top]);
 
-
+  // I want the color scale for the area plot's color, 
+  // so that each area plot can be compared to the entire dataset...
   colorScale = d3
     .scaleLinear()
-    .domain([d3.min(state.data,d => d.bus_gen), d3.mean(state.data,d => d.bus_gen), d3.max(state.data, d => d.bus_gen)])
-    .range(['red', 'beige', 'blue']);
+    .domain([1, 3000])
+    .range(["lightblue", "darkblue"]);
 
   // AXES
   const xAxis = d3.axisBottom(xScale);
@@ -79,7 +87,7 @@ function init() {
     console.log("new selected entity is", this.value);
     // `this` === the selectElement
     // this.value holds the dropdown value a user just selected
-    state.selectedCountry = this.value;
+    state.selectedDivision = this.value;
     draw(); // re-draw the graph based on this new selection
   });
 
@@ -87,7 +95,7 @@ function init() {
   selectElement
     .selectAll("option")
     .data([
-      ...Array.from(new Set(state.data.map(d => d.country))),
+      ...Array.from(new Set(state.data.map(d => d.division))),
       default_selection,
     ])
     .join("option")
@@ -99,7 +107,7 @@ function init() {
 
   // create an svg element in our main `d3-container` element
   svg = d3
-    .select("#d3-container")
+    .select("#d3-container_1")
     .append("svg")
     .attr("width", width)
     .attr("height", height);
@@ -127,7 +135,41 @@ function init() {
     .attr("y", "50%")
     .attr("dx", "-3em")
     .attr("writing-mode", "vertical-rl")
-    .text("V2bus_gen");
+    .text("Number of Grants");
+  
+   // create an svg element in our main `d3-container` element
+   svg2 = d3
+   .select("#d3-container_2")
+   .append("svg")
+   .attr("width", width)
+   .attr("height", height);
+
+ // add the xAxis
+ svg2
+   .append("g")
+   .attr("class", "axis x-axis")
+   .attr("transform", `translate(0,${height - margin.bottom})`)
+   .call(xAxis)
+   .append("text")
+   .attr("class", "axis-label")
+   .attr("x", "50%")
+   .attr("dy", "3em")
+   .text("Year");
+
+ // add the yAxis
+ svg2
+   .append("g")
+   .attr("class", "axis y-axis")
+   .attr("transform", `translate(${margin.left},0)`)
+   .call(yAxis)
+   .append("text")
+   .attr("class", "axis-label")
+   .attr("y", "50%")
+   .attr("dx", "-3em")
+   .attr("writing-mode", "vertical-rl")
+   .text("Number of Grants");
+
+  
 
   draw(); // calls the draw function
 }
@@ -139,16 +181,16 @@ function init() {
 function draw() {
   // filter the data for the selectedParty
   let filteredData;
-  if (state.selectedCountry !== null) {
-    filteredData = state.data.filter(d => d.country === state.selectedCountry);
+  if (state.selectedDivision !== null) {
+    filteredData = state.data.filter(d => d.division === state.selectedDivision);
   }
   
 
   // update the scale domain (now that our data has changed)
-  yScale.domain([d3.min(filteredData,d => d.bus_gen), d3.max(filteredData, d => d.bus_gen)]);
+  yScale.domain([d3.min(filteredData,d => d.award_id), d3.max(filteredData, d => d.award_id)]);
 
   // re-draw our yAxix since our yScale is updated with the new data
-  d3.select("g.y-axis")
+  d3.selectAll("g.y-axis")
     .transition()
     .duration(1000)
     .call(yAxis.scale(yScale)); // this updates the yAxis' scale to be our newly updated one
@@ -157,17 +199,11 @@ function draw() {
   const lineFunc = d3
     .line()
     .x(d => xScale(d.year))
-    .y(d => yScale(d.bus_gen)); 
+    .y(d => yScale(d.award_id)); 
 
-  // we try an area function
-  const areaFunc = d3.area()
-    .x(function(d) { return xScale(d.year); })
-    .y1(function(d) { return yScale(d.bus_gen); })
-    .y0(function(d) { return yScale(d3.min(filteredData,d=>d.bus_gen)); });
-
-  /*const dot = svg
+  const dot = svg
     .selectAll(".dot")
-    .data(filteredData, d => d.year) // use `d.year` as the `key` to match between HTML and data elements
+    .data(filteredData, d => d.pt_id) // use `d.year` as the `key` to match between HTML and data elements
     .join(
       enter =>
         // enter selections -- all data elements that don't have a `.dot` element attached to them yet
@@ -175,7 +211,8 @@ function draw() {
           .append("circle")
           .attr("class", "dot") // Note: this is important so we can identify it in future updates
           .attr("r", radius)
-          .attr("cy", height - margin.bottom) // initial value - to be transitioned
+          .attr("fill",d => colorScale(d.award_id))
+          .attr("cy", margin.top) // initial value - to be transitioned
           .attr("cx", d => xScale(d.year)),
       update => update,
       exit =>
@@ -183,22 +220,21 @@ function draw() {
           // exit selections -- all the `.dot` element that no longer match to HTML elements
           exit
             .transition()
-            .delay(d => d.year)
-            .duration(500)
-            .attr("cy", height - margin.bottom)
+            .duration(400)
+            .attr("r", 0)
             .remove()
         )
     )
     // the '.join()' function leaves us with the 'Enter' + 'Update' selections together.
     // Now we just need move them to the right place
-    .call(
-      selection =>
-        selection
-          .transition() // initialize transition
-          .duration(1000) // duration 1000ms / 1s
-          .attr("cy", d => yScale(d.bus_gen)) // started from the bottom, now we're here
-    );
-    */
+      .call(
+        selection =>
+          selection
+            .transition() // initialize transition
+            .duration(1000) // duration 1000ms / 1s
+            .attr("cy", d => yScale(d.award_id)) // started from the TOP, now we're here
+      );
+  
 
   const line = svg
     .selectAll("path.trend")
@@ -224,12 +260,18 @@ function draw() {
       selection
         .transition() // sets the transition on the 'Enter' + 'Update' selections together.
         .duration(1000)
+        //I'd like to do a gradient stroke across the line.. but I tried and it's tricky!
+        .attr("stroke",function(d) {return colorScale(d3.mean(filteredData,d=>d.award_id));  })
         .attr("opacity", 1)
         .attr("d", d => lineFunc(d))
     );
-
-
-    const area = svg
+  // we try an area function
+  const areaFunc = d3.area()
+    .x(function(d) { return xScale(d.year); })
+    .y1(function(d) { return yScale(d.award_id); })
+    .y0(function(d) { return yScale(d3.min(filteredData,d=>d.award_id)); });
+    
+  area_plot = svg2
     .selectAll("path.area")
     .data([filteredData])
     .join(
@@ -237,49 +279,24 @@ function draw() {
         enter
           .append("path")
           .attr("class","area")
-          .attr("fill", "#8fb856")
           .attr("opacity", 0), // start them off as opacity 0 and fade them in
       update => update, // pass through the update selection
-      exit => exit.remove()
+      exit => 
+        exit.call(exit =>
+        // exit selections -- all the `.dot` element that no longer match to HTML elements
+          exit
+            .transition()
+            .duration(850)
+            .attr("opacity", 0)
+            .remove()
+        )
     )
     .call(selection =>
       selection
         .transition() // sets the transition on the 'Enter' + 'Update' selections together.
         .duration(1000)
         .attr("opacity", 1)
+        .attr("fill", function(d) {return colorScale(d3.mean(filteredData,d=>d.award_id));  })
         .attr("d", d => areaFunc(d))
     );
-  
-  /*
-  if (d3.max(filteredData, d => d.bus_gen) < 0 ) {
-    var pctOffset = yScale(d3.max(filteredData, d => d.bus_gen))/(height-margin.bottom);
-  }
-  if (d3.max(filteredData, d => d.bus_gen) > 0 ) {
-    var pctOffset = yScale(0)/(height-margin.bottom);
-  }
-
-  let bottomColor = "red";
-  let topColor = "green";
-  let y1 = filteredData.map(d=>d.bus_gen)[0];
-  let y2 = filteredData.map(d=>d.bus_gen);
-  y2 = y2[y2.length-1];
-  console.log("y1=",y1,"y2=",y2);
-
-  const areaGradient = svg
-      .append("linearGradient")
-      .attr("id", "area-gradient")
-      .attr("gradientUnits", "userSpaceOnUse")
-      .attr("x1", xScale(1990)).attr("y1", yScale(y1)/(height-margin.bottom))
-      .attr("x2", xScale(2018)).attr("y2", yScale(y2)/(height-margin.bottom)) 
-    .selectAll("stop")
-      .data([
-        {offset: "1%", color: topColor},
-        //{offset: pctOffset, color: topColor},
-        {offset: 0, color: bottomColor},
-        //{offset: "100%", color: bottomColor}
-      ])
-    .enter().append("stop")
-      .attr("offset", function(d) { return d.offset; })
-      .attr("stop-color", function(d) { return d.color; });
-      */
 } 
