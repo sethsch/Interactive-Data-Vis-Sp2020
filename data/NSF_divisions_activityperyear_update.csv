@@ -1,0 +1,2383 @@
+,division_fixed,eff_year,award_id,total_funding
+0,acf,1973,2,254800
+1,acf,1974,6,767400
+2,arctic sciences division,2013,2,35261
+3,arctic sciences division,2014,1,37863
+4,budget division,1988,1,49819
+5,budget division,2019,1,7000
+6,direct for education and human resources,1982,2,52800
+7,direct for education and human resources,1985,1,4000
+8,direct for education and human resources,1986,4,1796159
+9,directorate for biological sciences,1900,1,683
+10,directorate for biological sciences,1962,1,0
+11,directorate for biological sciences,1963,1,15000
+12,directorate for biological sciences,1965,1,144000
+13,directorate for biological sciences,1966,1,37150
+14,directorate for biological sciences,1967,2,8000
+15,directorate for biological sciences,1968,3,74000
+16,directorate for biological sciences,1969,8,247300
+17,directorate for biological sciences,1970,3,134600
+18,directorate for biological sciences,1971,14,323550
+19,directorate for biological sciences,1972,7,70550
+20,directorate for biological sciences,1973,2,82400
+21,directorate for biological sciences,1974,2,17500
+22,directorate for biological sciences,1975,2,11210
+23,directorate for biological sciences,1976,20,29488
+24,directorate for biological sciences,1977,32,82837
+25,directorate for biological sciences,1980,1,148600
+26,directorate for biological sciences,1982,1,18200
+27,directorate for biological sciences,1983,1,30500
+28,directorate for biological sciences,1984,7,1013666
+29,directorate for biological sciences,1986,1,0
+30,directorate for biological sciences,1987,172,28099796
+31,directorate for biological sciences,1988,43,2069830
+32,directorate for biological sciences,1989,2,265070
+33,directorate for biological sciences,1990,4,186250
+34,directorate for biological sciences,1991,37,2758163
+35,directorate for biological sciences,1992,20,883030
+36,directorate for biological sciences,1997,1,99123
+37,directorate for biological sciences,1999,1,3327
+38,directorate for biological sciences,2005,2,73000
+39,directorate for biological sciences,2008,1,12000
+40,directorate for biological sciences,2012,1,455210
+41,directorate for biological sciences,2017,1,14000
+42,directorate for computer and information science and engineering,1900,1,22742
+43,directorate for computer and information science and engineering,1968,3,148350
+44,directorate for computer and information science and engineering,1969,4,202206
+45,directorate for computer and information science and engineering,1970,6,186900
+46,directorate for computer and information science and engineering,1971,2,131750
+47,directorate for computer and information science and engineering,1972,3,349900
+48,directorate for computer and information science and engineering,1973,19,2146925
+49,directorate for computer and information science and engineering,1974,13,929275
+50,directorate for computer and information science and engineering,1975,18,954588
+51,directorate for computer and information science and engineering,1976,31,2214767
+52,directorate for computer and information science and engineering,1977,65,3911891
+53,directorate for computer and information science and engineering,1978,116,12349006
+54,directorate for computer and information science and engineering,1979,84,5250310
+55,directorate for computer and information science and engineering,1980,96,7923740
+56,directorate for computer and information science and engineering,1981,13,7501463
+57,directorate for computer and information science and engineering,1988,1,48260
+58,directorate for computer and information science and engineering,1994,1,50000
+59,directorate for computer and information science and engineering,1999,1,206635
+60,directorate for computer and information science and engineering,2001,1,97067
+61,directorate for education and human resources,1982,25,916769
+62,directorate for education and human resources,1985,1,25350
+63,directorate for education and human resources,1986,6,1261032
+64,directorate for education and human resources,1987,5,1661014
+65,directorate for education and human resources,1989,1,16700
+66,directorate for education and human resources,1991,2,143000
+67,directorate for education and human resources,2011,1,7000
+68,directorate for engineering,1900,17,9593
+69,directorate for engineering,1967,28,7313587
+70,directorate for engineering,1968,25,4877885
+71,directorate for engineering,1969,261,39627477
+72,directorate for engineering,1970,21,2999556
+73,directorate for engineering,1971,75,60276041
+74,directorate for engineering,1972,136,45523325
+75,directorate for engineering,1973,149,64549256
+76,directorate for engineering,1974,146,35190201
+77,directorate for engineering,1975,185,30365167
+78,directorate for engineering,1976,114,13231470
+79,directorate for engineering,1977,112,23920838
+80,directorate for engineering,1978,28,700586
+81,directorate for engineering,1979,13,336880
+82,directorate for engineering,1980,3,2178380
+83,directorate for engineering,1981,2,98430
+84,directorate for engineering,1982,6,1191396
+85,directorate for engineering,1983,4,283970
+86,directorate for engineering,1984,4,215008
+87,directorate for engineering,1985,4,557085
+88,directorate for engineering,1986,18,1877326
+89,directorate for engineering,1987,15,1316859
+90,directorate for engineering,1988,13,1749085
+91,directorate for engineering,1989,3,322192
+92,directorate for engineering,1990,5,305591
+93,directorate for engineering,1991,1,1173021
+94,directorate for engineering,1992,3,20700234
+95,directorate for engineering,1995,1,176320
+96,directorate for engineering,1996,1,176320
+97,directorate for engineering,1998,1,176240
+98,directorate for engineering,2000,1,320000
+99,directorate for geosciences,1975,3,385000
+100,directorate for geosciences,1978,8,8944
+101,directorate for geosciences,1979,13,35568
+102,directorate for geosciences,1990,1,50000
+103,directorate for geosciences,1991,1,35000
+104,directorate for geosciences,1995,10,4411598
+105,directorate for geosciences,1997,3,2357550
+106,directorate for geosciences,1998,11,6133993
+107,directorate for geosciences,1999,1,3493062
+108,directorate for geosciences,2000,4,2144204
+109,directorate for geosciences,2001,26,12789542
+110,directorate for geosciences,2002,46,29502840
+111,directorate for geosciences,2003,46,14557390
+112,directorate for geosciences,2004,19,10387168
+113,directorate for geosciences,2005,50,24134491
+114,directorate for geosciences,2006,44,28008154
+115,directorate for geosciences,2007,40,16801014
+116,directorate for geosciences,2008,40,13722591
+117,directorate for geosciences,2009,58,26999919
+118,directorate for geosciences,2010,65,17685172
+119,directorate for geosciences,2011,36,13341779
+120,directorate for geosciences,2012,44,27864788
+121,directorate for geosciences,2014,3,3411742
+122,directorate for mathematical and physical sciences,1971,1,173944
+123,directorate for mathematical and physical sciences,1973,1,2000
+124,directorate for mathematical and physical sciences,1977,1,24535
+125,directorate for mathematical and physical sciences,1984,3,222821
+126,directorate for mathematical and physical sciences,1986,1,329832
+127,directorate for mathematical and physical sciences,1987,2,98300
+128,directorate for mathematical and physical sciences,1988,2,284000
+129,directorate for mathematical and physical sciences,1990,1,375000
+130,directorate for mathematical and physical sciences,1991,2,159121
+131,directorate for mathematical and physical sciences,1993,1,42679
+132,directorate for mathematical and physical sciences,1995,2,113178
+133,directorate for mathematical and physical sciences,1996,1,2000000
+134,directorate for mathematical and physical sciences,1998,6,557490
+135,directorate for mathematical and physical sciences,1999,2,252535
+136,directorate for mathematical and physical sciences,2001,1,82302
+137,directorate for mathematical and physical sciences,2002,2,1422289
+138,directorate for mathematical and physical sciences,2003,12,6024810
+139,directorate for mathematical and physical sciences,2004,8,29184954
+140,directorate for mathematical and physical sciences,2005,8,4878764
+141,directorate for mathematical and physical sciences,2006,5,16815329
+142,directorate for mathematical and physical sciences,2007,23,8797316
+143,directorate for mathematical and physical sciences,2008,31,13600821
+144,directorate for mathematical and physical sciences,2009,34,9187535
+145,directorate for mathematical and physical sciences,2010,11,3538465
+146,"directorate for social, behavioral and economic sciences",1992,1,1363436
+147,"directorate for social, behavioral and economic sciences",2003,3,618972
+148,"directorate for social, behavioral and economic sciences",2004,1,20769437
+149,"directorate for social, behavioral and economic sciences",2005,2,380703
+150,"directorate for social, behavioral and economic sciences",2006,1,15938236
+151,"directorate for social, behavioral and economic sciences",2007,7,3063775
+152,"directorate for social, behavioral and economic sciences",2008,18,4988262
+153,"directorate for social, behavioral and economic sciences",2009,7,798743
+154,"directorate for social, behavioral and economic sciences",2010,8,2509918
+155,division of acquisition and cooperative support,2002,1,2000
+156,division of acquisition and cooperative support,2003,1,0
+157,division of acquisition and cooperative support,2005,1,166466
+158,division of acquisition and cooperative support,2006,2,738498
+159,division of acquisition and cooperative support,2008,2,107581
+160,division of acquisition and cooperative support,2009,3,111253
+161,division of acquisition and cooperative support,2010,6,1931438
+162,division of acquisition and cooperative support,2011,1,269919
+163,division of acquisition and cooperative support,2014,1,1617842
+164,division of acquisition and cooperative support,2016,1,10000
+165,division of administrative services,1994,1,871165
+166,division of administrative services,1998,1,171998
+167,division of administrative services,1999,1,678446
+168,division of administrative services,2000,1,911416
+169,division of administrative services,2002,1,0
+170,division of administrative services,2003,2,1167407
+171,division of administrative services,2006,1,661859
+172,division of administrative services,2010,1,92568
+173,division of administrative services,2014,1,24031
+174,division of administrative services,2017,2,395000
+175,division of administrative services,2018,6,36558630
+176,division of administrative services,2019,3,287610
+177,division of astronomical sciences,1900,2,295850
+178,division of astronomical sciences,1963,2,412300
+179,division of astronomical sciences,1967,3,22216612
+180,division of astronomical sciences,1968,2,81099393
+181,division of astronomical sciences,1969,5,48220120
+182,division of astronomical sciences,1970,17,2133850
+183,division of astronomical sciences,1971,18,3516836
+184,division of astronomical sciences,1972,18,73618047
+185,division of astronomical sciences,1973,27,3200482
+186,division of astronomical sciences,1974,55,136992832
+187,division of astronomical sciences,1975,87,12370777
+188,division of astronomical sciences,1976,115,9160866
+189,division of astronomical sciences,1977,156,17700758
+190,division of astronomical sciences,1978,144,85218707
+191,division of astronomical sciences,1979,150,122448953
+192,division of astronomical sciences,1980,141,20394945
+193,division of astronomical sciences,1981,113,53177966
+194,division of astronomical sciences,1982,127,26609750
+195,division of astronomical sciences,1983,156,33979306
+196,division of astronomical sciences,1984,152,293381799
+197,division of astronomical sciences,1985,148,28828976
+198,division of astronomical sciences,1986,119,58612211
+199,division of astronomical sciences,1987,125,21294257
+200,division of astronomical sciences,1988,130,30656507
+201,division of astronomical sciences,1989,148,563135923
+202,division of astronomical sciences,1990,137,32461104
+203,division of astronomical sciences,1991,156,143641101
+204,division of astronomical sciences,1992,141,53818662
+205,division of astronomical sciences,1993,127,43107088
+206,division of astronomical sciences,1994,165,564847211
+207,division of astronomical sciences,1995,112,30726306
+208,division of astronomical sciences,1996,116,41021348
+209,division of astronomical sciences,1997,157,235231652
+210,division of astronomical sciences,1998,140,38242237
+211,division of astronomical sciences,1999,141,74880008
+212,division of astronomical sciences,2000,132,54699052
+213,division of astronomical sciences,2001,129,954628314
+214,division of astronomical sciences,2002,141,42722688
+215,division of astronomical sciences,2003,134,45660481
+216,division of astronomical sciences,2004,147,47566753
+217,division of astronomical sciences,2005,144,107827313
+218,division of astronomical sciences,2006,147,57790251
+219,division of astronomical sciences,2007,165,110801065
+220,division of astronomical sciences,2008,196,83810844
+221,division of astronomical sciences,2009,313,935520802
+222,division of astronomical sciences,2010,132,292596571
+223,division of astronomical sciences,2011,71,107091789
+224,division of astronomical sciences,2012,61,26150801
+225,division of astronomical sciences,2013,68,27996051
+226,division of astronomical sciences,2014,99,438402049
+227,division of astronomical sciences,2015,112,237872370
+228,division of astronomical sciences,2016,236,382816093
+229,division of astronomical sciences,2017,190,173260921
+230,division of astronomical sciences,2018,213,155472856
+231,division of astronomical sciences,2019,215,93405807
+232,division of atmospheric and geospace sciences,1900,9,1001845
+233,division of atmospheric and geospace sciences,1963,1,2305250
+234,division of atmospheric and geospace sciences,1967,2,220894093
+235,division of atmospheric and geospace sciences,1969,4,120700
+236,division of atmospheric and geospace sciences,1970,10,1573400
+237,division of atmospheric and geospace sciences,1971,20,59019951
+238,division of atmospheric and geospace sciences,1972,45,8714522
+239,division of atmospheric and geospace sciences,1973,52,7412790
+240,division of atmospheric and geospace sciences,1974,104,12170789
+241,division of atmospheric and geospace sciences,1975,183,22666150
+242,division of atmospheric and geospace sciences,1976,184,59244341
+243,division of atmospheric and geospace sciences,1977,254,214645245
+244,division of atmospheric and geospace sciences,1978,277,39544886
+245,division of atmospheric and geospace sciences,1979,220,28485773
+246,division of atmospheric and geospace sciences,1980,256,43235348
+247,division of atmospheric and geospace sciences,1981,236,44689294
+248,division of atmospheric and geospace sciences,1982,230,317777037
+249,division of atmospheric and geospace sciences,1983,253,44236055
+250,division of atmospheric and geospace sciences,1984,294,57733218
+251,division of atmospheric and geospace sciences,1985,264,55212535
+252,division of atmospheric and geospace sciences,1986,263,46550816
+253,division of atmospheric and geospace sciences,1987,258,487304068
+254,division of atmospheric and geospace sciences,1988,252,54315562
+255,division of atmospheric and geospace sciences,1989,229,51569334
+256,division of atmospheric and geospace sciences,1990,255,59052063
+257,division of atmospheric and geospace sciences,1991,370,85394930
+258,division of atmospheric and geospace sciences,1992,298,74487991
+259,division of atmospheric and geospace sciences,1993,279,468783387
+260,division of atmospheric and geospace sciences,1994,293,163462919
+261,division of atmospheric and geospace sciences,1995,327,80965614
+262,division of atmospheric and geospace sciences,1996,331,60235067
+263,division of atmospheric and geospace sciences,1997,343,90985372
+264,division of atmospheric and geospace sciences,1998,292,531371058
+265,division of atmospheric and geospace sciences,1999,373,187157048
+266,division of atmospheric and geospace sciences,2000,385,176068527
+267,division of atmospheric and geospace sciences,2001,331,103449555
+268,division of atmospheric and geospace sciences,2002,365,180037716
+269,division of atmospheric and geospace sciences,2003,399,754089123
+270,division of atmospheric and geospace sciences,2004,387,161877312
+271,division of atmospheric and geospace sciences,2005,334,131826880
+272,division of atmospheric and geospace sciences,2006,338,164367922
+273,division of atmospheric and geospace sciences,2007,304,126467350
+274,division of atmospheric and geospace sciences,2008,330,1332091911
+275,division of atmospheric and geospace sciences,2009,409,253533387
+276,division of atmospheric and geospace sciences,2010,348,185005871
+277,division of atmospheric and geospace sciences,2011,378,162574612
+278,division of atmospheric and geospace sciences,2012,333,171459887
+279,division of atmospheric and geospace sciences,2013,294,122834077
+280,division of atmospheric and geospace sciences,2014,287,153644678
+281,division of atmospheric and geospace sciences,2015,341,153997534
+282,division of atmospheric and geospace sciences,2016,323,109279159
+283,division of atmospheric and geospace sciences,2017,341,108552854
+284,division of atmospheric and geospace sciences,2018,255,262668896
+285,division of atmospheric and geospace sciences,2019,283,114439783
+286,division of atmospheric and geospace sciences,2020,27,7967659
+287,division of behavioral and cognitive sciences,1900,6,48300
+288,division of behavioral and cognitive sciences,1967,1,133146
+289,division of behavioral and cognitive sciences,1969,6,436400
+290,division of behavioral and cognitive sciences,1970,8,978000
+291,division of behavioral and cognitive sciences,1971,23,2915950
+292,division of behavioral and cognitive sciences,1972,43,4099567
+293,division of behavioral and cognitive sciences,1973,89,10180481
+294,division of behavioral and cognitive sciences,1974,190,17215150
+295,division of behavioral and cognitive sciences,1975,275,12935793
+296,division of behavioral and cognitive sciences,1976,384,26513710
+297,division of behavioral and cognitive sciences,1977,430,35570997
+298,division of behavioral and cognitive sciences,1978,462,29724157
+299,division of behavioral and cognitive sciences,1979,453,26893462
+300,division of behavioral and cognitive sciences,1980,276,17106348
+301,division of behavioral and cognitive sciences,1981,251,16521584
+302,division of behavioral and cognitive sciences,1982,204,10832069
+303,division of behavioral and cognitive sciences,1983,262,15330029
+304,division of behavioral and cognitive sciences,1984,282,23414811
+305,division of behavioral and cognitive sciences,1985,273,20627218
+306,division of behavioral and cognitive sciences,1986,272,22645582
+307,division of behavioral and cognitive sciences,1987,285,19775816
+308,division of behavioral and cognitive sciences,1988,246,28050281
+309,division of behavioral and cognitive sciences,1989,303,20063925
+310,division of behavioral and cognitive sciences,1990,318,22012190
+311,division of behavioral and cognitive sciences,1991,303,45448404
+312,division of behavioral and cognitive sciences,1992,344,32378802
+313,division of behavioral and cognitive sciences,1993,311,22961246
+314,division of behavioral and cognitive sciences,1994,305,25549319
+315,division of behavioral and cognitive sciences,1995,333,32893154
+316,division of behavioral and cognitive sciences,1996,342,56973558
+317,division of behavioral and cognitive sciences,1997,356,38687272
+318,division of behavioral and cognitive sciences,1998,394,37825178
+319,division of behavioral and cognitive sciences,1999,409,59249769
+320,division of behavioral and cognitive sciences,2000,412,53212527
+321,division of behavioral and cognitive sciences,2001,456,74558532
+322,division of behavioral and cognitive sciences,2002,401,57594352
+323,division of behavioral and cognitive sciences,2003,406,58738491
+324,division of behavioral and cognitive sciences,2004,440,59419541
+325,division of behavioral and cognitive sciences,2005,485,76648666
+326,division of behavioral and cognitive sciences,2006,523,79844270
+327,division of behavioral and cognitive sciences,2007,605,98893588
+328,division of behavioral and cognitive sciences,2008,607,104290199
+329,division of behavioral and cognitive sciences,2009,711,128603417
+330,division of behavioral and cognitive sciences,2010,631,103197495
+331,division of behavioral and cognitive sciences,2011,480,71092463
+332,division of behavioral and cognitive sciences,2012,534,88053467
+333,division of behavioral and cognitive sciences,2013,466,70909675
+334,division of behavioral and cognitive sciences,2014,477,79851886
+335,division of behavioral and cognitive sciences,2015,536,97832330
+336,division of behavioral and cognitive sciences,2016,509,94208367
+337,division of behavioral and cognitive sciences,2017,505,92076806
+338,division of behavioral and cognitive sciences,2018,507,99431197
+339,division of behavioral and cognitive sciences,2019,399,79929019
+340,division of behavioral and cognitive sciences,2020,8,976862
+341,division of behavioral and neural sciences,1900,1,43700
+342,division of behavioral and neural sciences,1971,2,39750
+343,division of behavioral and neural sciences,1972,25,1558700
+344,division of behavioral and neural sciences,1973,16,1115181
+345,division of behavioral and neural sciences,1974,59,4268000
+346,division of behavioral and neural sciences,1975,89,7408646
+347,division of behavioral and neural sciences,1976,93,10115151
+348,division of behavioral and neural sciences,1977,96,7382531
+349,division of behavioral and neural sciences,1978,96,7071928
+350,division of behavioral and neural sciences,1979,109,10644250
+351,division of behavioral and neural sciences,1980,76,9080613
+352,division of behavioral and neural sciences,1981,84,10791204
+353,division of behavioral and neural sciences,1982,95,11357628
+354,division of behavioral and neural sciences,1983,86,10763065
+355,division of behavioral and neural sciences,1984,18,3780346
+356,division of behavioral and neural sciences,1986,1,22400
+357,division of biological infrastructure,1900,1,52348
+358,division of biological infrastructure,1917,1,28700
+359,division of biological infrastructure,1968,1,45200
+360,division of biological infrastructure,1970,1,45700
+361,division of biological infrastructure,1971,3,121000
+362,division of biological infrastructure,1972,2,41048
+363,division of biological infrastructure,1973,9,432500
+364,division of biological infrastructure,1974,23,534400
+365,division of biological infrastructure,1975,30,787300
+366,division of biological infrastructure,1976,36,1238155
+367,division of biological infrastructure,1977,46,1286736
+368,division of biological infrastructure,1978,57,1858704
+369,division of biological infrastructure,1979,99,5358456
+370,division of biological infrastructure,1980,100,4730684
+371,division of biological infrastructure,1981,103,5343268
+372,division of biological infrastructure,1982,118,6128873
+373,division of biological infrastructure,1983,118,6176873
+374,division of biological infrastructure,1984,149,8866941
+375,division of biological infrastructure,1985,146,15040610
+376,division of biological infrastructure,1986,170,14162668
+377,division of biological infrastructure,1987,103,4394861
+378,division of biological infrastructure,1988,186,40147352
+379,division of biological infrastructure,1989,315,58246445
+380,division of biological infrastructure,1990,330,46769448
+381,division of biological infrastructure,1991,234,46213227
+382,division of biological infrastructure,1992,150,36996294
+383,division of biological infrastructure,1993,217,69918702
+384,division of biological infrastructure,1994,265,71528741
+385,division of biological infrastructure,1995,285,63571324
+386,division of biological infrastructure,1996,316,83101111
+387,division of biological infrastructure,1997,248,58084393
+388,division of biological infrastructure,1998,257,69857939
+389,division of biological infrastructure,1999,277,90501394
+390,division of biological infrastructure,2000,260,74794351
+391,division of biological infrastructure,2001,315,83610214
+392,division of biological infrastructure,2002,319,103238960
+393,division of biological infrastructure,2003,298,89670765
+394,division of biological infrastructure,2004,287,131097690
+395,division of biological infrastructure,2005,261,97661021
+396,division of biological infrastructure,2006,256,142963562
+397,division of biological infrastructure,2007,211,78053416
+398,division of biological infrastructure,2008,248,198771550
+399,division of biological infrastructure,2009,373,209347455
+400,division of biological infrastructure,2010,347,209088485
+401,division of biological infrastructure,2011,281,486339914
+402,division of biological infrastructure,2012,290,95738288
+403,division of biological infrastructure,2013,290,238871731
+404,division of biological infrastructure,2014,320,172500628
+405,division of biological infrastructure,2015,293,107443014
+406,division of biological infrastructure,2016,343,372309849
+407,division of biological infrastructure,2017,278,272704257
+408,division of biological infrastructure,2018,304,104412432
+409,division of biological infrastructure,2019,245,84342963
+410,division of biological infrastructure,2020,30,4464642
+411,division of cellular biosciences,1981,48,5655848
+412,division of cellular biosciences,1982,45,6590340
+413,division of cellular biosciences,1983,45,5617462
+414,division of cellular biosciences,1984,66,10526760
+415,division of cellular biosciences,1985,62,10435000
+416,division of cellular biosciences,1986,43,6171718
+417,division of cellular biosciences,1987,45,7617205
+418,division of cellular biosciences,1988,43,6777096
+419,division of cellular biosciences,1990,2,339200
+420,division of cellular biosciences,1993,1,50635
+421,"division of chemical, bioengineering, environmental, and transport systems",1900,15,1313500
+422,"division of chemical, bioengineering, environmental, and transport systems",1971,5,1265900
+423,"division of chemical, bioengineering, environmental, and transport systems",1972,42,21492921
+424,"division of chemical, bioengineering, environmental, and transport systems",1973,76,10378786
+425,"division of chemical, bioengineering, environmental, and transport systems",1974,169,21875781
+426,"division of chemical, bioengineering, environmental, and transport systems",1975,296,25636805
+427,"division of chemical, bioengineering, environmental, and transport systems",1976,351,38716734
+428,"division of chemical, bioengineering, environmental, and transport systems",1977,419,37949113
+429,"division of chemical, bioengineering, environmental, and transport systems",1978,394,42604375
+430,"division of chemical, bioengineering, environmental, and transport systems",1979,452,46095951
+431,"division of chemical, bioengineering, environmental, and transport systems",1980,381,41446467
+432,"division of chemical, bioengineering, environmental, and transport systems",1981,279,31994313
+433,"division of chemical, bioengineering, environmental, and transport systems",1982,363,41132692
+434,"division of chemical, bioengineering, environmental, and transport systems",1983,358,37816544
+435,"division of chemical, bioengineering, environmental, and transport systems",1984,450,47008608
+436,"division of chemical, bioengineering, environmental, and transport systems",1985,422,48331448
+437,"division of chemical, bioengineering, environmental, and transport systems",1986,332,39716307
+438,"division of chemical, bioengineering, environmental, and transport systems",1987,419,49080211
+439,"division of chemical, bioengineering, environmental, and transport systems",1988,372,39855521
+440,"division of chemical, bioengineering, environmental, and transport systems",1989,381,51131437
+441,"division of chemical, bioengineering, environmental, and transport systems",1990,394,51840838
+442,"division of chemical, bioengineering, environmental, and transport systems",1991,374,51730423
+443,"division of chemical, bioengineering, environmental, and transport systems",1992,400,68679316
+444,"division of chemical, bioengineering, environmental, and transport systems",1993,338,51708010
+445,"division of chemical, bioengineering, environmental, and transport systems",1994,417,66387995
+446,"division of chemical, bioengineering, environmental, and transport systems",1995,368,62072066
+447,"division of chemical, bioengineering, environmental, and transport systems",1996,329,61612072
+448,"division of chemical, bioengineering, environmental, and transport systems",1997,437,74860585
+449,"division of chemical, bioengineering, environmental, and transport systems",1998,414,76615728
+450,"division of chemical, bioengineering, environmental, and transport systems",1999,370,72340805
+451,"division of chemical, bioengineering, environmental, and transport systems",2000,450,97457562
+452,"division of chemical, bioengineering, environmental, and transport systems",2001,406,114696937
+453,"division of chemical, bioengineering, environmental, and transport systems",2002,412,139578990
+454,"division of chemical, bioengineering, environmental, and transport systems",2003,430,119894426
+455,"division of chemical, bioengineering, environmental, and transport systems",2004,414,116068195
+456,"division of chemical, bioengineering, environmental, and transport systems",2005,375,109638997
+457,"division of chemical, bioengineering, environmental, and transport systems",2006,444,109821473
+458,"division of chemical, bioengineering, environmental, and transport systems",2007,483,126824367
+459,"division of chemical, bioengineering, environmental, and transport systems",2008,555,132710162
+460,"division of chemical, bioengineering, environmental, and transport systems",2009,739,205283919
+461,"division of chemical, bioengineering, environmental, and transport systems",2010,606,211467438
+462,"division of chemical, bioengineering, environmental, and transport systems",2011,616,161014557
+463,"division of chemical, bioengineering, environmental, and transport systems",2012,661,184455238
+464,"division of chemical, bioengineering, environmental, and transport systems",2013,646,172350259
+465,"division of chemical, bioengineering, environmental, and transport systems",2014,652,177968149
+466,"division of chemical, bioengineering, environmental, and transport systems",2015,656,196096414
+467,"division of chemical, bioengineering, environmental, and transport systems",2016,636,180922448
+468,"division of chemical, bioengineering, environmental, and transport systems",2017,658,195027012
+469,"division of chemical, bioengineering, environmental, and transport systems",2018,658,193554159
+470,"division of chemical, bioengineering, environmental, and transport systems",2019,556,167015019
+471,"division of chemical, bioengineering, environmental, and transport systems",2020,21,6317280
+472,division of chemistry,1900,9,626304
+473,division of chemistry,1964,1,32600
+474,division of chemistry,1967,4,474590
+475,division of chemistry,1968,3,136600
+476,division of chemistry,1969,19,845400
+477,division of chemistry,1970,51,639000
+478,division of chemistry,1971,51,4296635
+479,division of chemistry,1972,58,5363114
+480,division of chemistry,1973,166,11882550
+481,division of chemistry,1974,232,25876478
+482,division of chemistry,1975,254,26447180
+483,division of chemistry,1976,398,38323806
+484,division of chemistry,1977,424,41016341
+485,division of chemistry,1978,394,45563081
+486,division of chemistry,1979,394,85532087
+487,division of chemistry,1980,311,52773128
+488,division of chemistry,1981,404,71286264
+489,division of chemistry,1982,336,67702543
+490,division of chemistry,1983,355,77834064
+491,division of chemistry,1984,406,89541019
+492,division of chemistry,1985,411,99817160
+493,division of chemistry,1986,351,83508601
+494,division of chemistry,1987,433,102222432
+495,division of chemistry,1988,377,94796520
+496,division of chemistry,1989,404,94187996
+497,division of chemistry,1990,458,102508676
+498,division of chemistry,1991,473,137516751
+499,division of chemistry,1992,426,136039775
+500,division of chemistry,1993,451,128429981
+501,division of chemistry,1994,431,118648181
+502,division of chemistry,1995,443,113540002
+503,division of chemistry,1996,394,129067690
+504,division of chemistry,1997,468,121894047
+505,division of chemistry,1998,410,151466633
+506,division of chemistry,1999,395,169454940
+507,division of chemistry,2000,413,160916561
+508,division of chemistry,2001,453,189253006
+509,division of chemistry,2002,450,181594455
+510,division of chemistry,2003,501,185751537
+511,division of chemistry,2004,475,201124806
+512,division of chemistry,2005,444,187546128
+513,division of chemistry,2006,452,211284160
+514,division of chemistry,2007,451,200054456
+515,division of chemistry,2008,450,202985132
+516,division of chemistry,2009,640,319088273
+517,division of chemistry,2010,602,271558624
+518,division of chemistry,2011,459,207457987
+519,division of chemistry,2012,530,253683448
+520,division of chemistry,2013,476,238765344
+521,division of chemistry,2014,486,243357704
+522,division of chemistry,2015,546,271067673
+523,division of chemistry,2016,502,214309377
+524,division of chemistry,2017,496,223377457
+525,division of chemistry,2018,562,241366340
+526,division of chemistry,2019,498,219873267
+527,division of chemistry,2020,5,1437734
+528,"division of civil, mechanical, and manufacturing innovation",1900,3,233847
+529,"division of civil, mechanical, and manufacturing innovation",1960,1,125000
+530,"division of civil, mechanical, and manufacturing innovation",1963,1,4286235
+531,"division of civil, mechanical, and manufacturing innovation",1968,1,26780
+532,"division of civil, mechanical, and manufacturing innovation",1970,3,77908
+533,"division of civil, mechanical, and manufacturing innovation",1971,7,3246713
+534,"division of civil, mechanical, and manufacturing innovation",1972,29,11357469
+535,"division of civil, mechanical, and manufacturing innovation",1973,34,6614790
+536,"division of civil, mechanical, and manufacturing innovation",1974,68,15530221
+537,"division of civil, mechanical, and manufacturing innovation",1975,120,19180950
+538,"division of civil, mechanical, and manufacturing innovation",1976,137,20004655
+539,"division of civil, mechanical, and manufacturing innovation",1977,146,22186948
+540,"division of civil, mechanical, and manufacturing innovation",1978,117,19762611
+541,"division of civil, mechanical, and manufacturing innovation",1979,256,32651756
+542,"division of civil, mechanical, and manufacturing innovation",1980,423,42103283
+543,"division of civil, mechanical, and manufacturing innovation",1981,295,35321221
+544,"division of civil, mechanical, and manufacturing innovation",1982,358,48102136
+545,"division of civil, mechanical, and manufacturing innovation",1983,363,39600453
+546,"division of civil, mechanical, and manufacturing innovation",1984,406,50932187
+547,"division of civil, mechanical, and manufacturing innovation",1985,545,68484438
+548,"division of civil, mechanical, and manufacturing innovation",1986,445,82524349
+549,"division of civil, mechanical, and manufacturing innovation",1987,571,72173791
+550,"division of civil, mechanical, and manufacturing innovation",1988,455,53899462
+551,"division of civil, mechanical, and manufacturing innovation",1989,479,62195909
+552,"division of civil, mechanical, and manufacturing innovation",1990,546,59820874
+553,"division of civil, mechanical, and manufacturing innovation",1991,627,98137314
+554,"division of civil, mechanical, and manufacturing innovation",1992,631,94773467
+555,"division of civil, mechanical, and manufacturing innovation",1993,489,66423410
+556,"division of civil, mechanical, and manufacturing innovation",1994,614,121919571
+557,"division of civil, mechanical, and manufacturing innovation",1995,470,83352462
+558,"division of civil, mechanical, and manufacturing innovation",1996,507,98569014
+559,"division of civil, mechanical, and manufacturing innovation",1997,530,98174067
+560,"division of civil, mechanical, and manufacturing innovation",1998,484,95759041
+561,"division of civil, mechanical, and manufacturing innovation",1999,532,111090065
+562,"division of civil, mechanical, and manufacturing innovation",2000,627,157275676
+563,"division of civil, mechanical, and manufacturing innovation",2001,556,207820956
+564,"division of civil, mechanical, and manufacturing innovation",2002,580,162647326
+565,"division of civil, mechanical, and manufacturing innovation",2003,727,213719086
+566,"division of civil, mechanical, and manufacturing innovation",2004,592,245591417
+567,"division of civil, mechanical, and manufacturing innovation",2005,564,181369468
+568,"division of civil, mechanical, and manufacturing innovation",2006,607,170437435
+569,"division of civil, mechanical, and manufacturing innovation",2007,719,185375536
+570,"division of civil, mechanical, and manufacturing innovation",2008,702,224351842
+571,"division of civil, mechanical, and manufacturing innovation",2009,964,392903708
+572,"division of civil, mechanical, and manufacturing innovation",2010,802,290171777
+573,"division of civil, mechanical, and manufacturing innovation",2011,758,235905420
+574,"division of civil, mechanical, and manufacturing innovation",2012,736,219864829
+575,"division of civil, mechanical, and manufacturing innovation",2013,795,296435076
+576,"division of civil, mechanical, and manufacturing innovation",2014,835,274595828
+577,"division of civil, mechanical, and manufacturing innovation",2015,1048,374473114
+578,"division of civil, mechanical, and manufacturing innovation",2016,1068,431706813
+579,"division of civil, mechanical, and manufacturing innovation",2017,982,354067406
+580,"division of civil, mechanical, and manufacturing innovation",2018,1037,355430274
+581,"division of civil, mechanical, and manufacturing innovation",2019,984,342108617
+582,"division of civil, mechanical, and manufacturing innovation",2020,38,18423892
+583,division of computer and network systems,1900,2,186877
+584,division of computer and network systems,1965,1,4966833
+585,division of computer and network systems,1966,1,10672
+586,division of computer and network systems,1970,1,14592
+587,division of computer and network systems,1971,2,128994
+588,division of computer and network systems,1972,3,46726
+589,division of computer and network systems,1973,7,360809
+590,division of computer and network systems,1974,124,11931850
+591,division of computer and network systems,1975,276,16791086
+592,division of computer and network systems,1986,2,1315560
+593,division of computer and network systems,1987,56,67305581
+594,division of computer and network systems,1988,26,4172179
+595,division of computer and network systems,1989,43,42110360
+596,division of computer and network systems,1990,69,17234800
+597,division of computer and network systems,1991,79,49133762
+598,division of computer and network systems,1992,121,31755263
+599,division of computer and network systems,1993,150,43332070
+600,division of computer and network systems,1994,204,37910285
+601,division of computer and network systems,1995,124,30789689
+602,division of computer and network systems,1996,114,33346214
+603,division of computer and network systems,1997,152,69119692
+604,division of computer and network systems,1998,157,82205428
+605,division of computer and network systems,1999,191,88817735
+606,division of computer and network systems,2000,219,106819010
+607,division of computer and network systems,2001,273,109993521
+608,division of computer and network systems,2002,403,190343003
+609,division of computer and network systems,2003,365,220309162
+610,division of computer and network systems,2004,395,176061139
+611,division of computer and network systems,2005,445,163075855
+612,division of computer and network systems,2006,584,192937823
+613,division of computer and network systems,2007,726,218322085
+614,division of computer and network systems,2008,493,213523986
+615,division of computer and network systems,2009,671,318676444
+616,division of computer and network systems,2010,696,346475244
+617,division of computer and network systems,2011,534,246753083
+618,division of computer and network systems,2012,602,288549334
+619,division of computer and network systems,2013,606,271084206
+620,division of computer and network systems,2014,660,294124988
+621,division of computer and network systems,2015,832,345837147
+622,division of computer and network systems,2016,722,266005231
+623,division of computer and network systems,2017,821,322427019
+624,division of computer and network systems,2018,838,305465695
+625,division of computer and network systems,2019,529,179147355
+626,division of computer and network systems,2020,18,5181571
+627,division of computing and communication foundations,1900,3,69781
+628,division of computing and communication foundations,1917,1,7500
+629,division of computing and communication foundations,1961,1,49360
+630,division of computing and communication foundations,1962,1,1334824
+631,division of computing and communication foundations,1963,1,0
+632,division of computing and communication foundations,1964,2,2507640
+633,division of computing and communication foundations,1965,2,124426
+634,division of computing and communication foundations,1967,2,1339157
+635,division of computing and communication foundations,1968,1,236581
+636,division of computing and communication foundations,1969,11,3204370
+637,division of computing and communication foundations,1970,19,6554430
+638,division of computing and communication foundations,1971,19,2896341
+639,division of computing and communication foundations,1972,73,18324640
+640,division of computing and communication foundations,1973,36,2208859
+641,division of computing and communication foundations,1974,157,14669461
+642,division of computing and communication foundations,1975,214,12097819
+643,division of computing and communication foundations,1976,125,9539920
+644,division of computing and communication foundations,1977,154,12267641
+645,division of computing and communication foundations,1978,152,16211228
+646,division of computing and communication foundations,1979,143,12775588
+647,division of computing and communication foundations,1980,147,22288090
+648,division of computing and communication foundations,1981,129,30101900
+649,division of computing and communication foundations,1982,125,27605756
+650,division of computing and communication foundations,1983,138,32406881
+651,division of computing and communication foundations,1984,141,32368862
+652,division of computing and communication foundations,1985,175,30341868
+653,division of computing and communication foundations,1986,156,39099843
+654,division of computing and communication foundations,1987,175,32258184
+655,division of computing and communication foundations,1988,183,22082440
+656,division of computing and communication foundations,1989,188,25681995
+657,division of computing and communication foundations,1990,215,26577490
+658,division of computing and communication foundations,1991,257,31479843
+659,division of computing and communication foundations,1992,255,43593226
+660,division of computing and communication foundations,1993,200,28226257
+661,division of computing and communication foundations,1994,226,38118014
+662,division of computing and communication foundations,1995,252,41321911
+663,division of computing and communication foundations,1996,193,30697625
+664,division of computing and communication foundations,1997,226,44383278
+665,division of computing and communication foundations,1998,206,38432194
+666,division of computing and communication foundations,1999,237,52141151
+667,division of computing and communication foundations,2000,305,124372035
+668,division of computing and communication foundations,2001,285,113138909
+669,division of computing and communication foundations,2002,320,148375743
+670,division of computing and communication foundations,2003,327,123053458
+671,division of computing and communication foundations,2004,256,72773458
+672,division of computing and communication foundations,2005,252,60996541
+673,division of computing and communication foundations,2006,275,77730567
+674,division of computing and communication foundations,2007,316,78020871
+675,division of computing and communication foundations,2008,348,108537559
+676,division of computing and communication foundations,2009,348,122271794
+677,division of computing and communication foundations,2010,294,112969112
+678,division of computing and communication foundations,2011,261,95217171
+679,division of computing and communication foundations,2012,307,112192053
+680,division of computing and communication foundations,2013,254,84819185
+681,division of computing and communication foundations,2014,206,55447083
+682,division of computing and communication foundations,2015,160,41880889
+683,division of computing and communication foundations,2016,89,15007298
+684,division of computing and communication foundations,2017,71,14218990
+685,division of computing and communication foundations,2018,70,22912512
+686,division of computing and communication foundations,2019,12,2236976
+687,division of design and manufacturing innovation,2002,1,506605
+688,division of earth sciences,1900,16,548439
+689,division of earth sciences,1964,1,52700
+690,division of earth sciences,1965,3,64700
+691,division of earth sciences,1967,2,600000
+692,division of earth sciences,1968,3,889630
+693,division of earth sciences,1969,4,505920
+694,division of earth sciences,1970,11,905800
+695,division of earth sciences,1971,22,2238100
+696,division of earth sciences,1972,48,3933603
+697,division of earth sciences,1973,71,5466692
+698,division of earth sciences,1974,118,10498597
+699,division of earth sciences,1975,166,11949299
+700,division of earth sciences,1976,250,16784265
+701,division of earth sciences,1977,274,18992784
+702,division of earth sciences,1978,366,26561530
+703,division of earth sciences,1979,347,26241701
+704,division of earth sciences,1980,356,31863895
+705,division of earth sciences,1981,291,22532845
+706,division of earth sciences,1982,403,37786884
+707,division of earth sciences,1983,355,31676446
+708,division of earth sciences,1984,446,51659072
+709,division of earth sciences,1985,418,88330354
+710,division of earth sciences,1986,370,43644526
+711,division of earth sciences,1987,438,41295447
+712,division of earth sciences,1988,465,45202270
+713,division of earth sciences,1989,475,47828041
+714,division of earth sciences,1990,577,66826871
+715,division of earth sciences,1991,560,197178775
+716,division of earth sciences,1992,642,73540883
+717,division of earth sciences,1993,595,91671152
+718,division of earth sciences,1994,607,82739030
+719,division of earth sciences,1995,481,64807136
+720,division of earth sciences,1996,480,132805623
+721,division of earth sciences,1997,552,75705616
+722,division of earth sciences,1998,507,75300791
+723,division of earth sciences,1999,514,132881395
+724,division of earth sciences,2000,550,81209848
+725,division of earth sciences,2001,616,201930860
+726,division of earth sciences,2002,645,202451495
+727,division of earth sciences,2003,617,378071909
+728,division of earth sciences,2004,605,142687927
+729,division of earth sciences,2005,603,139175792
+730,division of earth sciences,2006,594,192430158
+731,division of earth sciences,2007,555,161281264
+732,division of earth sciences,2008,603,278107631
+733,division of earth sciences,2009,744,204202661
+734,division of earth sciences,2010,734,196498904
+735,division of earth sciences,2011,581,198370643
+736,division of earth sciences,2012,577,174569808
+737,division of earth sciences,2013,559,424823563
+738,division of earth sciences,2014,568,170183590
+739,division of earth sciences,2015,479,124322089
+740,division of earth sciences,2016,493,133074537
+741,division of earth sciences,2017,437,144718933
+742,division of earth sciences,2018,460,161229348
+743,division of earth sciences,2019,483,122897750
+744,division of earth sciences,2020,7,2930877
+745,division of educational system reform,1972,1,104900
+746,division of educational system reform,1973,3,306360
+747,division of educational system reform,1974,5,889300
+748,division of educational system reform,1975,16,1272835
+749,division of educational system reform,1976,26,1852772
+750,division of educational system reform,1977,20,1550683
+751,division of educational system reform,1978,26,2479086
+752,division of educational system reform,1979,47,4984368
+753,division of educational system reform,1980,41,17064345
+754,division of educational system reform,1981,52,6290753
+755,division of educational system reform,1982,62,6328127
+756,division of educational system reform,1983,53,6722807
+757,division of educational system reform,1984,51,6389052
+758,division of educational system reform,1985,72,7040936
+759,division of educational system reform,1986,52,28006709
+760,division of educational system reform,1987,41,5987830
+761,division of educational system reform,1988,48,8081211
+762,division of educational system reform,1989,58,15487729
+763,division of educational system reform,1990,60,19270989
+764,division of educational system reform,1991,73,93828143
+765,division of educational system reform,1992,79,146904822
+766,division of educational system reform,1993,94,66036588
+767,division of educational system reform,1994,86,163050533
+768,division of educational system reform,1995,67,116604469
+769,division of educational system reform,1996,75,88543803
+770,division of educational system reform,1997,58,27931148
+771,division of educational system reform,1998,62,70715646
+772,division of educational system reform,1999,67,48578431
+773,division of educational system reform,2000,66,19402141
+774,division of educational system reform,2001,81,21264459
+775,division of educational system reform,2002,76,21046039
+776,division of educational system reform,2003,85,30299269
+777,division of educational system reform,2004,83,203492333
+778,division of educational system reform,2005,90,25403310
+779,division of educational system reform,2006,126,34153515
+780,division of educational system reform,2007,143,33202255
+781,division of educational system reform,2008,144,36900640
+782,division of educational system reform,2009,190,57691900
+783,division of educational system reform,2010,143,88312865
+784,division of educational system reform,2011,133,46523814
+785,division of educational system reform,2012,154,43803954
+786,division of educational system reform,2013,160,44011985
+787,division of educational system reform,2014,164,52446725
+788,division of educational system reform,2015,286,161441470
+789,division of educational system reform,2016,276,101425699
+790,division of educational system reform,2017,326,106011345
+791,division of educational system reform,2018,345,117445731
+792,division of educational system reform,2019,292,98817957
+793,"division of electrical, communication and cyber systems",1972,1,77000
+794,"division of electrical, communication and cyber systems",1973,12,1081000
+795,"division of electrical, communication and cyber systems",1974,26,2796000
+796,"division of electrical, communication and cyber systems",1975,55,2887800
+797,"division of electrical, communication and cyber systems",1976,79,5039669
+798,"division of electrical, communication and cyber systems",1977,84,3733389
+799,"division of electrical, communication and cyber systems",1978,74,4788385
+800,"division of electrical, communication and cyber systems",1979,123,11238208
+801,"division of electrical, communication and cyber systems",1980,124,12048115
+802,"division of electrical, communication and cyber systems",1981,130,12154012
+803,"division of electrical, communication and cyber systems",1982,123,24093615
+804,"division of electrical, communication and cyber systems",1983,139,15452151
+805,"division of electrical, communication and cyber systems",1984,137,16678460
+806,"division of electrical, communication and cyber systems",1985,257,16247221
+807,"division of electrical, communication and cyber systems",1986,144,20023545
+808,"division of electrical, communication and cyber systems",1987,176,47721751
+809,"division of electrical, communication and cyber systems",1988,186,25402869
+810,"division of electrical, communication and cyber systems",1989,159,21579943
+811,"division of electrical, communication and cyber systems",1990,148,18196438
+812,"division of electrical, communication and cyber systems",1991,187,27950113
+813,"division of electrical, communication and cyber systems",1992,183,33640197
+814,"division of electrical, communication and cyber systems",1993,159,20590173
+815,"division of electrical, communication and cyber systems",1994,183,37257037
+816,"division of electrical, communication and cyber systems",1995,178,32865407
+817,"division of electrical, communication and cyber systems",1996,160,26096621
+818,"division of electrical, communication and cyber systems",1997,179,34047335
+819,"division of electrical, communication and cyber systems",1998,136,24057163
+820,"division of electrical, communication and cyber systems",1999,188,47922956
+821,"division of electrical, communication and cyber systems",2000,169,70244016
+822,"division of electrical, communication and cyber systems",2001,167,40982282
+823,"division of electrical, communication and cyber systems",2002,226,59340826
+824,"division of electrical, communication and cyber systems",2003,195,50979884
+825,"division of electrical, communication and cyber systems",2004,156,38967139
+826,"division of electrical, communication and cyber systems",2005,152,38553066
+827,"division of electrical, communication and cyber systems",2006,145,38547928
+828,"division of electrical, communication and cyber systems",2007,154,44548174
+829,"division of electrical, communication and cyber systems",2008,164,45454512
+830,"division of electrical, communication and cyber systems",2009,211,67502301
+831,"division of electrical, communication and cyber systems",2010,155,50201939
+832,"division of electrical, communication and cyber systems",2011,164,53674174
+833,"division of electrical, communication and cyber systems",2012,159,49797371
+834,"division of electrical, communication and cyber systems",2013,142,38761075
+835,"division of electrical, communication and cyber systems",2014,123,31436411
+836,"division of electrical, communication and cyber systems",2015,114,30232888
+837,"division of electrical, communication and cyber systems",2016,59,12433147
+838,"division of electrical, communication and cyber systems",2017,34,8950525
+839,"division of electrical, communication and cyber systems",2018,30,12353640
+840,"division of electrical, communication and cyber systems",2019,9,2653757
+841,"division of elementary, secondary and informal science education",2007,1,1915380
+842,division of engineering education and centers,1974,2,389281
+843,division of engineering education and centers,1975,4,767200
+844,division of engineering education and centers,1976,1,1000
+845,division of engineering education and centers,1977,2,2180
+846,division of engineering education and centers,1978,11,859519
+847,division of engineering education and centers,1979,11,745345
+848,division of engineering education and centers,1980,12,1190350
+849,division of engineering education and centers,1981,4,194118
+850,division of engineering education and centers,1982,2,74984
+851,division of engineering education and centers,1983,20,390059
+852,division of engineering education and centers,1984,20,1607253
+853,division of engineering education and centers,1985,13,44150204
+854,division of engineering education and centers,1986,5,26436673
+855,division of engineering education and centers,1987,33,40010858
+856,division of engineering education and centers,1988,37,192646320
+857,division of engineering education and centers,1989,9,92960138
+858,division of engineering education and centers,1990,48,136435533
+859,division of engineering education and centers,1991,94,14605737
+860,division of engineering education and centers,1992,60,36907416
+861,division of engineering education and centers,1993,67,29770197
+862,division of engineering education and centers,1994,70,148162162
+863,division of engineering education and centers,1995,28,21290288
+864,division of engineering education and centers,1996,37,138434428
+865,division of engineering education and centers,1997,65,116529628
+866,division of engineering education and centers,1998,78,191202441
+867,division of engineering education and centers,1999,70,44671296
+868,division of engineering education and centers,2000,55,93587929
+869,division of engineering education and centers,2001,49,52247650
+870,division of engineering education and centers,2002,120,49611299
+871,division of engineering education and centers,2003,171,173764550
+872,division of engineering education and centers,2004,102,67066952
+873,division of engineering education and centers,2005,63,22567759
+874,division of engineering education and centers,2006,101,243390349
+875,division of engineering education and centers,2007,74,43502791
+876,division of engineering education and centers,2008,90,204386997
+877,division of engineering education and centers,2009,184,90082353
+878,division of engineering education and centers,2010,127,39905474
+879,division of engineering education and centers,2011,107,165684046
+880,division of engineering education and centers,2012,106,159221048
+881,division of engineering education and centers,2013,97,25411526
+882,division of engineering education and centers,2014,118,36965026
+883,division of engineering education and centers,2015,119,107922533
+884,division of engineering education and centers,2016,130,57129528
+885,division of engineering education and centers,2017,165,112996716
+886,division of engineering education and centers,2018,187,43811097
+887,division of engineering education and centers,2019,145,32102121
+888,division of engineering education and centers,2020,11,3790555
+889,division of environmental biology,1900,6,208157
+890,division of environmental biology,1967,1,1518500
+891,division of environmental biology,1968,2,688677
+892,division of environmental biology,1969,3,328200
+893,division of environmental biology,1970,15,4543691
+894,division of environmental biology,1971,35,3646400
+895,division of environmental biology,1972,94,13609928
+896,division of environmental biology,1973,83,6574061
+897,division of environmental biology,1974,147,17567242
+898,division of environmental biology,1975,261,34376595
+899,division of environmental biology,1976,416,24882353
+900,division of environmental biology,1977,477,32389679
+901,division of environmental biology,1978,499,40969953
+902,division of environmental biology,1979,515,38589786
+903,division of environmental biology,1980,541,61759946
+904,division of environmental biology,1981,513,53536768
+905,division of environmental biology,1982,362,38873995
+906,division of environmental biology,1983,409,41385280
+907,division of environmental biology,1984,465,56790267
+908,division of environmental biology,1985,463,58537003
+909,division of environmental biology,1986,454,67432182
+910,division of environmental biology,1987,428,67717626
+911,division of environmental biology,1988,412,75876934
+912,division of environmental biology,1989,407,64408539
+913,division of environmental biology,1990,435,65309387
+914,division of environmental biology,1991,482,96866508
+915,division of environmental biology,1992,433,102085178
+916,division of environmental biology,1993,407,71514210
+917,division of environmental biology,1994,415,87655397
+918,division of environmental biology,1995,407,87549260
+919,division of environmental biology,1996,348,77964749
+920,division of environmental biology,1997,378,102257290
+921,division of environmental biology,1998,378,87073377
+922,division of environmental biology,1999,364,87467654
+923,division of environmental biology,2000,447,151836613
+924,division of environmental biology,2001,399,104556884
+925,division of environmental biology,2002,416,133320815
+926,division of environmental biology,2003,400,123496938
+927,division of environmental biology,2004,434,135038240
+928,division of environmental biology,2005,477,143698762
+929,division of environmental biology,2006,413,147550043
+930,division of environmental biology,2007,465,120628910
+931,division of environmental biology,2008,438,152398853
+932,division of environmental biology,2009,561,196358787
+933,division of environmental biology,2010,501,159736780
+934,division of environmental biology,2011,411,159097490
+935,division of environmental biology,2012,421,151860077
+936,division of environmental biology,2013,428,154633179
+937,division of environmental biology,2014,449,160881582
+938,division of environmental biology,2015,492,174339080
+939,division of environmental biology,2016,448,165045361
+940,division of environmental biology,2017,428,147965032
+941,division of environmental biology,2018,343,147555298
+942,division of environmental biology,2019,284,143301265
+943,division of environmental biology,2020,47,21303519
+944,division of experimental and integrative activities,1900,1,12290
+945,division of experimental and integrative activities,1917,1,38198
+946,division of experimental and integrative activities,1976,579,16099071
+947,division of experimental and integrative activities,1977,987,27323785
+948,division of experimental and integrative activities,1978,880,23021614
+949,division of experimental and integrative activities,1979,862,25109656
+950,division of experimental and integrative activities,1980,847,28017104
+951,division of experimental and integrative activities,1981,784,28094665
+952,division of experimental and integrative activities,1982,1,8200
+953,division of experimental and integrative activities,1985,1,1657039
+954,division of experimental and integrative activities,1986,1,2487775
+955,division of experimental and integrative activities,1987,31,19086957
+956,division of experimental and integrative activities,1988,39,8553422
+957,division of experimental and integrative activities,1989,58,33485827
+958,division of experimental and integrative activities,1990,71,24228216
+959,division of experimental and integrative activities,1991,68,21665860
+960,division of experimental and integrative activities,1992,70,62263791
+961,division of experimental and integrative activities,1993,69,29058066
+962,division of experimental and integrative activities,1994,64,24103624
+963,division of experimental and integrative activities,1995,71,32611634
+964,division of experimental and integrative activities,1996,79,25013366
+965,division of experimental and integrative activities,1997,77,17285335
+966,division of experimental and integrative activities,1998,77,17429350
+967,division of experimental and integrative activities,1999,52,8355546
+968,division of experimental and integrative activities,2000,32,3523094
+969,division of experimental and integrative activities,2001,15,1414985
+970,division of experimental and integrative activities,2002,4,176134
+971,division of financial management,1973,1,25491
+972,division of financial management,1976,2,66685
+973,division of financial management,1978,1,114000
+974,division of financial management,1980,5,233038
+975,division of financial management,1981,1,4671
+976,division of financial management,1982,1,16000
+977,division of financial management,2002,1,5000
+978,division of financial management,2005,1,67123
+979,division of financial management,2006,2,111333
+980,division of financial management,2007,2,195178
+981,division of financial management,2008,4,207834
+982,division of financial management,2009,3,262743
+983,division of financial management,2010,3,253850
+984,division of financial management,2011,3,265330
+985,division of financial management,2012,1,200482
+986,division of financial management,2013,2,548856
+987,division of financial management,2014,1,139094
+988,division of financial management,2015,2,351012
+989,division of financial management,2016,2,409974
+990,division of graduate education,1981,1,123000
+991,division of graduate education,1982,152,14707770
+992,division of graduate education,1983,148,16979453
+993,division of graduate education,1984,141,19255433
+994,division of graduate education,1985,184,27265816
+995,division of graduate education,1986,193,29211303
+996,division of graduate education,1987,190,26167778
+997,division of graduate education,1988,195,29591730
+998,division of graduate education,1989,189,44192817
+999,division of graduate education,1990,192,40884902
+1000,division of graduate education,1991,223,56806699
+1001,division of graduate education,1992,197,201934700
+1002,division of graduate education,1993,114,28547392
+1003,division of graduate education,1994,151,35256270
+1004,division of graduate education,1995,92,23862393
+1005,division of graduate education,1996,159,241354673
+1006,division of graduate education,1997,92,40667780
+1007,division of graduate education,1998,130,67198154
+1008,division of graduate education,1999,133,91477548
+1009,division of graduate education,2000,92,75292490
+1010,division of graduate education,2001,129,395834748
+1011,division of graduate education,2002,160,188624775
+1012,division of graduate education,2003,139,168830894
+1013,division of graduate education,2004,91,92800617
+1014,division of graduate education,2005,100,133061382
+1015,division of graduate education,2006,121,435435312
+1016,division of graduate education,2007,117,259748407
+1017,division of graduate education,2008,94,214622599
+1018,division of graduate education,2009,157,245292319
+1019,division of graduate education,2010,157,354469185
+1020,division of graduate education,2011,117,714186762
+1021,division of graduate education,2012,121,386077309
+1022,division of graduate education,2013,101,279799890
+1023,division of graduate education,2014,138,162033989
+1024,division of graduate education,2015,159,172795025
+1025,division of graduate education,2016,155,441046319
+1026,division of graduate education,2017,155,424020663
+1027,division of graduate education,2018,177,255638280
+1028,division of graduate education,2019,118,100047604
+1029,division of graduate education,2020,6,2840578
+1030,division of grants and agreements,1965,3,7265430
+1031,division of grants and agreements,1967,9,1131105
+1032,division of grants and agreements,1968,65,2675325
+1033,division of grants and agreements,1969,33,965684
+1034,division of grants and agreements,1970,35,247060
+1035,division of grants and agreements,1971,27,241702
+1036,division of grants and agreements,1972,3,26662
+1037,division of grants and agreements,1973,20,61650
+1038,division of grants and agreements,2008,1,0
+1039,division of human resource development,1971,2,381900
+1040,division of human resource development,1972,7,724130
+1041,division of human resource development,1973,12,3676500
+1042,division of human resource development,1974,22,3699877
+1043,division of human resource development,1975,24,2029543
+1044,division of human resource development,1976,29,3109009
+1045,division of human resource development,1977,70,6958263
+1046,division of human resource development,1978,100,10891872
+1047,division of human resource development,1979,58,8164310
+1048,division of human resource development,1980,22,1230542
+1049,division of human resource development,1981,26,2475401
+1050,division of human resource development,1982,28,1724779
+1051,division of human resource development,1983,127,9600849
+1052,division of human resource development,1984,79,8698935
+1053,division of human resource development,1985,72,10004116
+1054,division of human resource development,1986,69,7709023
+1055,division of human resource development,1987,77,19148541
+1056,division of human resource development,1988,93,37592012
+1057,division of human resource development,1989,95,28405250
+1058,division of human resource development,1990,139,27034316
+1059,division of human resource development,1991,217,91309267
+1060,division of human resource development,1992,140,78741451
+1061,division of human resource development,1993,111,60243110
+1062,division of human resource development,1994,157,60560480
+1063,division of human resource development,1995,134,80507948
+1064,division of human resource development,1996,92,57665826
+1065,division of human resource development,1997,60,82870818
+1066,division of human resource development,1998,61,62313828
+1067,division of human resource development,1999,59,56533769
+1068,division of human resource development,2000,47,49844706
+1069,division of human resource development,2001,84,99617112
+1070,division of human resource development,2002,62,96194297
+1071,division of human resource development,2003,58,108725512
+1072,division of human resource development,2004,75,117151945
+1073,division of human resource development,2005,61,81533435
+1074,division of human resource development,2006,104,131769850
+1075,division of human resource development,2007,81,101785044
+1076,division of human resource development,2008,98,111108398
+1077,division of human resource development,2009,113,109975242
+1078,division of human resource development,2010,101,113693553
+1079,division of human resource development,2011,99,108895408
+1080,division of human resource development,2012,122,150258538
+1081,division of human resource development,2013,87,81649607
+1082,division of human resource development,2014,107,144930024
+1083,division of human resource development,2015,123,79000281
+1084,division of human resource development,2016,211,183643431
+1085,division of human resource development,2017,150,116295256
+1086,division of human resource development,2018,206,162617041
+1087,division of human resource development,2019,192,115664070
+1088,division of human resource development,2020,7,9135250
+1089,division of human resource management,1975,1,54900
+1090,division of human resource management,1976,7,634945
+1091,division of human resource management,1977,6,329655
+1092,division of human resource management,1978,9,830414
+1093,division of human resource management,1979,13,1141406
+1094,division of human resource management,1980,4,292272
+1095,division of human resource management,1981,16,1210890
+1096,division of human resource management,1982,10,2168730
+1097,division of human resource management,1983,13,1678943
+1098,division of human resource management,1984,17,1145953
+1099,division of human resource management,1985,12,2696030
+1100,division of human resource management,1986,9,3119885
+1101,division of human resource management,1987,8,988939
+1102,division of human resource management,1988,4,1212378
+1103,division of human resource management,1989,6,442157
+1104,division of human resource management,1990,2,150000
+1105,division of human resource management,1991,7,4562217
+1106,division of human resource management,1992,26,5377447
+1107,division of human resource management,1993,32,2971926
+1108,division of human resource management,1994,25,4976881
+1109,division of human resource management,1995,29,4619958
+1110,division of human resource management,1996,61,15836540
+1111,division of human resource management,1997,57,9809102
+1112,division of human resource management,1998,60,7908823
+1113,division of human resource management,1999,50,9197826
+1114,division of human resource management,2000,37,5733173
+1115,division of human resource management,2001,32,20010713
+1116,division of human resource management,2002,19,5901881
+1117,division of human resource management,2003,36,11870726
+1118,division of human resource management,2004,26,10283162
+1119,division of human resource management,2005,18,3205562
+1120,division of human resource management,2006,32,6343569
+1121,division of human resource management,2007,42,22974472
+1122,division of human resource management,2008,41,11082604
+1123,division of human resource management,2009,48,14231688
+1124,division of human resource management,2010,63,32332994
+1125,division of human resource management,2011,62,26065495
+1126,division of human resource management,2012,105,25712424
+1127,division of human resource management,2013,139,77791109
+1128,division of human resource management,2014,187,91377645
+1129,division of human resource management,2015,186,91933421
+1130,division of human resource management,2016,342,176831667
+1131,division of human resource management,2017,410,178665864
+1132,division of human resource management,2018,642,192984895
+1133,division of human resource management,2019,668,169767760
+1134,division of industrial innovation and partnerships,1958,1,199997
+1135,division of industrial innovation and partnerships,1974,1,102600
+1136,division of industrial innovation and partnerships,1975,5,350300
+1137,division of industrial innovation and partnerships,1976,53,3719166
+1138,division of industrial innovation and partnerships,1977,41,2429388
+1139,division of industrial innovation and partnerships,1978,38,3307071
+1140,division of industrial innovation and partnerships,1979,34,3212214
+1141,division of industrial innovation and partnerships,1980,64,8630265
+1142,division of industrial innovation and partnerships,1981,46,4664171
+1143,division of industrial innovation and partnerships,1982,31,2497950
+1144,division of industrial innovation and partnerships,1983,34,4167413
+1145,division of industrial innovation and partnerships,1984,57,10447893
+1146,division of industrial innovation and partnerships,1985,25,5873972
+1147,division of industrial innovation and partnerships,1986,182,17707572
+1148,division of industrial innovation and partnerships,1987,228,25336450
+1149,division of industrial innovation and partnerships,1988,216,18737528
+1150,division of industrial innovation and partnerships,1989,225,23387319
+1151,division of industrial innovation and partnerships,1990,237,23975650
+1152,division of industrial innovation and partnerships,1991,270,41167130
+1153,division of industrial innovation and partnerships,1992,271,41003398
+1154,division of industrial innovation and partnerships,1993,327,36405863
+1155,division of industrial innovation and partnerships,1994,405,41584312
+1156,division of industrial innovation and partnerships,1995,424,49200871
+1157,division of industrial innovation and partnerships,1996,356,51163647
+1158,division of industrial innovation and partnerships,1997,393,58361536
+1159,division of industrial innovation and partnerships,1998,328,60639171
+1160,division of industrial innovation and partnerships,1999,334,69813836
+1161,division of industrial innovation and partnerships,2000,357,83729161
+1162,division of industrial innovation and partnerships,2001,374,102448770
+1163,division of industrial innovation and partnerships,2002,409,91663779
+1164,division of industrial innovation and partnerships,2003,620,128276499
+1165,division of industrial innovation and partnerships,2004,442,119698888
+1166,division of industrial innovation and partnerships,2005,358,111515430
+1167,division of industrial innovation and partnerships,2006,441,105126604
+1168,division of industrial innovation and partnerships,2007,552,122373471
+1169,division of industrial innovation and partnerships,2008,472,129473816
+1170,division of industrial innovation and partnerships,2009,505,136147700
+1171,division of industrial innovation and partnerships,2010,716,164203247
+1172,division of industrial innovation and partnerships,2011,489,157285485
+1173,division of industrial innovation and partnerships,2012,491,133401246
+1174,division of industrial innovation and partnerships,2013,601,135752241
+1175,division of industrial innovation and partnerships,2014,583,153903010
+1176,division of industrial innovation and partnerships,2015,502,102841674
+1177,division of industrial innovation and partnerships,2016,618,113223330
+1178,division of industrial innovation and partnerships,2017,179,35477961
+1179,division of industrial innovation and partnerships,2018,72,18622641
+1180,division of industrial innovation and partnerships,2019,78,17387480
+1181,division of information and intelligent systems,1900,2,455419
+1182,division of information and intelligent systems,1917,1,130000
+1183,division of information and intelligent systems,1961,5,395800
+1184,division of information and intelligent systems,1962,7,535411
+1185,division of information and intelligent systems,1963,1,276490
+1186,division of information and intelligent systems,1964,3,167915
+1187,division of information and intelligent systems,1965,2,633600
+1188,division of information and intelligent systems,1966,5,364750
+1189,division of information and intelligent systems,1967,22,17459582
+1190,division of information and intelligent systems,1968,15,2637118
+1191,division of information and intelligent systems,1969,29,9097945
+1192,division of information and intelligent systems,1970,36,3925430
+1193,division of information and intelligent systems,1971,46,6368850
+1194,division of information and intelligent systems,1972,74,9981385
+1195,division of information and intelligent systems,1973,41,6184533
+1196,division of information and intelligent systems,1974,107,12440651
+1197,division of information and intelligent systems,1975,184,12310169
+1198,division of information and intelligent systems,1976,51,3643496
+1199,division of information and intelligent systems,1977,35,3821996
+1200,division of information and intelligent systems,1978,46,4497855
+1201,division of information and intelligent systems,1979,38,4211897
+1202,division of information and intelligent systems,1980,49,5099922
+1203,division of information and intelligent systems,1981,49,5697196
+1204,division of information and intelligent systems,1982,53,6005417
+1205,division of information and intelligent systems,1983,53,7403237
+1206,division of information and intelligent systems,1984,90,11049406
+1207,division of information and intelligent systems,1985,81,10674577
+1208,division of information and intelligent systems,1986,81,10486749
+1209,division of information and intelligent systems,1987,113,16848233
+1210,division of information and intelligent systems,1988,119,18681008
+1211,division of information and intelligent systems,1989,135,22746758
+1212,division of information and intelligent systems,1990,143,22612465
+1213,division of information and intelligent systems,1991,173,25822864
+1214,division of information and intelligent systems,1992,173,40634012
+1215,division of information and intelligent systems,1993,166,31655722
+1216,division of information and intelligent systems,1994,143,54269443
+1217,division of information and intelligent systems,1995,147,30924928
+1218,division of information and intelligent systems,1996,133,27712302
+1219,division of information and intelligent systems,1997,181,54024569
+1220,division of information and intelligent systems,1998,169,42906036
+1221,division of information and intelligent systems,1999,203,98161247
+1222,division of information and intelligent systems,2000,282,153449835
+1223,division of information and intelligent systems,2001,262,135863533
+1224,division of information and intelligent systems,2002,292,141536100
+1225,division of information and intelligent systems,2003,427,237412514
+1226,division of information and intelligent systems,2004,322,138102598
+1227,division of information and intelligent systems,2005,355,121610171
+1228,division of information and intelligent systems,2006,333,106602462
+1229,division of information and intelligent systems,2007,483,141957443
+1230,division of information and intelligent systems,2008,444,140347753
+1231,division of information and intelligent systems,2009,601,237165838
+1232,division of information and intelligent systems,2010,499,179454469
+1233,division of information and intelligent systems,2011,503,172983602
+1234,division of information and intelligent systems,2012,519,219397364
+1235,division of information and intelligent systems,2013,500,210762722
+1236,division of information and intelligent systems,2014,499,195559188
+1237,division of information and intelligent systems,2015,516,184506474
+1238,division of information and intelligent systems,2016,607,229920725
+1239,division of information and intelligent systems,2017,578,200765262
+1240,division of information and intelligent systems,2018,582,211607458
+1241,division of information and intelligent systems,2019,612,200298278
+1242,division of information and intelligent systems,2020,11,3217688
+1243,division of information systems,1971,1,178501
+1244,division of information systems,1979,1,29580
+1245,division of information systems,1980,1,41096
+1246,division of information systems,1981,1,95000
+1247,division of information systems,1982,1,175536
+1248,division of information systems,1994,1,336000
+1249,division of information systems,1996,2,185992
+1250,division of information systems,1997,1,37500
+1251,division of information systems,1998,2,1084891
+1252,division of information systems,1999,1,1158790
+1253,division of information systems,2000,1,140000
+1254,division of information systems,2001,1,184000
+1255,division of information systems,2004,3,299298
+1256,division of information systems,2005,14,536466
+1257,division of information systems,2006,3,551239
+1258,division of information systems,2007,3,70450
+1259,division of information systems,2008,1,95017
+1260,division of information systems,2009,1,36465
+1261,division of information systems,2015,2,7941643
+1262,division of information systems,2019,2,388500
+1263,division of institution and award support,2005,3,591660
+1264,division of institution and award support,2006,1,452680
+1265,division of institution and award support,2007,2,566307
+1266,division of institution and award support,2008,2,580099
+1267,division of institution and award support,2009,3,1394434
+1268,division of institution and award support,2010,2,965597
+1269,division of institution and award support,2011,1,24630
+1270,division of institution and award support,2012,3,906686
+1271,division of institution and award support,2013,2,397703
+1272,division of institution and award support,2014,3,1047534
+1273,division of institution and award support,2015,2,494874
+1274,division of institution and award support,2016,2,480037
+1275,division of institution and award support,2017,1,153000
+1276,division of institution and award support,2018,3,208200
+1277,division of integrative organismal systems,1900,4,73300
+1278,division of integrative organismal systems,1917,1,76529
+1279,division of integrative organismal systems,1968,1,10000
+1280,division of integrative organismal systems,1969,2,154600
+1281,division of integrative organismal systems,1970,8,735400
+1282,division of integrative organismal systems,1971,31,2841100
+1283,division of integrative organismal systems,1972,58,5423955
+1284,division of integrative organismal systems,1973,98,7286700
+1285,division of integrative organismal systems,1974,172,11556864
+1286,division of integrative organismal systems,1975,236,16569760
+1287,division of integrative organismal systems,1976,297,18646074
+1288,division of integrative organismal systems,1977,353,26075445
+1289,division of integrative organismal systems,1978,298,26098551
+1290,division of integrative organismal systems,1979,322,27928667
+1291,division of integrative organismal systems,1980,303,30513613
+1292,division of integrative organismal systems,1981,256,28783214
+1293,division of integrative organismal systems,1982,238,25724355
+1294,division of integrative organismal systems,1983,244,29508305
+1295,division of integrative organismal systems,1984,388,51728226
+1296,division of integrative organismal systems,1985,425,54717068
+1297,division of integrative organismal systems,1986,365,43103280
+1298,division of integrative organismal systems,1987,372,52980572
+1299,division of integrative organismal systems,1988,317,46655147
+1300,division of integrative organismal systems,1989,382,60157706
+1301,division of integrative organismal systems,1990,395,59505704
+1302,division of integrative organismal systems,1991,388,85275914
+1303,division of integrative organismal systems,1992,447,69845692
+1304,division of integrative organismal systems,1993,397,65246556
+1305,division of integrative organismal systems,1994,427,87501787
+1306,division of integrative organismal systems,1995,418,76224549
+1307,division of integrative organismal systems,1996,411,79212477
+1308,division of integrative organismal systems,1997,475,89194647
+1309,division of integrative organismal systems,1998,500,189892042
+1310,division of integrative organismal systems,1999,430,170260770
+1311,division of integrative organismal systems,2000,453,149581102
+1312,division of integrative organismal systems,2001,443,193812236
+1313,division of integrative organismal systems,2002,412,193084624
+1314,division of integrative organismal systems,2003,403,213359763
+1315,division of integrative organismal systems,2004,403,198503651
+1316,division of integrative organismal systems,2005,339,187252123
+1317,division of integrative organismal systems,2006,324,180838254
+1318,division of integrative organismal systems,2007,364,203477911
+1319,division of integrative organismal systems,2008,362,172207221
+1320,division of integrative organismal systems,2009,536,292421047
+1321,division of integrative organismal systems,2010,409,265154922
+1322,division of integrative organismal systems,2011,364,208003004
+1323,division of integrative organismal systems,2012,351,179444140
+1324,division of integrative organismal systems,2013,310,191011910
+1325,division of integrative organismal systems,2014,349,204504178
+1326,division of integrative organismal systems,2015,402,248321602
+1327,division of integrative organismal systems,2016,374,263977971
+1328,division of integrative organismal systems,2017,284,154870050
+1329,division of integrative organismal systems,2018,349,165684196
+1330,division of integrative organismal systems,2019,249,128063205
+1331,division of integrative organismal systems,2020,13,6266567
+1332,division of materials development,1988,5,2240881
+1333,division of materials development,1989,5,813050
+1334,division of materials development,1990,6,304734
+1335,division of materials development,1991,4,202168
+1336,division of materials research,1900,5,1789600
+1337,division of materials research,1967,1,1667000
+1338,division of materials research,1969,1,8770
+1339,division of materials research,1970,6,3800
+1340,division of materials research,1971,15,2224967
+1341,division of materials research,1972,191,74842817
+1342,division of materials research,1973,187,23819046
+1343,division of materials research,1974,177,18442906
+1344,division of materials research,1975,207,17855562
+1345,division of materials research,1976,380,42423790
+1346,division of materials research,1977,458,100215600
+1347,division of materials research,1978,406,61940353
+1348,division of materials research,1979,345,55713873
+1349,division of materials research,1980,338,89953005
+1350,division of materials research,1981,334,86324451
+1351,division of materials research,1982,256,84372503
+1352,division of materials research,1983,303,104317991
+1353,division of materials research,1984,277,101158104
+1354,division of materials research,1985,306,95299564
+1355,division of materials research,1986,254,129117129
+1356,division of materials research,1987,275,85703379
+1357,division of materials research,1988,279,121078012
+1358,division of materials research,1989,287,160266726
+1359,division of materials research,1990,342,175472050
+1360,division of materials research,1991,383,151327442
+1361,division of materials research,1992,421,274955843
+1362,division of materials research,1993,394,123128325
+1363,division of materials research,1994,424,196710680
+1364,division of materials research,1995,388,101666155
+1365,division of materials research,1996,378,296684448
+1366,division of materials research,1997,417,113787926
+1367,division of materials research,1998,442,220753958
+1368,division of materials research,1999,442,124602377
+1369,division of materials research,2000,504,288266501
+1370,division of materials research,2001,445,367799484
+1371,division of materials research,2002,425,324680886
+1372,division of materials research,2003,581,263571809
+1373,division of materials research,2004,448,195097291
+1374,division of materials research,2005,391,318883783
+1375,division of materials research,2006,388,248149057
+1376,division of materials research,2007,444,154635421
+1377,division of materials research,2008,440,479649683
+1378,division of materials research,2009,595,299831642
+1379,division of materials research,2010,543,337498127
+1380,division of materials research,2011,422,315269458
+1381,division of materials research,2012,494,204350994
+1382,division of materials research,2013,422,374670552
+1383,division of materials research,2014,490,485243423
+1384,division of materials research,2015,515,231052060
+1385,division of materials research,2016,490,243881252
+1386,division of materials research,2017,456,253143605
+1387,division of materials research,2018,484,263101634
+1388,division of materials research,2019,439,149353088
+1389,division of mathematical sciences,1900,27,603834
+1390,division of mathematical sciences,1926,1,81000
+1391,division of mathematical sciences,1969,5,284200
+1392,division of mathematical sciences,1970,28,891555
+1393,division of mathematical sciences,1971,86,8013400
+1394,division of mathematical sciences,1972,75,8707273
+1395,division of mathematical sciences,1973,110,5641300
+1396,division of mathematical sciences,1974,146,8849257
+1397,division of mathematical sciences,1975,350,15777922
+1398,division of mathematical sciences,1976,584,23313718
+1399,division of mathematical sciences,1977,492,23908071
+1400,division of mathematical sciences,1978,543,25951002
+1401,division of mathematical sciences,1979,529,25957401
+1402,division of mathematical sciences,1980,487,24157336
+1403,division of mathematical sciences,1981,512,45558512
+1404,division of mathematical sciences,1982,415,28483645
+1405,division of mathematical sciences,1983,476,31161895
+1406,division of mathematical sciences,1984,483,36765240
+1407,division of mathematical sciences,1985,574,49047733
+1408,division of mathematical sciences,1986,631,59419900
+1409,division of mathematical sciences,1987,613,61070440
+1410,division of mathematical sciences,1988,598,57797507
+1411,division of mathematical sciences,1989,608,59958902
+1412,division of mathematical sciences,1990,552,68223564
+1413,division of mathematical sciences,1991,654,58586198
+1414,division of mathematical sciences,1992,636,79985829
+1415,division of mathematical sciences,1993,538,58739781
+1416,division of mathematical sciences,1994,611,59329581
+1417,division of mathematical sciences,1995,572,83608029
+1418,division of mathematical sciences,1996,563,50899135
+1419,division of mathematical sciences,1997,591,71302956
+1420,division of mathematical sciences,1998,547,66410328
+1421,division of mathematical sciences,1999,553,83475209
+1422,division of mathematical sciences,2000,764,140110354
+1423,division of mathematical sciences,2001,727,121816965
+1424,division of mathematical sciences,2002,876,189012518
+1425,division of mathematical sciences,2003,748,149531716
+1426,division of mathematical sciences,2004,659,131849879
+1427,division of mathematical sciences,2005,831,217592492
+1428,division of mathematical sciences,2006,927,193299669
+1429,division of mathematical sciences,2007,1040,250977450
+1430,division of mathematical sciences,2008,992,216667370
+1431,division of mathematical sciences,2009,1168,270614431
+1432,division of mathematical sciences,2010,1010,326599998
+1433,division of mathematical sciences,2011,1033,217055920
+1434,division of mathematical sciences,2012,1027,272184459
+1435,division of mathematical sciences,2013,862,191265529
+1436,division of mathematical sciences,2014,458,120267435
+1437,division of mathematical sciences,2015,559,211331956
+1438,division of mathematical sciences,2016,711,163069663
+1439,division of mathematical sciences,2017,771,175329938
+1440,division of mathematical sciences,2018,939,163014832
+1441,division of mathematical sciences,2019,835,143914788
+1442,division of mathematical sciences,2020,1,150000
+1443,division of microelectronic information processing systems,1900,6,618800
+1444,division of microelectronic information processing systems,1968,1,99600
+1445,division of microelectronic information processing systems,1970,14,1346403
+1446,division of microelectronic information processing systems,1971,60,5459241
+1447,division of microelectronic information processing systems,1972,111,8049004
+1448,division of microelectronic information processing systems,1973,131,11489380
+1449,division of microelectronic information processing systems,1974,297,25043298
+1450,division of microelectronic information processing systems,1975,398,33334540
+1451,division of microelectronic information processing systems,1976,464,36890227
+1452,division of microelectronic information processing systems,1977,511,43983554
+1453,division of microelectronic information processing systems,1978,557,49420841
+1454,division of microelectronic information processing systems,1979,541,58346954
+1455,division of microelectronic information processing systems,1980,495,59591615
+1456,division of microelectronic information processing systems,1981,481,57152912
+1457,division of microelectronic information processing systems,1982,513,65960267
+1458,division of microelectronic information processing systems,1983,545,75973596
+1459,division of microelectronic information processing systems,1984,586,91089576
+1460,division of microelectronic information processing systems,1985,534,83075939
+1461,division of microelectronic information processing systems,1986,380,64169707
+1462,division of microelectronic information processing systems,1987,361,63950291
+1463,division of microelectronic information processing systems,1988,371,68297929
+1464,division of microelectronic information processing systems,1989,425,84035189
+1465,division of microelectronic information processing systems,1990,385,72862368
+1466,division of microelectronic information processing systems,1991,385,108950220
+1467,division of microelectronic information processing systems,1992,360,75791785
+1468,division of microelectronic information processing systems,1993,355,77252526
+1469,division of microelectronic information processing systems,1994,355,92308643
+1470,division of microelectronic information processing systems,1995,343,79264714
+1471,division of microelectronic information processing systems,1996,331,73844604
+1472,division of microelectronic information processing systems,1997,355,85426663
+1473,division of microelectronic information processing systems,1998,383,99787562
+1474,division of microelectronic information processing systems,1999,379,112345998
+1475,division of microelectronic information processing systems,2000,362,117438977
+1476,division of microelectronic information processing systems,2001,362,132719579
+1477,division of microelectronic information processing systems,2002,304,129474166
+1478,division of microelectronic information processing systems,2003,337,130092112
+1479,division of microelectronic information processing systems,2004,332,137560685
+1480,division of microelectronic information processing systems,2005,281,137440869
+1481,division of microelectronic information processing systems,2006,280,135531044
+1482,division of microelectronic information processing systems,2007,296,130629292
+1483,division of microelectronic information processing systems,2008,229,109802753
+1484,division of microelectronic information processing systems,2009,363,197458136
+1485,division of microelectronic information processing systems,2010,293,166331133
+1486,division of microelectronic information processing systems,2011,286,169371943
+1487,division of microelectronic information processing systems,2012,214,122823469
+1488,division of microelectronic information processing systems,2013,250,148009934
+1489,division of microelectronic information processing systems,2014,179,98596564
+1490,division of microelectronic information processing systems,2015,209,122245952
+1491,division of microelectronic information processing systems,2016,250,146365312
+1492,division of microelectronic information processing systems,2017,223,115212516
+1493,division of microelectronic information processing systems,2018,248,129585068
+1494,division of microelectronic information processing systems,2019,172,94643429
+1495,division of molecular and cellular biosciences,1970,1,30000
+1496,division of molecular and cellular biosciences,1975,3,73000
+1497,division of molecular and cellular biosciences,1976,1,90000
+1498,division of molecular and cellular biosciences,1977,1,15000
+1499,division of molecular and cellular biosciences,1979,2,201946
+1500,division of molecular and cellular biosciences,1981,2,104272
+1501,division of ocean sciences,1900,13,2618630
+1502,division of ocean sciences,1917,1,62400
+1503,division of ocean sciences,1964,1,20000
+1504,division of ocean sciences,1967,1,59000
+1505,division of ocean sciences,1968,2,77200
+1506,division of ocean sciences,1969,1,60000
+1507,division of ocean sciences,1970,6,2581300
+1508,division of ocean sciences,1971,34,30963222
+1509,division of ocean sciences,1972,81,46678367
+1510,division of ocean sciences,1973,64,13084379
+1511,division of ocean sciences,1974,163,38240591
+1512,division of ocean sciences,1975,244,30241828
+1513,division of ocean sciences,1976,350,44695782
+1514,division of ocean sciences,1977,389,49906895
+1515,division of ocean sciences,1978,426,122715840
+1516,division of ocean sciences,1979,324,47001896
+1517,division of ocean sciences,1980,307,61734202
+1518,division of ocean sciences,1981,431,153623232
+1519,division of ocean sciences,1982,316,49708163
+1520,division of ocean sciences,1983,366,62485649
+1521,division of ocean sciences,1984,409,549848862
+1522,division of ocean sciences,1985,431,80181404
+1523,division of ocean sciences,1986,340,65079502
+1524,division of ocean sciences,1987,462,199625935
+1525,division of ocean sciences,1988,352,85353382
+1526,division of ocean sciences,1989,368,81151017
+1527,division of ocean sciences,1990,457,191044746
+1528,division of ocean sciences,1991,572,152523658
+1529,division of ocean sciences,1992,460,108094019
+1530,division of ocean sciences,1993,444,246704806
+1531,division of ocean sciences,1994,476,204883562
+1532,division of ocean sciences,1995,376,88319933
+1533,division of ocean sciences,1996,433,162368134
+1534,division of ocean sciences,1997,459,210866775
+1535,division of ocean sciences,1998,458,139287079
+1536,division of ocean sciences,1999,451,128596703
+1537,division of ocean sciences,2000,524,771553001
+1538,division of ocean sciences,2001,488,169303615
+1539,division of ocean sciences,2002,481,342377486
+1540,division of ocean sciences,2003,510,879236616
+1541,division of ocean sciences,2004,478,479631514
+1542,division of ocean sciences,2005,434,545202196
+1543,division of ocean sciences,2006,494,257826285
+1544,division of ocean sciences,2007,469,235785037
+1545,division of ocean sciences,2008,474,209768473
+1546,division of ocean sciences,2009,603,846778783
+1547,division of ocean sciences,2010,627,640467164
+1548,division of ocean sciences,2011,454,181235886
+1549,division of ocean sciences,2012,442,585077195
+1550,division of ocean sciences,2013,430,243879844
+1551,division of ocean sciences,2014,394,524310523
+1552,division of ocean sciences,2015,456,208442172
+1553,division of ocean sciences,2016,403,221388084
+1554,division of ocean sciences,2017,432,489445138
+1555,division of ocean sciences,2018,478,356019612
+1556,division of ocean sciences,2019,336,132465601
+1557,division of ocean sciences,2020,10,4002112
+1558,division of physics,1900,6,138049
+1559,division of physics,1947,1,461600
+1560,division of physics,1966,1,240000
+1561,division of physics,1967,1,60317912
+1562,division of physics,1969,2,1802400
+1563,division of physics,1970,23,3297600
+1564,division of physics,1971,31,22012712
+1565,division of physics,1972,28,14669620
+1566,division of physics,1973,46,20360845
+1567,division of physics,1974,86,14989515
+1568,division of physics,1975,112,32806785
+1569,division of physics,1976,190,32971712
+1570,division of physics,1977,271,62928769
+1571,division of physics,1978,229,67456491
+1572,division of physics,1979,181,61819663
+1573,division of physics,1980,167,95127093
+1574,division of physics,1981,177,97258801
+1575,division of physics,1982,161,76003739
+1576,division of physics,1983,209,108933822
+1577,division of physics,1984,221,148221546
+1578,division of physics,1985,221,85760659
+1579,division of physics,1986,227,136324398
+1580,division of physics,1987,218,138558961
+1581,division of physics,1988,196,71070565
+1582,division of physics,1989,274,108778500
+1583,division of physics,1990,265,184131953
+1584,division of physics,1991,243,89547258
+1585,division of physics,1992,244,478863699
+1586,division of physics,1993,176,194581671
+1587,division of physics,1994,199,112659857
+1588,division of physics,1995,206,105442383
+1589,division of physics,1996,184,145701925
+1590,division of physics,1997,226,109253025
+1591,division of physics,1998,207,86986030
+1592,division of physics,1999,189,252985344
+1593,division of physics,2000,222,89897305
+1594,division of physics,2001,214,455990891
+1595,division of physics,2002,194,136548342
+1596,division of physics,2003,277,228586906
+1597,division of physics,2004,218,118429798
+1598,division of physics,2005,180,133969895
+1599,division of physics,2006,245,277814833
+1600,division of physics,2007,249,209457509
+1601,division of physics,2008,189,167516502
+1602,division of physics,2009,320,151637411
+1603,division of physics,2010,220,116536773
+1604,division of physics,2011,167,165954825
+1605,division of physics,2012,173,147244872
+1606,division of physics,2013,151,83026612
+1607,division of physics,2014,181,167827050
+1608,division of physics,2015,256,161501405
+1609,division of physics,2016,269,235224326
+1610,division of physics,2017,281,219376900
+1611,division of physics,2018,355,239295071
+1612,division of physics,2019,267,79585258
+1613,division of polar programs,1970,3,264050
+1614,division of polar programs,1971,7,1169400
+1615,division of polar programs,1972,8,978382
+1616,division of polar programs,1973,11,1017200
+1617,division of polar programs,1974,7,645000
+1618,division of polar programs,1976,6,154254
+1619,division of polar programs,1977,4,78375
+1620,division of polar programs,1978,2,82323
+1621,division of polar programs,1979,3,206913
+1622,division of polar programs,1980,4,268327
+1623,division of polar programs,1984,1,50000
+1624,division of polar programs,1986,1,423347
+1625,division of polar programs,1989,3,517828
+1626,division of polar programs,1990,2,76712
+1627,division of polar programs,1991,8,3428242
+1628,division of polar programs,1992,8,1556102
+1629,division of polar programs,1993,10,48911925
+1630,division of polar programs,1994,28,8045068
+1631,division of polar programs,1995,22,5594719
+1632,division of polar programs,1996,58,12004245
+1633,division of polar programs,1997,55,17714129
+1634,division of polar programs,1998,28,7696365
+1635,division of polar programs,1999,52,15226506
+1636,division of polar programs,2000,53,23179552
+1637,division of polar programs,2001,34,18698330
+1638,division of polar programs,2002,43,12518979
+1639,division of polar programs,2003,55,30617508
+1640,division of polar programs,2004,48,31091349
+1641,division of polar programs,2005,53,34176557
+1642,division of polar programs,2006,44,5145830
+1643,division of polar programs,2007,60,17128347
+1644,division of polar programs,2008,32,11164137
+1645,division of polar programs,2009,54,17765280
+1646,division of polar programs,2010,48,123114984
+1647,division of polar programs,2011,36,115046383
+1648,division of polar programs,2012,25,16330911
+1649,division of polar programs,2013,21,9653334
+1650,division of polar programs,2014,6,318817
+1651,division of polar programs,2015,7,4998917
+1652,division of polar programs,2016,4,1207354
+1653,division of research on learning,1982,36,602573
+1654,division of research on learning,1983,26,499428
+1655,division of research on learning,1984,155,48451943
+1656,division of research on learning,1985,251,75623365
+1657,division of research on learning,1986,171,52211689
+1658,division of research on learning,1987,181,79339951
+1659,division of research on learning,1988,294,106900284
+1660,division of research on learning,1989,284,120830793
+1661,division of research on learning,1990,301,137016994
+1662,division of research on learning,1991,364,209623032
+1663,division of research on learning,1992,439,343441149
+1664,division of research on learning,1993,347,192305184
+1665,division of research on learning,1994,348,263449744
+1666,division of research on learning,1995,315,292173712
+1667,division of research on learning,1996,252,200055384
+1668,division of research on learning,1997,215,233534447
+1669,division of research on learning,1998,231,233325016
+1670,division of research on learning,1999,251,293007995
+1671,division of research on learning,2000,253,348267880
+1672,division of research on learning,2001,297,444778854
+1673,division of research on learning,2002,246,460918571
+1674,division of research on learning,2003,222,549951218
+1675,division of research on learning,2004,251,413580844
+1676,division of research on learning,2005,215,243668973
+1677,division of research on learning,2006,225,240636527
+1678,division of research on learning,2007,237,203139137
+1679,division of research on learning,2008,260,348780693
+1680,division of research on learning,2009,277,370758021
+1681,division of research on learning,2010,257,350540789
+1682,division of research on learning,2011,250,286843140
+1683,division of research on learning,2012,228,231917005
+1684,division of research on learning,2013,216,236101698
+1685,division of research on learning,2014,224,229690590
+1686,division of research on learning,2015,206,234250139
+1687,division of research on learning,2016,253,302944422
+1688,division of research on learning,2017,268,246711965
+1689,division of research on learning,2018,254,202251429
+1690,division of research on learning,2019,243,174733256
+1691,division of research on learning,2020,11,12200551
+1692,division of social and economic sciences,1977,4,1814472
+1693,division of social and economic sciences,1978,20,7149813
+1694,division of social and economic sciences,1979,59,7072331
+1695,division of social and economic sciences,1980,211,19597345
+1696,division of social and economic sciences,1981,140,9177860
+1697,division of social and economic sciences,1982,207,16961726
+1698,division of social and economic sciences,1983,250,17387836
+1699,division of social and economic sciences,1984,287,30173079
+1700,division of social and economic sciences,1985,296,22391839
+1701,division of social and economic sciences,1986,266,31540156
+1702,division of social and economic sciences,1987,270,27767985
+1703,division of social and economic sciences,1988,266,25609090
+1704,division of social and economic sciences,1989,287,29131140
+1705,division of social and economic sciences,1990,327,26136667
+1706,division of social and economic sciences,1991,362,53230705
+1707,division of social and economic sciences,1992,485,47065129
+1708,division of social and economic sciences,1993,412,44107871
+1709,division of social and economic sciences,1994,416,49409394
+1710,division of social and economic sciences,1995,446,50459729
+1711,division of social and economic sciences,1996,368,64002560
+1712,division of social and economic sciences,1997,454,61801549
+1713,division of social and economic sciences,1998,549,59380616
+1714,division of social and economic sciences,1999,476,60608560
+1715,division of social and economic sciences,2000,524,53523219
+1716,division of social and economic sciences,2001,521,104631806
+1717,division of social and economic sciences,2002,553,68666179
+1718,division of social and economic sciences,2003,498,69802242
+1719,division of social and economic sciences,2004,520,101233774
+1720,division of social and economic sciences,2005,558,117217627
+1721,division of social and economic sciences,2006,623,95880601
+1722,division of social and economic sciences,2007,550,107964307
+1723,division of social and economic sciences,2008,506,80849828
+1724,division of social and economic sciences,2009,631,125384548
+1725,division of social and economic sciences,2010,603,149389108
+1726,division of social and economic sciences,2011,500,95581588
+1727,division of social and economic sciences,2012,449,68438594
+1728,division of social and economic sciences,2013,405,85976053
+1729,division of social and economic sciences,2014,474,105492795
+1730,division of social and economic sciences,2015,436,123674913
+1731,division of social and economic sciences,2016,417,84726533
+1732,division of social and economic sciences,2017,438,105207957
+1733,division of social and economic sciences,2018,390,78758184
+1734,division of social and economic sciences,2019,366,90076821
+1735,division of social and economic sciences,2020,5,1822745
+1736,division of undergraduate education,1981,1,150000
+1737,division of undergraduate education,1983,1,600220
+1738,division of undergraduate education,1984,107,1585227
+1739,division of undergraduate education,1985,342,8145078
+1740,division of undergraduate education,1986,329,12840373
+1741,division of undergraduate education,1987,460,15747466
+1742,division of undergraduate education,1988,562,28573459
+1743,division of undergraduate education,1989,647,34884031
+1744,division of undergraduate education,1990,716,29501924
+1745,division of undergraduate education,1991,1018,62650253
+1746,division of undergraduate education,1992,1030,62912106
+1747,division of undergraduate education,1993,966,64432919
+1748,division of undergraduate education,1994,845,89297100
+1749,division of undergraduate education,1995,952,122055712
+1750,division of undergraduate education,1996,950,97895340
+1751,division of undergraduate education,1997,910,94882959
+1752,division of undergraduate education,1998,852,86811833
+1753,division of undergraduate education,1999,424,96291565
+1754,division of undergraduate education,2000,579,149512483
+1755,division of undergraduate education,2001,631,194295810
+1756,division of undergraduate education,2002,667,191928577
+1757,division of undergraduate education,2003,562,222052285
+1758,division of undergraduate education,2004,544,216580302
+1759,division of undergraduate education,2005,423,155909979
+1760,division of undergraduate education,2006,386,166409857
+1761,division of undergraduate education,2007,576,268996338
+1762,division of undergraduate education,2008,658,297487507
+1763,division of undergraduate education,2009,729,340687736
+1764,division of undergraduate education,2010,634,294500581
+1765,division of undergraduate education,2011,521,297076599
+1766,division of undergraduate education,2012,557,275181576
+1767,division of undergraduate education,2013,525,264535041
+1768,division of undergraduate education,2014,428,265538918
+1769,division of undergraduate education,2015,555,285280225
+1770,division of undergraduate education,2016,533,344778972
+1771,division of undergraduate education,2017,523,292331321
+1772,division of undergraduate education,2018,516,397181258
+1773,division of undergraduate education,2019,453,345278189
+1774,division of undergraduate education,2020,34,30254268
+1775,eet,1900,2,39600
+1776,eet,1970,1,116100
+1777,eet,1971,1,57600
+1778,eet,1973,8,1308100
+1779,eet,1974,12,643200
+1780,eet,1975,14,966700
+1781,eet,1976,13,1208429
+1782,eet,1977,15,1683645
+1783,eet,1978,12,806609
+1784,eet,1979,7,898300
+1785,eet,1980,12,1227970
+1786,eet,1981,11,1062993
+1787,eet,1982,12,1794692
+1788,eet,1983,6,637183
+1789,eet,1984,7,658424
+1790,eet,1988,1,400541
+1791,emerging frontiers,1900,2,183100
+1792,emerging frontiers,1970,3,580500
+1793,emerging frontiers,1971,9,2141250
+1794,emerging frontiers,1972,9,629200
+1795,emerging frontiers,1973,6,867700
+1796,emerging frontiers,1974,26,1825215
+1797,emerging frontiers,1975,33,1715457
+1798,emerging frontiers,1976,16,1228465
+1799,emerging frontiers,1977,11,2304021
+1800,emerging frontiers,1978,7,7448783
+1801,emerging frontiers,1981,16,966135
+1802,emerging frontiers,1982,16,794383
+1803,emerging frontiers,1983,26,1212862
+1804,emerging frontiers,1984,21,1374892
+1805,emerging frontiers,1985,20,1057934
+1806,emerging frontiers,1986,1,74129
+1807,emerging frontiers,2000,5,9958044
+1808,emerging frontiers,2001,3,734342
+1809,emerging frontiers,2002,9,14445464
+1810,emerging frontiers,2003,65,87224951
+1811,emerging frontiers,2004,71,101469661
+1812,emerging frontiers,2005,33,35004358
+1813,emerging frontiers,2006,23,25391075
+1814,emerging frontiers,2007,40,30283823
+1815,emerging frontiers,2008,55,85501096
+1816,emerging frontiers,2009,49,35377595
+1817,emerging frontiers,2010,30,13814979
+1818,emerging frontiers,2011,88,48507466
+1819,emerging frontiers,2012,45,27338354
+1820,emerging frontiers,2013,44,15849358
+1821,emerging frontiers,2014,29,9951134
+1822,emerging frontiers,2015,29,4948445
+1823,emerging frontiers,2016,10,2355543
+1824,emerging frontiers,2017,19,8625418
+1825,emerging frontiers,2018,7,1928857
+1826,emerging frontiers,2019,42,38817205
+1827,emerging frontiers and multidisciplinary activities,1976,4,22385
+1828,emerging frontiers and multidisciplinary activities,1977,4,164929
+1829,emerging frontiers and multidisciplinary activities,1978,1,857
+1830,emerging frontiers and multidisciplinary activities,1979,4,114578
+1831,emerging frontiers and multidisciplinary activities,1980,1,78349
+1832,emerging frontiers and multidisciplinary activities,1981,15,1546308
+1833,emerging frontiers and multidisciplinary activities,1982,16,1135044
+1834,emerging frontiers and multidisciplinary activities,1983,20,1794921
+1835,emerging frontiers and multidisciplinary activities,1984,31,3158453
+1836,emerging frontiers and multidisciplinary activities,1987,22,1115551
+1837,emerging frontiers and multidisciplinary activities,1988,101,5076341
+1838,emerging frontiers and multidisciplinary activities,1989,45,1255253
+1839,emerging frontiers and multidisciplinary activities,1990,68,2920515
+1840,emerging frontiers and multidisciplinary activities,1991,1,448598
+1841,emerging frontiers and multidisciplinary activities,1992,2,1775997
+1842,emerging frontiers and multidisciplinary activities,1993,3,280300
+1843,emerging frontiers and multidisciplinary activities,1994,4,101322
+1844,emerging frontiers and multidisciplinary activities,1995,6,2092630
+1845,emerging frontiers and multidisciplinary activities,1996,6,647455
+1846,emerging frontiers and multidisciplinary activities,1997,4,4081494
+1847,emerging frontiers and multidisciplinary activities,1998,3,607801
+1848,emerging frontiers and multidisciplinary activities,2001,2,3785500
+1849,emerging frontiers and multidisciplinary activities,2002,1,45000
+1850,emerging frontiers and multidisciplinary activities,2004,2,5625760
+1851,emerging frontiers and multidisciplinary activities,2005,3,461354
+1852,emerging frontiers and multidisciplinary activities,2006,3,726856
+1853,emerging frontiers and multidisciplinary activities,2007,13,23723739
+1854,emerging frontiers and multidisciplinary activities,2008,15,28619408
+1855,emerging frontiers and multidisciplinary activities,2009,27,47412421
+1856,emerging frontiers and multidisciplinary activities,2010,47,37663574
+1857,emerging frontiers and multidisciplinary activities,2011,28,30646265
+1858,emerging frontiers and multidisciplinary activities,2012,25,34474225
+1859,emerging frontiers and multidisciplinary activities,2013,24,32519721
+1860,emerging frontiers and multidisciplinary activities,2014,31,36353330
+1861,emerging frontiers and multidisciplinary activities,2015,22,34922224
+1862,emerging frontiers and multidisciplinary activities,2016,30,31572113
+1863,emerging frontiers and multidisciplinary activities,2017,28,30891931
+1864,emerging frontiers and multidisciplinary activities,2018,29,37059535
+1865,emerging frontiers and multidisciplinary activities,2019,13,14594661
+1866,emerging frontiers and multidisciplinary activities,2020,3,5999872
+1867,established program to stimulate competitive research (epscor),1993,6,43875896
+1868,established program to stimulate competitive research (epscor),1995,16,51461158
+1869,established program to stimulate competitive research (epscor),1996,11,7739512
+1870,established program to stimulate competitive research (epscor),1997,12,9929967
+1871,established program to stimulate competitive research (epscor),1998,15,23403490
+1872,established program to stimulate competitive research (epscor),1999,23,27100065
+1873,established program to stimulate competitive research (epscor),2000,24,17790265
+1874,established program to stimulate competitive research (epscor),2001,10,59397073
+1875,established program to stimulate competitive research (epscor),2002,12,61247817
+1876,established program to stimulate competitive research (epscor),2003,9,35752537
+1877,established program to stimulate competitive research (epscor),2004,8,37026768
+1878,established program to stimulate competitive research (epscor),2005,8,47571115
+1879,established program to stimulate competitive research (epscor),2006,10,32259895
+1880,established program to stimulate competitive research (epscor),2007,16,65461056
+1881,established program to stimulate competitive research (epscor),2008,9,110002388
+1882,established program to stimulate competitive research (epscor),2009,17,86043253
+1883,established program to stimulate competitive research (epscor),2010,28,90990046
+1884,established program to stimulate competitive research (epscor),2011,11,32049684
+1885,general counsel,2008,1,134718
+1886,general counsel,2009,1,5100
+1887,general counsel,2010,1,5000
+1888,general counsel,2011,2,622500
+1889,general counsel,2012,1,10500
+1890,general counsel,2013,1,10000
+1891,general counsel,2019,1,19862
+1892,information technology research,2011,2,1016846
+1893,information technology research,2013,1,526806
+1894,information technology research,2014,1,14080
+1895,information technology research,2015,1,14740
+1896,integrative and collaborative education and research (icer) ,1974,1,14240400
+1897,integrative and collaborative education and research (icer) ,1978,2,50166547
+1898,integrative and collaborative education and research (icer) ,2007,2,13850000
+1899,integrative and collaborative education and research (icer) ,2009,3,6489040
+1900,integrative and collaborative education and research (icer) ,2011,9,6598325
+1901,integrative and collaborative education and research (icer) ,2012,16,14326574
+1902,integrative and collaborative education and research (icer) ,2013,56,31876034
+1903,integrative and collaborative education and research (icer) ,2014,59,24012424
+1904,integrative and collaborative education and research (icer) ,2015,90,37016809
+1905,integrative and collaborative education and research (icer) ,2016,103,39196084
+1906,integrative and collaborative education and research (icer) ,2017,105,37950351
+1907,integrative and collaborative education and research (icer) ,2018,58,20755721
+1908,integrative and collaborative education and research (icer) ,2019,167,49165184
+1909,integrative and collaborative education and research (icer) ,2020,15,8487106
+1910,large facilities office,2015,1,46032
+1911,large facilities office,2016,7,1802116
+1912,large facilities office,2017,4,1256926
+1913,large facilities office,2018,1,498800
+1914,large facilities office,2019,34,30866642
+1915,large facilities office,2020,6,5305770
+1916,national center for science and engineering statistics,1964,1,233849
+1917,national center for science and engineering statistics,1967,1,2719969
+1918,national center for science and engineering statistics,1969,1,536500
+1919,national center for science and engineering statistics,1970,1,21736
+1920,national center for science and engineering statistics,1971,2,16450
+1921,national center for science and engineering statistics,1972,5,202418
+1922,national center for science and engineering statistics,1973,1,100000
+1923,national center for science and engineering statistics,1974,12,2024225
+1924,national center for science and engineering statistics,1975,14,3563120
+1925,national center for science and engineering statistics,1976,16,1456678
+1926,national center for science and engineering statistics,1977,20,2052107
+1927,national center for science and engineering statistics,1978,17,4101055
+1928,national center for science and engineering statistics,1979,19,3433178
+1929,national center for science and engineering statistics,1980,18,3044300
+1930,national center for science and engineering statistics,1981,21,7344364
+1931,national center for science and engineering statistics,1982,13,4403553
+1932,national center for science and engineering statistics,1983,18,1539551
+1933,national center for science and engineering statistics,1984,18,3616665
+1934,national center for science and engineering statistics,1985,23,4823199
+1935,national center for science and engineering statistics,1986,27,7119620
+1936,national center for science and engineering statistics,1987,22,7269225
+1937,national center for science and engineering statistics,1988,16,4105986
+1938,national center for science and engineering statistics,1989,20,4678026
+1939,national center for science and engineering statistics,1990,17,5305490
+1940,national center for science and engineering statistics,1991,16,6547266
+1941,national center for science and engineering statistics,1992,20,23190182
+1942,national center for science and engineering statistics,1993,15,11739974
+1943,national center for science and engineering statistics,1994,17,11963711
+1944,national center for science and engineering statistics,1995,18,8726053
+1945,national center for science and engineering statistics,1996,20,11605228
+1946,national center for science and engineering statistics,1997,23,28499117
+1947,national center for science and engineering statistics,1998,9,7507055
+1948,national center for science and engineering statistics,1999,19,3358755
+1949,national center for science and engineering statistics,2000,17,12167983
+1950,national center for science and engineering statistics,2001,23,31529148
+1951,national center for science and engineering statistics,2002,19,72627391
+1952,national center for science and engineering statistics,2003,5,5173960
+1953,national center for science and engineering statistics,2004,12,18540072
+1954,national center for science and engineering statistics,2005,13,3863703
+1955,national center for science and engineering statistics,2006,10,22080517
+1956,national center for science and engineering statistics,2007,18,47042227
+1957,national center for science and engineering statistics,2008,9,33482519
+1958,national center for science and engineering statistics,2009,7,8667648
+1959,national center for science and engineering statistics,2010,11,34604899
+1960,national center for science and engineering statistics,2011,8,22600096
+1961,national center for science and engineering statistics,2012,12,36469458
+1962,national center for science and engineering statistics,2013,12,6497451
+1963,national center for science and engineering statistics,2014,15,26355864
+1964,national center for science and engineering statistics,2015,15,11199893
+1965,national center for science and engineering statistics,2016,7,19952531
+1966,national center for science and engineering statistics,2017,10,24946293
+1967,national center for science and engineering statistics,2018,6,26903260
+1968,national center for science and engineering statistics,2019,9,7560869
+1969,national coordination office,1996,1,760000
+1970,national coordination office,1997,2,1114249
+1971,national coordination office,1998,2,1863656
+1972,national coordination office,1999,1,460943
+1973,national coordination office,2000,1,4750000
+1974,national coordination office,2001,1,452928
+1975,national coordination office,2003,1,6000000
+1976,national coordination office,2005,2,22105218
+1977,national coordination office,2007,1,836852
+1978,national coordination office,2008,1,919100
+1979,national coordination office,2009,1,2640
+1980,national coordination office,2014,1,283787
+1981,national coordination office,2018,1,917307
+1982,national coordination office,2019,1,5500
+1983,national science board,1991,1,548000
+1984,national science board,1994,1,150000
+1985,national science board,2006,2,325294
+1986,national science board,2008,1,11632
+1987,natl nanotechnology coordinating office,2007,1,350000
+1988,natl nanotechnology coordinating office,2015,1,444411
+1989,natl nanotechnology coordinating office,2017,1,0
+1990,natl nanotechnology coordinating office,2018,1,654480
+1991,natl nanotechnology coordinating office,2019,1,9000
+1992,office of advanced cyberinfrastructure (oac),1900,1,17900
+1993,office of advanced cyberinfrastructure (oac),1917,1,20000
+1994,office of advanced cyberinfrastructure (oac),1961,1,40160
+1995,office of advanced cyberinfrastructure (oac),1966,1,5900
+1996,office of advanced cyberinfrastructure (oac),1967,1,14136
+1997,office of advanced cyberinfrastructure (oac),1968,2,24005
+1998,office of advanced cyberinfrastructure (oac),1969,1,184135
+1999,office of advanced cyberinfrastructure (oac),1970,1,29440
+2000,office of advanced cyberinfrastructure (oac),1971,4,180295
+2001,office of advanced cyberinfrastructure (oac),1972,4,666390
+2002,office of advanced cyberinfrastructure (oac),1973,8,726779
+2003,office of advanced cyberinfrastructure (oac),1974,186,12837788
+2004,office of advanced cyberinfrastructure (oac),1975,659,17248320
+2005,office of advanced cyberinfrastructure (oac),1976,4,71800
+2006,office of advanced cyberinfrastructure (oac),1982,4,203300
+2007,office of advanced cyberinfrastructure (oac),1983,6,243776
+2008,office of advanced cyberinfrastructure (oac),1984,5,18978035
+2009,office of advanced cyberinfrastructure (oac),1985,32,222224171
+2010,office of advanced cyberinfrastructure (oac),1986,29,52400858
+2011,office of advanced cyberinfrastructure (oac),1987,21,2192083
+2012,office of advanced cyberinfrastructure (oac),1988,19,4368654
+2013,office of advanced cyberinfrastructure (oac),1989,20,112733646
+2014,office of advanced cyberinfrastructure (oac),1990,58,368173045
+2015,office of advanced cyberinfrastructure (oac),1991,47,8901289
+2016,office of advanced cyberinfrastructure (oac),1992,41,6930544
+2017,office of advanced cyberinfrastructure (oac),1993,35,5746460
+2018,office of advanced cyberinfrastructure (oac),1994,47,18837612
+2019,office of advanced cyberinfrastructure (oac),1995,53,69852464
+2020,office of advanced cyberinfrastructure (oac),1996,44,9438607
+2021,office of advanced cyberinfrastructure (oac),1997,56,524170326
+2022,office of advanced cyberinfrastructure (oac),1998,56,30624115
+2023,office of advanced cyberinfrastructure (oac),1999,37,34539471
+2024,office of advanced cyberinfrastructure (oac),2000,35,106264206
+2025,office of advanced cyberinfrastructure (oac),2001,45,108729145
+2026,office of advanced cyberinfrastructure (oac),2002,53,40676178
+2027,office of advanced cyberinfrastructure (oac),2003,60,47613967
+2028,office of advanced cyberinfrastructure (oac),2004,55,50632890
+2029,office of advanced cyberinfrastructure (oac),2005,91,407940999
+2030,office of advanced cyberinfrastructure (oac),2006,32,79538892
+2031,office of advanced cyberinfrastructure (oac),2007,97,374902217
+2032,office of advanced cyberinfrastructure (oac),2008,95,35310888
+2033,office of advanced cyberinfrastructure (oac),2009,199,179194385
+2034,office of advanced cyberinfrastructure (oac),2010,175,187550868
+2035,office of advanced cyberinfrastructure (oac),2011,146,257408268
+2036,office of advanced cyberinfrastructure (oac),2012,241,111102864
+2037,office of advanced cyberinfrastructure (oac),2013,188,330025347
+2038,office of advanced cyberinfrastructure (oac),2014,194,150614803
+2039,office of advanced cyberinfrastructure (oac),2015,228,176247746
+2040,office of advanced cyberinfrastructure (oac),2016,276,310596129
+2041,office of advanced cyberinfrastructure (oac),2017,210,145099106
+2042,office of advanced cyberinfrastructure (oac),2018,307,225070790
+2043,office of advanced cyberinfrastructure (oac),2019,216,125576587
+2044,office of advanced cyberinfrastructure (oac),2020,12,6500051
+2045,"office of budget, finance, and award management",1994,1,11800
+2046,"office of budget, finance, and award management",1995,1,13700
+2047,"office of budget, finance, and award management",1996,1,12900
+2048,"office of budget, finance, and award management",1997,1,13184
+2049,"office of budget, finance, and award management",1998,1,11776
+2050,"office of budget, finance, and award management",1999,2,63816
+2051,"office of budget, finance, and award management",2000,2,44816
+2052,"office of budget, finance, and award management",2001,1,17768
+2053,"office of budget, finance, and award management",2002,1,15456
+2054,"office of budget, finance, and award management",2003,1,17352
+2055,"office of budget, finance, and award management",2004,1,17416
+2056,"office of budget, finance, and award management",2005,2,29128
+2057,"office of budget, finance, and award management",2006,1,100000
+2058,"office of budget, finance, and award management",2007,3,81000
+2059,"office of budget, finance, and award management",2008,1,85000
+2060,"office of budget, finance, and award management",2009,1,95000
+2061,"office of budget, finance, and award management",2010,1,200000
+2062,"office of budget, finance, and award management",2012,1,210000
+2063,"office of budget, finance, and award management",2014,1,210000
+2064,"office of budget, finance, and award management",2016,2,244094
+2065,"office of budget, finance, and award management",2017,7,727410
+2066,"office of budget, finance, and award management",2018,7,1621929
+2067,"office of budget, finance, and award management",2019,7,1661901
+2068,office of diversity and inclusion,1979,4,1441164
+2069,office of diversity and inclusion,1980,22,1922470
+2070,office of diversity and inclusion,1981,53,1406615
+2071,office of diversity and inclusion,1982,5,2455625
+2072,office of diversity and inclusion,1983,3,373223
+2073,office of diversity and inclusion,1989,1,38982
+2074,office of diversity and inclusion,1993,2,75272
+2075,office of diversity and inclusion,1994,1,25000
+2076,office of diversity and inclusion,1997,1,87189
+2077,office of diversity and inclusion,1998,1,99000
+2078,office of diversity and inclusion,1999,1,85000
+2079,office of diversity and inclusion,2002,1,190217
+2080,office of diversity and inclusion,2018,1,101000
+2081,office of information and resource management,1990,2,5000
+2082,office of information and resource management,1991,2,10000
+2083,office of information and resource management,2003,1,12500
+2084,office of information and resource management,2012,2,19593
+2085,office of information and resource management,2016,1,4510
+2086,office of inspector general,1982,1,56898
+2087,office of inspector general,2004,2,1683283
+2088,office of inspector general,2005,4,707388
+2089,office of inspector general,2006,1,0
+2090,office of inspector general,2007,1,866812
+2091,office of inspector general,2008,2,904228
+2092,office of inspector general,2009,2,1954444
+2093,office of inspector general,2010,1,2800
+2094,office of inspector general,2011,3,4858147
+2095,office of inspector general,2012,2,242587
+2096,office of inspector general,2016,2,187998
+2097,office of inspector general,2018,5,650009
+2098,office of integrative activities,1977,1,3500
+2099,office of integrative activities,1989,8,265000
+2100,office of integrative activities,1990,1,83850
+2101,office of integrative activities,1991,35,18959262
+2102,office of integrative activities,1992,7,2877850
+2103,office of integrative activities,1993,12,8427025
+2104,office of integrative activities,1994,13,11981127
+2105,office of integrative activities,1995,15,7483479
+2106,office of integrative activities,1996,13,2618018
+2107,office of integrative activities,1997,7,2594736
+2108,office of integrative activities,1998,11,24937449
+2109,office of integrative activities,1999,6,1385784
+2110,office of integrative activities,2000,6,517755
+2111,office of integrative activities,2001,6,991197
+2112,office of integrative activities,2002,4,2281114
+2113,office of integrative activities,2003,7,15806641
+2114,office of integrative activities,2005,4,6846182
+2115,office of integrative activities,2006,3,978103
+2116,office of integrative activities,2007,6,1911988
+2117,office of integrative activities,2008,7,22860534
+2118,office of integrative activities,2009,7,29535364
+2119,office of integrative activities,2010,19,63202363
+2120,office of integrative activities,2011,3,42722081
+2121,office of integrative activities,2012,12,24822287
+2122,office of integrative activities,2013,20,144163035
+2123,office of integrative activities,2014,25,130923388
+2124,office of integrative activities,2015,12,85043588
+2125,office of integrative activities,2016,28,115532799
+2126,office of integrative activities,2017,43,107666750
+2127,office of integrative activities,2018,52,100256574
+2128,office of integrative activities,2019,66,76759212
+2129,office of international science and engineering,1957,1,75800
+2130,office of international science and engineering,1970,2,454805
+2131,office of international science and engineering,1971,1,254285
+2132,office of international science and engineering,1972,4,215255
+2133,office of international science and engineering,1973,11,475548
+2134,office of international science and engineering,1974,8,261250
+2135,office of international science and engineering,1975,17,397200
+2136,office of international science and engineering,1976,25,714450
+2137,office of international science and engineering,1977,25,627053
+2138,office of international science and engineering,1978,18,1610958
+2139,office of international science and engineering,1979,27,1030978
+2140,office of international science and engineering,1980,54,5657718
+2141,office of international science and engineering,1981,37,597306
+2142,office of international science and engineering,1982,57,1638398
+2143,office of international science and engineering,1983,71,4832190
+2144,office of international science and engineering,1984,94,2441327
+2145,office of international science and engineering,1985,82,4863232
+2146,office of international science and engineering,1986,116,12451930
+2147,office of international science and engineering,1987,118,2873342
+2148,office of international science and engineering,1988,115,3195446
+2149,office of international science and engineering,1989,113,2625102
+2150,office of international science and engineering,1990,115,8997389
+2151,office of international science and engineering,1991,111,2787096
+2152,office of international science and engineering,1992,122,9946955
+2153,office of international science and engineering,1993,111,159083580
+2154,office of international science and engineering,1994,104,8701545
+2155,office of international science and engineering,1995,105,198237694
+2156,office of international science and engineering,1996,124,4152245
+2157,office of international science and engineering,1997,122,5566769
+2158,office of international science and engineering,1998,118,14065854
+2159,office of international science and engineering,1999,136,4887885
+2160,office of international science and engineering,2000,112,5510265
+2161,office of international science and engineering,2001,136,10433032
+2162,office of international science and engineering,2002,123,6845434
+2163,office of international science and engineering,2003,126,12314195
+2164,office of international science and engineering,2004,97,4565207
+2165,office of international science and engineering,2005,65,19700374
+2166,office of international science and engineering,2006,61,3333973
+2167,office of international science and engineering,2007,63,31475097
+2168,office of international science and engineering,2008,84,8957326
+2169,office of international science and engineering,2009,103,8498592
+2170,office of international science and engineering,2010,116,47615253
+2171,office of international science and engineering,2011,82,13255641
+2172,office of international science and engineering,2012,72,33962370
+2173,office of international science and engineering,2013,49,20083477
+2174,office of international science and engineering,2014,66,68925461
+2175,office of international science and engineering,2015,65,60352419
+2176,office of international science and engineering,2016,51,21985217
+2177,office of international science and engineering,2017,43,42387870
+2178,office of international science and engineering,2018,42,17006762
+2179,office of international science and engineering,2019,31,12711093
+2180,office of internatl science andengineering,1900,8,173241
+2181,office of internatl science andengineering,1960,1,4012090
+2182,office of internatl science andengineering,1962,1,90000
+2183,office of internatl science andengineering,1967,3,11563409
+2184,office of internatl science andengineering,1969,2,163915
+2185,office of internatl science andengineering,1970,4,57260
+2186,office of internatl science andengineering,1971,12,7367185
+2187,office of internatl science andengineering,1972,38,16081538
+2188,office of internatl science andengineering,1973,46,8613234
+2189,office of internatl science andengineering,1974,83,4933530
+2190,office of internatl science andengineering,1975,98,5923637
+2191,office of internatl science andengineering,1976,267,6482377
+2192,office of internatl science andengineering,1977,319,10252646
+2193,office of internatl science andengineering,1978,241,9037812
+2194,office of internatl science andengineering,1979,344,11843300
+2195,office of internatl science andengineering,1980,436,18088803
+2196,office of internatl science andengineering,1981,368,6125361
+2197,office of internatl science andengineering,1982,383,10789274
+2198,office of internatl science andengineering,1983,419,9900096
+2199,office of internatl science andengineering,1984,550,14250966
+2200,office of internatl science andengineering,1985,597,8427776
+2201,office of internatl science andengineering,1986,506,9118225
+2202,office of internatl science andengineering,1987,440,12490886
+2203,office of internatl science andengineering,1988,447,10396445
+2204,office of internatl science andengineering,1989,546,10467700
+2205,office of internatl science andengineering,1990,513,14440004
+2206,office of internatl science andengineering,1991,534,11403799
+2207,office of internatl science andengineering,1992,584,9722121
+2208,office of internatl science andengineering,1993,348,8939229
+2209,office of internatl science andengineering,1994,351,8508082
+2210,office of internatl science andengineering,1995,316,10458831
+2211,office of internatl science andengineering,1996,320,7656014
+2212,office of internatl science andengineering,1997,313,7659678
+2213,office of internatl science andengineering,1998,296,14199707
+2214,office of internatl science andengineering,1999,247,6699064
+2215,office of internatl science andengineering,2000,233,9505804
+2216,office of internatl science andengineering,2001,226,6517938
+2217,office of internatl science andengineering,2002,216,8343700
+2218,office of internatl science andengineering,2003,306,11993866
+2219,office of internatl science andengineering,2004,323,8658397
+2220,office of internatl science andengineering,2005,269,16906106
+2221,office of internatl science andengineering,2006,251,11065963
+2222,office of internatl science andengineering,2007,276,24588277
+2223,office of internatl science andengineering,2008,79,4714221
+2224,office of internatl science andengineering,2009,274,6770952
+2225,office of internatl science andengineering,2010,87,3745732
+2226,office of internatl science andengineering,2011,47,2044630
+2227,office of internatl science andengineering,2012,24,1244730
+2228,office of internatl science andengineering,2013,8,700728
+2229,office of internatl science andengineering,2014,15,807714
+2230,office of internatl science andengineering,2015,8,1214366
+2231,office of internatl science andengineering,2016,3,249588
+2232,office of internatl science andengineering,2017,6,558692
+2233,office of legislative and public affairs,1985,3,1912999
+2234,office of legislative and public affairs,1986,2,174781
+2235,office of legislative and public affairs,1987,5,593982
+2236,office of legislative and public affairs,1988,3,138246
+2237,office of legislative and public affairs,1989,3,353334
+2238,office of legislative and public affairs,1990,6,660513
+2239,office of legislative and public affairs,1991,3,5230462
+2240,office of legislative and public affairs,1992,2,100000
+2241,office of legislative and public affairs,1994,1,1114606
+2242,office of legislative and public affairs,1995,2,178535
+2243,office of legislative and public affairs,1997,2,5925486
+2244,office of legislative and public affairs,1998,1,1300000
+2245,office of legislative and public affairs,1999,2,1697799
+2246,office of legislative and public affairs,2002,1,71000
+2247,office of legislative and public affairs,2005,1,1075000
+2248,office of legislative and public affairs,2006,1,239370
+2249,office of legislative and public affairs,2007,2,7999539
+2250,office of legislative and public affairs,2008,3,1199263
+2251,office of legislative and public affairs,2010,1,20715807
+2252,office of legislative and public affairs,2015,1,15113729
+2253,office of legislative and public affairs,2019,1,22833
+2254,office of multidiscplinary activities,1972,1,35000
+2255,office of multidiscplinary activities,1976,21,1316069
+2256,office of multidiscplinary activities,1977,9,1006577
+2257,office of multidiscplinary activities,1978,11,916862
+2258,office of multidiscplinary activities,1979,6,518707
+2259,office of multidiscplinary activities,1980,6,971094
+2260,office of multidiscplinary activities,1983,15,15
+2261,office of multidiscplinary activities,2004,1,25137245
+2262,office of multidiscplinary activities,2006,1,15057669
+2263,office of multidiscplinary activities,2008,1,214806
+2264,office of multidiscplinary activities,2009,9,1092099
+2265,office of multidiscplinary activities,2010,50,74986789
+2266,office of multidiscplinary activities,2011,59,58418595
+2267,office of multidiscplinary activities,2012,63,16012968
+2268,office of multidiscplinary activities,2013,90,29205946
+2269,office of multidiscplinary activities,2014,88,28361089
+2270,office of multidiscplinary activities,2015,112,36336050
+2271,office of multidiscplinary activities,2016,110,35166421
+2272,office of multidiscplinary activities,2017,139,27385940
+2273,office of multidiscplinary activities,2018,80,21181024
+2274,office of multidiscplinary activities,2019,78,17220587
+2275,office of multidiscplinary activities,2020,6,720151
+2276,office of planning and assessment,1966,1,6600000
+2277,office of planning and assessment,1967,2,6322000
+2278,office of planning and assessment,1968,2,11987000
+2279,office of planning and assessment,1969,2,6660000
+2280,office of planning and assessment,1970,7,3884480
+2281,office of planning and assessment,1971,7,1521200
+2282,office of planning and assessment,1972,11,4149296
+2283,office of planning and assessment,1973,15,14276571
+2284,office of planning and assessment,1974,50,4994408
+2285,office of planning and assessment,1975,71,7669499
+2286,office of planning and assessment,1976,28,2575267
+2287,office of planning and assessment,1977,12,944449
+2288,office of planning and assessment,1978,28,3840914
+2289,office of planning and assessment,1979,26,3599645
+2290,office of planning and assessment,1980,26,3546503
+2291,office of planning and assessment,1981,34,5869943
+2292,office of planning and assessment,1982,21,4752797
+2293,office of planning and assessment,1983,29,2407190
+2294,office of planning and assessment,1984,47,4581505
+2295,office of planning and assessment,1985,32,3222700
+2296,office of planning and assessment,1986,19,2111503
+2297,office of planning and assessment,1987,7,2450659
+2298,office of planning and assessment,1989,2,48923
+2299,office of planning and assessment,1990,1,254000
+2300,office of polar programs,1900,4,882445
+2301,office of polar programs,1918,1,12000
+2302,office of polar programs,1964,1,18800
+2303,office of polar programs,1966,1,42000
+2304,office of polar programs,1967,1,2224050
+2305,office of polar programs,1969,1,34400
+2306,office of polar programs,1970,6,9359595
+2307,office of polar programs,1971,17,4122363
+2308,office of polar programs,1972,9,21576300
+2309,office of polar programs,1973,13,16040526
+2310,office of polar programs,1974,37,11713822
+2311,office of polar programs,1975,40,25152219
+2312,office of polar programs,1976,95,1005730886
+2313,office of polar programs,1977,119,22143327
+2314,office of polar programs,1978,131,12822434
+2315,office of polar programs,1979,94,257486044
+2316,office of polar programs,1980,74,12610465
+2317,office of polar programs,1981,106,14320772
+2318,office of polar programs,1982,94,12825291
+2319,office of polar programs,1983,106,38424838
+2320,office of polar programs,1984,106,20851438
+2321,office of polar programs,1985,96,21449042
+2322,office of polar programs,1986,106,25592660
+2323,office of polar programs,1987,105,22601821
+2324,office of polar programs,1988,127,48590932
+2325,office of polar programs,1989,150,936300549
+2326,office of polar programs,1990,154,41237190
+2327,office of polar programs,1991,140,75592618
+2328,office of polar programs,1992,175,37718136
+2329,office of polar programs,1993,171,38018239
+2330,office of polar programs,1994,227,87447554
+2331,office of polar programs,1995,166,36672231
+2332,office of polar programs,1996,183,51579244
+2333,office of polar programs,1997,215,884299396
+2334,office of polar programs,1998,173,45669225
+2335,office of polar programs,1999,216,1937234288
+2336,office of polar programs,2000,225,305431138
+2337,office of polar programs,2001,174,178510618
+2338,office of polar programs,2002,229,305039289
+2339,office of polar programs,2003,203,68652778
+2340,office of polar programs,2004,219,134721720
+2341,office of polar programs,2005,228,280026257
+2342,office of polar programs,2006,209,276716495
+2343,office of polar programs,2007,315,179341018
+2344,office of polar programs,2008,203,111589057
+2345,office of polar programs,2009,335,162401410
+2346,office of polar programs,2010,242,166183380
+2347,office of polar programs,2011,256,157595893
+2348,office of polar programs,2012,282,470502719
+2349,office of polar programs,2013,264,151346993
+2350,office of polar programs,2014,211,170275258
+2351,office of polar programs,2015,248,105584719
+2352,office of polar programs,2016,285,151942070
+2353,office of polar programs,2017,220,212670370
+2354,office of polar programs,2018,242,199740198
+2355,office of polar programs,2019,171,106327471
+2356,office of polar programs,2020,11,4550243
+2357,office of polar programs,2021,1,1237134
+2358,office of science and technology infrastructure,1998,1,75000
+2359,office of the director,1967,1,0
+2360,office of the director,1994,1,100000
+2361,office of the director,1997,2,190000
+2362,office of the director,1998,1,171529
+2363,office of the director,2017,1,114355
+2364,pcm,1975,1,0
+2365,pcm,1977,1,54000
+2366,pcm,1978,11,1327151
+2367,prm,1974,2,248752
+2368,prm,1976,2,22070
+2369,prm,1977,5,287418
+2370,prm,1978,8,236322
+2371,prm,1979,19,7809040
+2372,prm,1980,30,550482
+2373,prm,1981,11,300553
+2374,prm,1982,26,809914
+2375,prm,1983,2,73989
+2376,ser,1976,94,4194888
+2377,ser,1977,103,4144600
+2378,ser,1978,91,3285093
+2379,ser,1979,89,3741325
+2380,ser,1980,79,6775225
+2381,ser,1981,70,2816192
