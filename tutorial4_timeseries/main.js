@@ -37,7 +37,7 @@ let state = {
 /**
  * LOAD DATA
  * */
-d3.csv("../../data/NSF_directorates_activityperyear_update.csv", d => ({
+d3.csv("../data/NSF_directorates_activityperyear_update.csv", d => ({
   year: new Date(d.eff_year, 0, 1),
   division: d.direct_fixed,
   award_id: new Number(d.award_id),
