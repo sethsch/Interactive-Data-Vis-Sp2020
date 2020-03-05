@@ -16,6 +16,7 @@ let minVal;
 let maxVal;
 let ramp;
 let stateVals; // for each topic/state/year that's on display, we have this object
+let qualTopics; // for each topic, i have a qualitative set of terms that may apply, i want those in the selector
 
 var lowColor = '#f9f9f9';
 var highColor = '#bc2a66';
@@ -62,6 +63,15 @@ Promise.all([
 function init() {
 
 
+  // add the qualitative desc of each topic
+  qualTopics = new Map()
+  for (i = 0; i < state.NSFdata.length; i++){
+    qualTopics.set(state.NSFdata[i]['Qualitative Description'],state.NSFdata[i]['topic'])
+  };
+  console.log(qualTopics);
+
+
+
 
   // UI ELEMENT SETUP
   const selectTopic = d3.select("#dropdown").on("change", function() {
@@ -75,10 +85,7 @@ function init() {
   // add in dropdown options from the unique values in the data
   selectTopic
     .selectAll("option")
-    .data([
-      ...Array.from(new Set(state.NSFdata.map(d => d['topic']))),
-      default_selection,
-    ])
+    .data(d3.map(state.NSFdata, function(d){return d["Qualitative Description"];}).keys())
     .join("option")
     .attr("value", d => d)
     .text(d => d);
@@ -188,7 +195,7 @@ function draw() {
 
   let filteredData;
   if (state.selectedTopic !== null) {
-    filteredData = state.NSFdata.filter(d => d.topic === state.selectedTopic);
+    filteredData = state.NSFdata.filter(d => d.topic === String(qualTopics.get(state.selectedTopic)));
     filteredData = filteredData.filter(d => d.year === state.selectedYear);
     }
   
