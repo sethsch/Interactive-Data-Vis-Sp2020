@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exploratory Project</title>
+    <header>
+        <h1>Keyword trends in new grants</h1>
+      </header>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <label for="dropdown">Region of Benefit</label>
+    <select id="dropdown_reg" name="dropdown_reg"></select>
+
+    <div id="year_menus">
+      <label for="dropdown">Year 1</label>
+        <select id="dropdown_y1" name="dropdown_y1"></select>
+      <label for="dropdown">Year 2</label>
+        <select id="dropdown_y2" name="dropdown_y2"></select>
+      <input name="updateButton" 
+        type="button" 
+        value="Update" 
+        onclick="draw()" />
+    </div>
+
+
+
+
+
+
+
+    <div id="plot_1"> </div>
+    <script src="../lib/d3.js"></script>
+    <script src="main_withoutPlotRow.js"></script>
+  </body>
+</html>

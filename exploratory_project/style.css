@@ -1,0 +1,34 @@
+body {
+    /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 1em 3em;
+  }
+  
+/*.dot {
+    cursor: pointer;
+    opacity: 0.7
+  }
+  
+.dot:hover {
+    opacity: 1.0;
+    r: 5.5;
+  }
+
+.line {
+    cursor: pointer;
+  }
+  
+.line:hover {
+    stroke: black;
+  }
+
+.row-label {
+    font-family: "Arial";
+}
+.row-label:hover {
+    font-weight: bold;
+  }
+*/
+h1 {
+      font-family: "Arial Black";
+  }
