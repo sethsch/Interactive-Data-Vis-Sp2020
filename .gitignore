@@ -1,12 +1,11 @@
 lib/.DS_Store
-<<<<<<< HEAD
+
 tutorial2_quantities_and_amounts/.DS_Store
 =======
-.DS_Store
->>>>>>> upstream/master
 .DS_Store
 exploratory_project/data/filtered_KWIC.csv
 exploratory_project/data/filtered_querystats.csv
 exploratory_project/data/regionsyears_KWIC.csv
 exploratory_project/data/regionsyears_Querystats.csv
 exploratory_project/dataManipulation.R
+
