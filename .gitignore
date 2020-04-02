@@ -13,3 +13,5 @@ exploratory_project/KWICdatatoJSON.py
 exploratory_project/eurasiakwic.json
 exploratory_project/data.json
 exploratory_project/kwic_keywords.json
+exploratory_project/data/kwic_keywords.json
+exploratory_project/data/eurasiakwic.json

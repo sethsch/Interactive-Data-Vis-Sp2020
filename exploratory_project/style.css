@@ -37,30 +37,35 @@ h1 {
 table {
     border-collapse: collapse;
     float: left;
+    font: 12px sans-serif;
+    font-variant: small-caps;
   }
   
-.table-term-header {
+.term_header {
     padding: 0 0.5em;
     text-align: center;
-    font: 18px sans-serif;
+    font: 16px sans-serif;
+    font-weight: bold;
+    border-bottom: solid 3.5px black;
+    height: 22px;
   }
   
 tr {
     line-height: 1.75;
   }
-
-.table-col-header {
-    border-bottom: solid 3.5px black;
+  
+#col-id {
+    border-bottom: solid 1px black;
     line-height: 1.75;
+    font: 13px sans-serif;
+    font-weight: bold;
 }
 
-  
 td {
     text-align: center;
     padding: 0 0.5em;
     background-color: white;
   }
-
 
 .plots {
     content: "";
@@ -78,9 +83,10 @@ div.tooltip {
     vertical-align: middle;
     text-size-adjust: auto;
     padding: 2px;			
-    width: 110px;					
+    width: 150px;		
     min-height: min-content;
-    max-height: fit-content;							
+    max-height: fit-content;
+    max-width: fit-content+10;							
     font: 15px sans-serif;
     color: white;	
     background: darkslategray;	
