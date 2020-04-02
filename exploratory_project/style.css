@@ -32,3 +32,59 @@ body {
 h1 {
       font-family: "Arial Black";
   }
+
+
+table {
+    border-collapse: collapse;
+    float: left;
+  }
+  
+.table-term-header {
+    padding: 0 0.5em;
+    text-align: center;
+    font: 18px sans-serif;
+  }
+  
+tr {
+    line-height: 1.75;
+  }
+
+.table-col-header {
+    border-bottom: solid 3.5px black;
+    line-height: 1.75;
+}
+
+  
+td {
+    text-align: center;
+    padding: 0 0.5em;
+    background-color: white;
+  }
+
+
+.plots {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+div {
+    float: left;
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;	
+    vertical-align: middle;
+    text-size-adjust: auto;
+    padding: 2px;			
+    width: 110px;					
+    min-height: min-content;
+    max-height: fit-content;							
+    font: 15px sans-serif;
+    color: white;	
+    background: darkslategray;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;	
+}

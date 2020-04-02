@@ -9,3 +9,7 @@ exploratory_project/data/regionsyears_KWIC.csv
 exploratory_project/data/regionsyears_Querystats.csv
 exploratory_project/dataManipulation.R
 
+exploratory_project/KWICdatatoJSON.py
+exploratory_project/eurasiakwic.json
+exploratory_project/data.json
+exploratory_project/kwic_keywords.json
