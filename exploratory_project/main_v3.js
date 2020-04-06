@@ -37,6 +37,8 @@ const numberKwic = 25;
 let state = {
     queryData: [],
     kwicData: [],
+    regTotals: [],
+    mentTotals: [],
     selectedRegion: "Global",
     selectedYear1: 2016,
     selectedYear2: 2019,
@@ -55,7 +57,8 @@ const color = {2016:"#cc2f56",
             2017: "#7dcc2e",
             2018: "	#cc7d2e",
             2019:"#2fbccc"};
-  
+
+
   
   /**
    * LOAD DATA
@@ -63,9 +66,13 @@ const color = {2016:"#cc2f56",
 Promise.all([
     d3.csv("./data/filtered_querystats.csv", d3.autoType),
     d3.json("./data/kwic_keywords.json"),
-]).then(([queryStats,kwicStats]) => {
+    d3.csv("./data/regions_years_num_records.csv",d3.autoType),
+    d3.csv("./data/regyear_termMents.csv",d3.autoType),
+]).then(([queryStats,kwicStats,regTotals,mentTotals]) => {
     state.queryData = queryStats;
     state.kwicData = kwicStats;
+    state.regTotals = regTotals;
+    state.mentTotals = mentTotals;
     console.log("state:",state);
     init();
 });
@@ -365,6 +372,7 @@ function drawPlot(){
                         exit
                         // rightnow these are getting hidden instead of removed....
                         // why do certain entries not remove?
+                        // i also notice that the table does not update for these terms, even though the graphic elements transition
                         .attr("cy", height+40)
                         .call(exit =>
                             exit
@@ -582,6 +590,13 @@ function tooltipOver() {
     
     show_term = state.hover.term.split("_").join(" ")
 
+    let y1Grants = state.regTotals.filter(d=>d.region === state.selectedRegion && d.year === state.selectedYear1);
+    let y2Grants = state.regTotals.filter(d=>d.region === state.selectedRegion && d.year === state.selectedYear2);
+    y1Grants = y1Grants[0].num_recs;
+    y2Grants = y2Grants[0].num_recs;
+    console.log("y1",y1Grants);
+
+
     tooltip
     .transition()		
     .duration(400)		
@@ -591,10 +606,10 @@ function tooltipOver() {
     tooltip
     .html("<strong>"+show_term + "<br/>"  +   
     "<span style='color:" + color[state.selectedYear1] + "'>" +  
-    state.selectedYear1 + ": " + state.hover.year1_val + "</span></strong>" + "<span style='font-size:11px'> of X grants</span>" +
+    state.selectedYear1 + ": " + state.hover.year1_val + "</span></strong>" + "<span style='font-size:11px'> of "+y1Grants+" grants</span>" +
     "<br/>" +
     "<strong><span style='color:" + color[state.selectedYear2] + "'>" + 
-    state.selectedYear2 + ": " + state.hover.year2_val + "</span></strong>" + "<span style='font-size:11px'> of X grants</span>"
+    state.selectedYear2 + ": " + state.hover.year2_val + "</span></strong>" + "<span style='font-size:11px'> of "+y2Grants+" grants</span>"
         )
     // moves with mouse    	
     //.style("left", (state.hover.toolXpos) + "px")		
@@ -698,12 +713,10 @@ d3.selectAll(".col_header")
         update =>
             update
             .text(d=>d)
-            .style("color","lightgray")
             .call(update =>
                 update
                 .transition()
-                .duration(500)
-                .style("color","black")),
+                .duration(500)),
 
         );
 

@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <label for="dropdown">Region of Benefit</label>
+    <label for="dropdown">  Region of Benefit </label>
     <select id="dropdown_reg" name="dropdown_reg"></select>
 
     <div id="year_menus">
-      <label for="dropdown">Year 1</label>
+      <label for="dropdown"> Year 1 </label>
         <select id="dropdown_y1" name="dropdown_y1"></select>
-      <label for="dropdown">Year 2</label>
+      <label for="dropdown"> Year 2 </label>
         <select id="dropdown_y2" name="dropdown_y2"></select>
     </div>
     <input name="updateButton" 
@@ -22,15 +22,20 @@
     value="Update" 
     onclick="drawPlot()" />
 
-    <div id="plots"> 
+    <div id="plots_container"> 
       <div id="plot_1"></div>
-      <table id="d3-table"></table>
+      <div id="table"> 
+        <table id="d3-table"></table>
+      </div>
+      <div id="plot_2"></div>
     </div>
 
 
 
     <script src="../lib/d3.js"></script>
-    <script src="main_v3.js"></script>
+    <script src="main_v6_random.js"></script>
+    <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+
 
   </body>
 </html>

@@ -15,3 +15,10 @@ exploratory_project/data.json
 exploratory_project/kwic_keywords.json
 exploratory_project/data/kwic_keywords.json
 exploratory_project/data/eurasiakwic.json
+exploratory_project/data/key_randomwords.xlsx
+exploratory_project/data/.RData
+exploratory_project/data/.Rhistory
+exploratory_project/data/regions_years_num_records.csv
+exploratory_project/data/regyear_termMents.csv
+exploratory_project/data/regyear_termMents_stackedready.csv
+exploratory_project/data/term_tot_mentions.csv

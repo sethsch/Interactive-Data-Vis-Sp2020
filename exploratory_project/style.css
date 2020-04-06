@@ -33,12 +33,16 @@ h1 {
       font-family: "Arial Black";
   }
 
+label {
+  font: 12px sans-serif;
+  text-transform: lowercase;
+  font-weight: bold;
+}
 
 table {
     border-collapse: collapse;
     float: left;
-    font: 12px sans-serif;
-    font-variant: small-caps;
+
   }
   
 .term_header {
@@ -46,18 +50,30 @@ table {
     text-align: center;
     font: 16px sans-serif;
     font-weight: bold;
-    border-bottom: solid 3.5px black;
-    height: 22px;
+    height: 18px;
   }
+.table_subtitle {
+  font: 11px sans-serif;
+  font-weight: normal;
+  font-style: italic;
+  font-variant: small-caps;
+  border-bottom: solid 3.5px black;
+  vertical-align: middle;
+}
   
 tr {
-    line-height: 1.75;
+    line-height: 1.55;
   }
+
+.table-body {
+    font: 11px sans-serif;
+    text-transform: uppercase;
+}
   
 #col-id {
     border-bottom: solid 1px black;
     line-height: 1.75;
-    font: 13px sans-serif;
+    font: 14px sans-serif;
     font-weight: bold;
 }
 
@@ -67,10 +83,30 @@ td {
     background-color: white;
   }
 
-.plots {
-    content: "";
-    display: table;
-    clear: both;
+.plots_container {
+    display: grid;
+    grid-template-columns: 20px 900px auto 400px 20px;
+    grid-template-rows: 25% 100px auto 100px;
+
+}
+.plot_1 {
+    grid-column-start: 2;
+    grid-column-end: four;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.d3-table {
+    grid-column-start: 4;
+    grid-column-end: end;
+    grid-row-start: 1; 
+    grid-row-end: 2
+}
+
+.plot_2 {
+    grid-column-start: 4;
+    grid-column-end: end;
+    grid-row-start: 3;
 }
 
 div {
@@ -85,12 +121,19 @@ div.tooltip {
     padding: 2px;			
     width: 150px;		
     min-height: min-content;
-    max-height: fit-content;
-    max-width: fit-content+10;							
+    max-height: fit-content+20px;
+    max-width: fit-content+20px;							
     font: 15px sans-serif;
     color: white;	
     background: darkslategray;	
     border: 0px;		
     border-radius: 8px;			
     pointer-events: none;	
+}
+.stacked_plot_axis--y {
+  font-variant: small-caps;
+}
+
+.stacked_plot_axis--x {
+  font-weight: bold;
 }
