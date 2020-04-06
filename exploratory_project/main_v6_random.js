@@ -75,10 +75,10 @@ const color = {2016:"#cc2f56",
    * LOAD DATA
    * */
 Promise.all([
-    d3.csv("./data/RANDOMfiltered_querystats.csv", d3.autoType),
-    d3.json("./data/RANDOMkwic_keywords.json"),
-    d3.csv("./data/regions_years_num_records.csv",d3.autoType),
-    d3.csv("./data/RANDOMregyear_termMents.csv",d3.autoType),
+    d3.csv("../data/RANDOMfiltered_querystats.csv", d3.autoType),
+    d3.json("../data/RANDOMkwic_keywords.json"),
+    d3.csv("../data/regions_years_num_records.csv",d3.autoType),
+    d3.csv("../data/RANDOMregyear_termMents.csv",d3.autoType),
 ]).then(([queryStats,kwicStats,regTotals,mentTotals]) => {
     state.queryData = queryStats;
     state.kwicData = kwicStats;
