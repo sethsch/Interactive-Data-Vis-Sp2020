@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<body>
+
+
+  <h1>Rolling Chloropeth Globe Demo</h1>
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+
+  <div id="app">
+
+    <input
+      type="radio"
+      v-model="mode"
+      value="pop_est"
+      @change="changeMode"/>
+    population
+
+    <input
+      type="radio"
+      v-model="mode"
+      value="gdp_md_est"
+      @change="changeMode"/>
+    gross domestic product (M)
+
+    <input
+      type="radio"
+      v-model="mode"
+      value="gdp_per_cap"
+      @change="changeMode"/>
+    gross domestic product per capita
+
+    <div>
+      {{ message }}
+      &nbsp;
+    </div>
+
+  </div>
+
+  <div 
+    id="globe"
+    style="
+      width: calc(65vw - 160px);
+      height: calc(65vh - 160px);">
+  </div>
+
+
+  <script src="./require.js"></script>
+  <script src="./main.js"></script> 
+</body>
+
+
+</html>
