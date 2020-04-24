@@ -11,7 +11,6 @@ let yScale_mentionDot;
 let circScale;
 
 
-
  /* APPLICATION STATE
  * */
 let state = {
@@ -39,28 +38,36 @@ Promise.all([
 ]).then(([timesample]) => {
   state.timedata = timesample;
   console.log("state:",state);
+  console.log(state.timedata.map(d=>d.type));
   init();
 });
+
+let event_types = ["External Border Restrictions", "External Border Restrictions", 
+"Health Resources", "Health Testing", "New Task Force or Bureau", 
+"New Task Force or Bureau", "New Task Force or Bureau", "Other Policy Not Listed Above", 
+"Other Policy Not Listed Above", "Public Awareness Campaigns", 
+"Restriction of Non-Essential Businesses", "Restriction of Non-Essential Government Services", 
+"Restrictions of Mass Gatherings"];
+
 
 
 function init () {
   mentionDot_plot = d3
-    .select("#timeline")
+    .select("#plot_1")
     .append("svg")
     .attr("width", plot2_width)
     .attr("height", plot2_height);
 
     // Add y scale
     yScale_mentionDot = d3.scaleBand()
-        .domain(d3.map(state.timedata,d=>d.type))
+        .domain(event_types)
         .range([plot2_height-plot2_margins.bottom,plot2_margins.top+10])
         .paddingInner(0.2);
 
     /// add x scale
     xScale_mentionDot = d3.scaleLinear()
         .domain([0,100]) // added extra elements for padding
-        .range([ plot2_margins.left, plot2_width - plot2_margins.right])
-        .paddingInner(0.2);
+        .range([ plot2_margins.left, plot2_width - plot2_margins.right]);
 
     // draw the axes for the dot plot
     mentionDot_plot.append("g")
@@ -84,50 +91,34 @@ function init () {
     .style("font","12px sans-serif")
     .style("font-family","Arial Black")
     .style("font-variant","small-caps")
-    .text("total mentions"); // adding a title to the plot
+    .text("timeline"); // adding a title to the plot
 
     // set up a scale to map to the circle sizes, 
     //circScale = d3.scaleSqrt()
     //    .domain([0,d3.max(state.mentTotals,d=>d.mentions)])
     //    .range([0,40]);
+
+    drawMentDot();
 }
 
 
 function drawMentDot () {
-  let stackedFiltered = state.mentTotals;
+  let filteredData = state.timedata;
   // filter the data to show the data for the hovered term
-  stackedFiltered = stackedFiltered.filter(d => d.term === state.hover.term);
-  console.log("STACK FILT", stackedFiltered);
 
   // add the dots to the plot
   var ment_dots = mentionDot_plot
       .selectAll(".event")
-      .data(stackedFiltered,d=>[d.mentions,d.obs_region,d.year,d.term])
-      .join(enter =>
-              enter
-              .append("circle")
-              .attr("class","event")
-              .attr("id",d=>d.term+d.obs_region)
-              .attr("cx", d => xScale_mentionDot(d.year))
-              .attr("fill", d=>color[d.year])
-              .attr("opacity",function (d) {
-                  if (d.obs_region === state.selectedRegion) return 1;
-                  else return 0.25;})
-              .attr("cy", d=> yScale_mentionDot(d.obs_region.split("_").join(" ").split("and").join("&")))
-              .attr("r", 0)
-              .call(enter =>
-                  enter
-                  .transition()
-                  //.delay(d=>xScale_mentionDot(d.year)*1.4)
-                  .duration(500)
-                  .attr("r", d=> circScale(d.mentions))),
-          exit =>
-              exit
-              .call(exit =>
-                  exit
-                  .transition()
-                  .duration(750)
-                  .attr("r",0))
-      );
+      .data(filteredData,d=>[d.policy_id,d.record_id,d.type,d.event_description,d.day])
+      .join("g")
+      .append("circle")
+        .attr("class","event")
+        .attr("id",d=>d.policy_id)
+        .attr("cx", d => xScale_mentionDot(d.day))
+        .attr("fill", "red")
+        .attr("cy", d=> yScale_mentionDot(d.type))
+        .attr("r", 7);
+    
+              
                       
 }

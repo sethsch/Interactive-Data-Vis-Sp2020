@@ -13,9 +13,13 @@ I hope to incorporate cartographic and time-series elements to create an interac
 
 * Data: Cheng, Cindy, Joan Barcelo, Allison Hartnett, Robert Kubinec, and Luca Messerschmidt. 2020. “Coronanet: A Dyadic Dataset of Government Responses to the COVID-19 Pandemic.” BETAVersion 1.0. https://www.coronanet-project.org
 
-* Visual elements: Rolling Globe package: https://boscoh.github.io/rolling-globe/
+* Visual elements
+- AmCharts Covid Dashboard: https://covid.amcharts.com/   The layout, with the map/globe behind the chart semi-transluscent chart below it, is akin to what I'd like to figure out in d3 at least in part.
+- Rolling Globe package: https://boscoh.github.io/rolling-globe/
+- Multi-category rolling time chart: https://bl.ocks.org/boeric/6a83de20f780b42fadb9  This could be useful for diplaying multiple categories of events as they play out in time.
 
-* Tableau data browser dash: https://public.tableau.com/profile/seth.schimmel#!/vizhome/covid_policy_dash/Descriptionbrowser2
+* Data exploration/mockup:
+- Tableau data browser dash: https://public.tableau.com/profile/seth.schimmel#!/vizhome/covid_policy_dash/Descriptionbrowser2
 
 
 
