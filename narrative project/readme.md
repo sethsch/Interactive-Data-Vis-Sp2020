@@ -18,6 +18,7 @@ I hope to incorporate cartographic and time-series elements to create an interac
 - AmCharts Covid Dashboard: https://covid.amcharts.com/   The layout, with the map/globe behind the chart semi-transluscent chart below it, is akin to what I'd like to figure out in d3 at least in part.
 - Rolling Globe package: https://boscoh.github.io/rolling-globe/
 - Multi-category rolling time chart: https://bl.ocks.org/boeric/6a83de20f780b42fadb9  This could be useful for diplaying multiple categories of events as they play out in time.
+- D3 timeline: https://github.com/denisemauldin/d3-timeline Similar to the multi-category rolling chart above, but without automatic movement; supports manual scrolling/click/hover.  Would be cool to see vertical...
 - AmCharts Bent Gantt chart: https://www.amcharts.com/demos/bent-gantt-chart/?theme=dark This could be cool if the globe was above the time line instead of the clock.
 - AmCharts Horizontal Serpentine chart: https://www.amcharts.com/demos/horizontal-serpentine-chart/?theme=dark This might get messy if there are too many categories, but it could create an interesting visual scheme that facilitates comparisons of how different sequences of policy decisions take place.
 
