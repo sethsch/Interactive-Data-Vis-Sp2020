@@ -3,18 +3,37 @@
     <meta charset="utf-8">
     <title>Narrative Project</title>
     <header>
-        <h1>title</h1>
+        <h1>Proactive and Reactive Government Responses to COVID-19</h1>
       </header>
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    
+    <input name="updateButton" 
+    type="button" 
+    value="Update" 
+    onclick="drawPlot()" />
+
+    <input type="checkbox" class="myCheckbox" value="Closure of Schools" unchecked> Closure of Schools 
+    <input type="checkbox" class="myCheckbox" value="Health Testing" unchecked> Health Testing 
+    <input type="checkbox" class="myCheckbox" value="Public Awareness Campaigns" unchecked> Public Awarness Campaigns 
+    <input type="checkbox" class="myCheckbox" value="Quarantine/Lockdown" unchecked> Quarantine/Lockdown
+    <input type="checkbox" class="myCheckbox" value="Curfew" unchecked> Curfew  
+    <input type="checkbox" class="myCheckbox" value="Other Policy Not Listed Above" unchecked> Other Policies
+    <input type="checkbox" class="myCheckbox" value="Social Distancing" unchecked> Social Distancing 
+    <input type="checkbox" class="myCheckbox" value="Declaration of Emergency" unchecked> Declaration of Emergency   
+    <input type="checkbox" class="myCheckbox" value="Internal Border Restrictions" unchecked> Internal Border Restrictions 
+    <input type="checkbox" class="myCheckbox" value="Restriction of Non-Essential Government Services" unchecked> Restriction of Non-Essential Government Services 
+    <input type="checkbox" class="myCheckbox" value="New Task Force or Bureau" unchecked> New Task Force or Bureau 
+    <input type="checkbox" class="myCheckbox" value="Restriction of Non-Essential Businesses" unchecked> Restriction of Non-Essential Businesses  
+    <input type="checkbox" class="myCheckbox" value="External Border Restrictions" unchecked> External Border Restrictions 
+    <input type="checkbox" class="myCheckbox" value="Restrictions of Mass Gatherings" unchecked> Restrictions of Mass Gatherings 
+    <input type="checkbox" class="myCheckbox" value="Health Monitoring" unchecked> Health Monitoring 
+
 
     <div id="plots_container"> 
       <div id="plot_1"></div>
       <div id="plot_2"></div>
     </div>
-
 
 
     <script src="../../lib/d3.js"></script>
