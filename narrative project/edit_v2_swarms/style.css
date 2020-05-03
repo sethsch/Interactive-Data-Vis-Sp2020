@@ -1,0 +1,15 @@
+html {
+    font-family: "Avenir", Helvetica, sans-serif;
+    font-size: 0.8em;
+    padding: 30px;
+  }
+  body {
+    text-align: left;
+  }
+  .countryTooltip {
+    background: #fff;
+    padding: 5px;
+    border: solid #DDD 1px;
+    color: #666;
+  }
+  
