@@ -23,6 +23,10 @@ df.date_announced = pd.to_datetime(df['date_announced'],infer_datetime_format=Tr
 df.record_id = df.record_id.astype(str)
 df.policy_id = df.policy_id.astype(str)
 
+df = df[df.country != "MS Zaandam"]
+df = df[df.country != "Holy See"]
+df = df[df.country != "Western Sahara"]
+
 upd_corr_dict = dict()
 # for any records with corrections and updates, compile a dictionary with counts
 for p in list(set(df.policy_id)):
@@ -42,16 +46,55 @@ for p in list(set(df.policy_id)):
         
 ## TO DO: consider how to exclude certain entries based on their update/correction history....    
 
+
+
+## get UN regions data:
+regions = pd.read_excel("UNSD — Methodology.xlsx")
+regions.columns
+reg_lookup = dict()
+list(set(regions["ISO-alpha3 Code"].dropna()))
+
+for c in list(set(regions["ISO-alpha3 Code"].dropna())):
+    
+    """if c == "Taiwan":
+        c_look = "China"
+    elif c == "Brunei Darussalam":
+        c_look = "Brunei Darussalam"
+    else: c_look = c.replace("Republic of","").replace("Democratic Peoples Republic of","").replace("Peoples Republic of","").replace("United Republic of ","")"""
+    
+    reg_lookup[c] = dict()
+    d = regions[regions["ISO-alpha3 Code"]==c]
+    reg_lookup[c]["Region"] = d["Region Name"].iloc[0]
+    reg_lookup[c]["Sub-region"] = d["Sub-region Name"].iloc[0]
+    reg_lookup[c]["Least Developed Countries"] = d["Least Developed Countries (LDC)"].iloc[0]
+    reg_lookup[c]["Developed/Developing Countries"] = d["Developed / Developing Countries"].iloc[0]
+
+
 ## turn the dataset into a json by country so it can be joined in with other map jsons
 
 covdict = dict()
 # a dict for each country
-for c in list(set(df.country))[0:10]:
+for c in list(set(df.country)):
     covdict[c] = dict()
+
 # a dict for each date for each country, and a value for first case
-for c in list(set(df.country))[0:10]:
+for c in list(set(df.country)):
     d = df[df.country == c]
     d = d.sort_values(['confirmed_cases'],ascending=True)
+    iso_a3 = list(d["ISO_A3"][d["ISO_A3"].notnull()])
+    if len(iso_a3) == 0:
+        iso_a3 = list(d["ifs"][d["ifs"].notnull()])
+    if len(iso_a3) == 0:
+        iso_a3 = "null"
+    else:
+        iso_a3 = iso_a3[0]
+        
+    if iso_a3 == "TWN": 
+        iso_a3 = "CHN"
+    if iso_a3 == "KSV":
+        iso_a3 = "SRB"
+
+    
 
     try:
         d_case = d[d.confirmed_cases != 0]
@@ -72,7 +115,17 @@ for c in list(set(df.country))[0:10]:
     covdict[c]["first_case_date"] = first_case_date
     covdict[c]["first_announcement"] = first_announcement
     covdict[c]["first_policystart"] = first_policystart
+    covdict[c]["ISO_A3"] = iso_a3
+    
+   """ if iso_a3 != "null" :
+        covdict[c]["region"]= reg_lookup[iso_a3]["Region"]
+        covdict[c]["sub_region"]= reg_lookup[iso_a3]["Sub-region"]
+        covdict[c]["leastdevelopedcountries"]= reg_lookup[iso_a3]["Least Developed Countries"]
+        covdict[c]["developed_developing"]= reg_lookup[iso_a3]["Developed/Developing Countries"]
+"""
     covdict[c]["events"] = dict()
+    
+
     
     # create time series data by date announced
     for date in d.date_announced:
@@ -105,6 +158,8 @@ for c in list(set(df.country))[0:10]:
                             "event_description" : record_data.event_description.iloc[0],\
                             "event_type": record_data.type.iloc[0],\
                             "country": c,\
+                            "iso_a3":iso_a3,\
+                                
                             ## note that there are several subcats for a single policy...    
                             "event_type_subcat" : list(record_data.type_sub_cat),\
                             "entry_type": record_data.entry_type.iloc[0],\
@@ -125,7 +180,10 @@ for c in list(set(df.country))[0:10]:
                             "target_direction": record_data.target_direction.iloc[0],\
                             "travel_mechanism": record_data.travel_mechanism.iloc[0],\
                             "compliance": record_data.compliance.iloc[0],\
-                            "enforcer": record_data.enforcer.iloc[0]}
+                            "enforcer": record_data.enforcer.iloc[0],\
+                            "GDP_percap": record_data.gdppc_WDI_PW.iloc[0],\
+                            "population": record_data.pop_WDI_PW.iloc[0]
+                            }
                                     
             
 # get rid of the empty event entries & set the times as strings for JSON export
@@ -138,8 +196,10 @@ def myconverter(o):
     if isinstance(o, datetime.datetime):
         return  "{}-{}-{}".format(o.year, o.month, o.day)
 
-with open('10_countries_covid_v2.json', 'w') as fp:
-    json.dump(covdict, fp, default=myconverter)
+
+import simplejson as json
+with open('ALL_countries_covid_v4.json', 'w') as fp:
+    json.dump(covdict, fp, default=myconverter,ignore_nan=True)
     
 # still requires manual find/replace for 00:00:00 in timestamp from keys
 # also requires replacement of NaN with "NaN" character
