@@ -155,24 +155,24 @@ for c in list(set(df.country)):
                             "iso_a3":iso_a3,\
                                 
                             ## note that there are several subcats for a single policy...    
-                            "event_type_subcat" : list(record_data.type_sub_cat),\
+                            #"event_type_subcat" : list(record_data.type_sub_cat),\
                             "entry_type": record_data.entry_type.iloc[0],\
-                            "index_high_est": record_data.index_high_est.iloc[0],\
-                            "index_med_est": record_data.index_med_est.iloc[0],\
-                            "index_low_est": record_data.index_low_est.iloc[0],\
-                            "index_country_rank": record_data.index_country_rank.iloc[0],\
+                            #"index_high_est": record_data.index_high_est.iloc[0],\
+                            #"index_med_est": record_data.index_med_est.iloc[0],\
+                            #"index_low_est": record_data.index_low_est.iloc[0],\
+                            #"index_country_rank": record_data.index_country_rank.iloc[0],\
                             "domestic_policy": record_data.domestic_policy.iloc[0],\
-                            "province": record_data.province.iloc[0],\
-                            "city": record_data.city.iloc[0],\
-                            "target_country": record_data.target_country.iloc[0],\
-                            "target_geog_level": record_data.target_geog_level.iloc[0],\
-                            "target_region": record_data.target_region.iloc[0],\
-                            "target_province": record_data.target_province.iloc[0],\
-                            "target_city": record_data.target_city.iloc[0],\
-                            "target_other": record_data.target_other.iloc[0],\
-                            "target_who_what": record_data.target_who_what.iloc[0],\
-                            "target_direction": record_data.target_direction.iloc[0],\
-                            "travel_mechanism": record_data.travel_mechanism.iloc[0],\
+                            #"province": record_data.province.iloc[0],\
+                            #"city": record_data.city.iloc[0],\
+                            #"target_country": record_data.target_country.iloc[0],\
+                            #"target_geog_level": record_data.target_geog_level.iloc[0],\
+                            #"target_region": record_data.target_region.iloc[0],\
+                            #"target_province": record_data.target_province.iloc[0],\
+                            #"target_city": record_data.target_city.iloc[0],\
+                            #"target_other": record_data.target_other.iloc[0],\
+                            #"target_who_what": record_data.target_who_what.iloc[0],\
+                            #"target_direction": record_data.target_direction.iloc[0],\
+                            #"travel_mechanism": record_data.travel_mechanism.iloc[0],\
                             "compliance": record_data.compliance.iloc[0],\
                             "enforcer": record_data.enforcer.iloc[0],\
                             "GDP_percap": record_data.gdppc_WDI_PW.iloc[0],\
@@ -210,7 +210,7 @@ def myconverter(o):
 
 
 import simplejson as json
-with open('ALL_countries_covid_v5.json', 'w') as fp:
+with open('ALL_countries_covid_May7.json', 'w') as fp:
     json.dump(covdict, fp, default=myconverter,ignore_nan=True)
     
 # still requires manual find/replace for 00:00:00 in timestamp from keys

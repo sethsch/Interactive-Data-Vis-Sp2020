@@ -2,7 +2,7 @@
 
 // set the dimensions for the secondary dot plot for mentions
 const width = window.innerWidth * 0.9,
-height = window.innerHeight*3,
+height = window.innerHeight*7,
 margins = { top: 80, bottom: 40, left: 210, right: 40 };
 
 
@@ -14,13 +14,16 @@ let yScale;
 let circScale;
 let colorScale;
 
+let simulationDuration = 0;
+let simulationStop = 8000; //8 seconds
 
 let yAxis;
 let xAxis;
 let yAxis_startx=160;
-let yAxis_starty=-50;
+let yAxis_starty=-107;
 
 let selectIndex;
+let selectCountries;
 
 let filteredData;
 let unpackedData;
@@ -33,7 +36,7 @@ let regions_lookup = {};
 let state = {
   timedata: [],
   countrydata: [],
-  selectedCountry: "All",
+  selectedCountry: " All",
   selectedPolicyTypes: [],
   selectedIndex: "Perceptions of Corruption Index",
   globeData: [],
@@ -209,7 +212,7 @@ function init () {
     swarm.append("rect")
         .attr("class","pre-covid-region")
         .style("fill","#b6e3aa")
-        .style("opacity",0.08)
+        .style("opacity",0.04)
         .attr("x",yAxis_startx)
         .attr("y",margins.top)
         .attr("width",xScale(0)-yAxis_startx)
@@ -218,7 +221,7 @@ function init () {
     swarm.append("rect")
         .attr("class","post-covid-region")
         .style("fill","e3a8a8")
-        .style("opacity",0.08)
+        .style("opacity",0.04)
         .attr("x",xScale(0))
         .attr("y",margins.top)
         .attr("width",xScale(d3.max(days_since_first_case))-margins.right)
@@ -238,6 +241,29 @@ for(var i = 0; i < state.regionsref.length; i++){
   //console.log(regions_lookup);
 
   // UI ELEMENT SETUP
+
+  // 1. dropdown
+  selectCountries = d3.select("#countries_dropdown").on("change", function() {
+    console.log("new selected country is:",this.value);
+    state.selectedCountry = this.value;
+    drawPlot();
+  });
+
+  let country_list = Object.keys(state.countrydata);
+  country_list.push(" All");
+  country_list = country_list.sort(d3.ascending);
+  console.log(country_list);
+  selectCountries
+    .selectAll("option")
+    .data(country_list)
+    .join("option")
+    .attr("value",d=>d)
+    .text(d=>d);
+
+  selectCountries.property("value", " All");
+  
+
+  // 2. Dropdown for various indexes for color scaling
   selectIndex = d3.select("#dropdown").on("change", function() {
     console.log("new selected index is", this.value, "which queries column:",index_vars[this.value]);
     // `this` === the selectElement
@@ -265,97 +291,116 @@ function drawPlot () {
 
 
 
-    var indexCol = index_vars[state.selectedIndex];
-    console.log("dropdown reads: ",state.selectedIndex,"column selected: ",indexCol);
-    var indexVals = unpackedData.map(d=>d[indexCol]);
-    var filtered_indexVals = indexVals.filter(function (el) {
-        return el != null;
+  var indexCol = index_vars[state.selectedIndex];
+  console.log("dropdown reads: ",state.selectedIndex,"column selected: ",indexCol);
+  var indexVals = unpackedData.map(d=>d[indexCol]);
+  var filtered_indexVals = indexVals.filter(function (el) {
+      return el != null;
+      });
+  var colorset = ["#a50026","#a70226","#a90426","#ab0626","#ad0826","#af0926","#b10b26","#b30d26","#b50f26","#b61127","#b81327","#ba1527","#bc1727","#be1927","#c01b27","#c21d28","#c41f28","#c52128","#c72328","#c92529","#cb2729","#cc2929","#ce2b2a","#d02d2a","#d12f2b","#d3312b","#d4332c","#d6352c","#d7382d","#d93a2e","#da3c2e","#dc3e2f","#dd4030","#de4331","#e04532","#e14733","#e24a33","#e34c34","#e44e35","#e55136","#e75337","#e85538","#e95839","#ea5a3a","#eb5d3c","#ec5f3d","#ed613e","#ed643f","#ee6640","#ef6941","#f06b42","#f16e43","#f17044","#f27346","#f37547","#f37848","#f47a49","#f57d4a","#f57f4b","#f6824d","#f6844e","#f7864f","#f78950","#f88b51","#f88e53","#f89054","#f99355","#f99557","#f99858","#fa9a59","#fa9c5b","#fa9f5c","#fba15d","#fba35f","#fba660","#fba862","#fcaa63","#fcad65","#fcaf66","#fcb168","#fcb369","#fcb56b","#fdb86d","#fdba6e","#fdbc70","#fdbe72","#fdc073","#fdc275","#fdc477","#fdc678","#fdc87a","#fdca7c","#fecc7e","#fecd80","#fecf81","#fed183","#fed385","#fed587","#fed689","#fed88a","#feda8c","#fedb8e","#fedd90","#fede92","#fee094","#fee196","#fee397","#fee499","#fee69b","#fee79d","#fee89f","#feeaa1","#feeba3","#feeca4","#feeda6","#feeea8","#fef0aa","#fef1ac","#fdf2ae","#fdf2b0","#fdf3b2","#fdf4b4","#fcf5b6","#fcf6b8","#fbf6ba","#fbf7bc","#faf7be","#faf8c0","#f9f8c2","#f9f8c4","#f8f9c6","#f7f9c8","#f7f9ca","#f6f9cc","#f5f9ce","#f4f9d0","#f3f9d2","#f2f9d4","#f1f8d6","#f0f8d8","#eff8da","#edf8dc","#ecf7dd","#ebf7df","#eaf6e1","#e8f6e2","#e7f5e4","#e6f5e5","#e4f4e7","#e3f3e8","#e1f3e9","#e0f2ea","#def1eb","#dcf1ec","#dbf0ed","#d9efed","#d7eeee","#d5eeee","#d4edef","#d2ecef","#d0ebef","#ceeaef","#cce9ef","#cae8ef","#c8e7ef","#c6e6ef","#c5e5ef","#c3e4ee","#c0e3ee","#bee2ee","#bce1ed","#bae0ed","#b8deec","#b6ddeb","#b4dceb","#b2dbea","#b0d9e9","#aed8e9","#acd7e8","#aad5e7","#a7d4e6","#a5d2e6","#a3d1e5","#a1d0e4","#9fcee3","#9dcde2","#9bcbe1","#99c9e1","#96c8e0","#94c6df","#92c4de","#90c3dd","#8ec1dc","#8cbfdb","#8abeda","#88bcd9","#86bad8","#84b8d7","#82b6d6","#7fb5d5","#7db3d4","#7bb1d3","#79afd2","#77add1","#75abd0","#73a9cf","#71a7ce","#6fa5cd","#6da3cc","#6ca1cb","#6a9fca","#689dc9","#669bc8","#6499c7","#6297c5","#6094c4","#5f92c3","#5d90c2","#5b8ec1","#598cc0","#5889bf","#5687be","#5485bc","#5383bb","#5180ba","#507eb9","#4e7cb8","#4d7ab7","#4c77b5","#4a75b4","#4973b3","#4870b2","#466eb1","#456cb0","#4469ae","#4367ad","#4264ac","#4162ab","#4060aa","#3f5da8","#3e5ba7","#3d58a6","#3c56a5","#3b54a4","#3a51a2","#394fa1","#384ca0","#374a9f","#37479e","#36459c","#35429b","#34409a","#333d99","#333b97","#323896","#313695"];
+  console.log("INDEX VALS",indexVals, "FILTERED", filtered_indexVals);
+
+  colorScale = d3.scaleQuantize()
+      .domain([d3.min(filtered_indexVals),d3.max(filtered_indexVals)])
+      .range(d3.schemeBrBG[6]);
+
+
+  console.log("COLORSCALE:",colorScale.range());
+
+
+
+  var legend = d3.legendColor()
+      .labelFormat(d3.format(",.0f"))
+      //.useClass(true)
+      .title("This placeholder text will eventually access a description of the index")
+      .titleWidth(width/3)
+      .shapeWidth(width/16)
+      .scale(colorScale)
+      .orient("horizontal");
+
+  legend_svg.select(".legendQuant")
+      .call(legend);
+
+  //console.log("UNPACKED:",unpackedData);
+
+  let simulation = d3.forceSimulation(unpackedData)
+      .force('charge', d3.forceManyBody().strength(0.8).distanceMax(60))
+      .force('x', d3.forceX().x(function(d) {
+          return xScale(d['days_since_first_case']);
+      }).strength(0.24))
+      .force("y", d3.forceY(height/2).y(function(d){
+          return yScale(d["event_type"]);
+      }).strength(0.12))
+      .force('collision', d3.forceCollide().radius(8).strength(0.9));
+
+
+
+  let dots = simulation
+      .on('tick', function() {
+
+          let u = swarm.selectAll('circle')
+          .data(unpackedData);
+
+          u.join(enter=>
+              enter
+              .append('circle')
+              .attr("class","event_dot")
+              .attr("id",d=>d.policy_id)
+              .attr("country",d=>d.country)
+              .attr('r', 4)
+              .attr('fill',d => d[index_vars[state.selectedIndex]] === null ? 'grey' : colorScale(d[index_vars[state.selectedIndex]])
+              )
+              .attr('opacity',d => d[index_vars[state.selectedIndex]] === null ? 0.2 : 0.7)
+              .call(enter=>
+                  enter
+                  .attr('cx', function(d) {
+                      //return xScale(d['days_since_first_case']);
+                      return d.x;
+                  })
+                  .attr('cy', function(d) {
+                      return d.y;
+                  })
+              ),
+              update =>
+              update
+              .attr('cx', function(d) {
+                  //return xScale(d['days_since_first_case']);
+                  return d.x;
+              })
+              .attr('cy', function(d) {
+                  return d.y;
+              })
+              .call(update=>
+                  update
+                  .transition()
+                  .attr('fill',d => 
+                    d[index_vars[state.selectedIndex]] === null ? 
+                    'grey' : colorScale(d[index_vars[state.selectedIndex]])
+                  )
+                  .attr('opacity',function(d) {
+                    if (state.selectedCountry !== " All") {
+                      if (d.country === state.selectedCountry) {return 0.9;}
+                      else {return 0.2;}
+                    }
+                    else if (state.selectedCountry === " All") {
+                      if (d[index_vars[state.selectedIndex]] === null) {return 0.2;} 
+                      else {return 0.7;}}
+                  })
+                  .attr('r', function(d) {
+                    if (state.selectedCountry !== " All") {
+                      if (d.country === state.selectedCountry) {return 8;}
+                      else {return 2;}
+                    }
+                    else {return 4;}
+                  })
+                  .duration(1000)),
+              exit => exit.remove()
+          )
+          .on("mouseover", tipMouseover)
+          .on("mouseout", tipMouseout);
+
         });
-    var colorset = ["#a50026","#a70226","#a90426","#ab0626","#ad0826","#af0926","#b10b26","#b30d26","#b50f26","#b61127","#b81327","#ba1527","#bc1727","#be1927","#c01b27","#c21d28","#c41f28","#c52128","#c72328","#c92529","#cb2729","#cc2929","#ce2b2a","#d02d2a","#d12f2b","#d3312b","#d4332c","#d6352c","#d7382d","#d93a2e","#da3c2e","#dc3e2f","#dd4030","#de4331","#e04532","#e14733","#e24a33","#e34c34","#e44e35","#e55136","#e75337","#e85538","#e95839","#ea5a3a","#eb5d3c","#ec5f3d","#ed613e","#ed643f","#ee6640","#ef6941","#f06b42","#f16e43","#f17044","#f27346","#f37547","#f37848","#f47a49","#f57d4a","#f57f4b","#f6824d","#f6844e","#f7864f","#f78950","#f88b51","#f88e53","#f89054","#f99355","#f99557","#f99858","#fa9a59","#fa9c5b","#fa9f5c","#fba15d","#fba35f","#fba660","#fba862","#fcaa63","#fcad65","#fcaf66","#fcb168","#fcb369","#fcb56b","#fdb86d","#fdba6e","#fdbc70","#fdbe72","#fdc073","#fdc275","#fdc477","#fdc678","#fdc87a","#fdca7c","#fecc7e","#fecd80","#fecf81","#fed183","#fed385","#fed587","#fed689","#fed88a","#feda8c","#fedb8e","#fedd90","#fede92","#fee094","#fee196","#fee397","#fee499","#fee69b","#fee79d","#fee89f","#feeaa1","#feeba3","#feeca4","#feeda6","#feeea8","#fef0aa","#fef1ac","#fdf2ae","#fdf2b0","#fdf3b2","#fdf4b4","#fcf5b6","#fcf6b8","#fbf6ba","#fbf7bc","#faf7be","#faf8c0","#f9f8c2","#f9f8c4","#f8f9c6","#f7f9c8","#f7f9ca","#f6f9cc","#f5f9ce","#f4f9d0","#f3f9d2","#f2f9d4","#f1f8d6","#f0f8d8","#eff8da","#edf8dc","#ecf7dd","#ebf7df","#eaf6e1","#e8f6e2","#e7f5e4","#e6f5e5","#e4f4e7","#e3f3e8","#e1f3e9","#e0f2ea","#def1eb","#dcf1ec","#dbf0ed","#d9efed","#d7eeee","#d5eeee","#d4edef","#d2ecef","#d0ebef","#ceeaef","#cce9ef","#cae8ef","#c8e7ef","#c6e6ef","#c5e5ef","#c3e4ee","#c0e3ee","#bee2ee","#bce1ed","#bae0ed","#b8deec","#b6ddeb","#b4dceb","#b2dbea","#b0d9e9","#aed8e9","#acd7e8","#aad5e7","#a7d4e6","#a5d2e6","#a3d1e5","#a1d0e4","#9fcee3","#9dcde2","#9bcbe1","#99c9e1","#96c8e0","#94c6df","#92c4de","#90c3dd","#8ec1dc","#8cbfdb","#8abeda","#88bcd9","#86bad8","#84b8d7","#82b6d6","#7fb5d5","#7db3d4","#7bb1d3","#79afd2","#77add1","#75abd0","#73a9cf","#71a7ce","#6fa5cd","#6da3cc","#6ca1cb","#6a9fca","#689dc9","#669bc8","#6499c7","#6297c5","#6094c4","#5f92c3","#5d90c2","#5b8ec1","#598cc0","#5889bf","#5687be","#5485bc","#5383bb","#5180ba","#507eb9","#4e7cb8","#4d7ab7","#4c77b5","#4a75b4","#4973b3","#4870b2","#466eb1","#456cb0","#4469ae","#4367ad","#4264ac","#4162ab","#4060aa","#3f5da8","#3e5ba7","#3d58a6","#3c56a5","#3b54a4","#3a51a2","#394fa1","#384ca0","#374a9f","#37479e","#36459c","#35429b","#34409a","#333d99","#333b97","#323896","#313695"];
-    console.log("INDEX VALS",indexVals, "FILTERED", filtered_indexVals);
-
-    colorScale = d3.scaleQuantize()
-        .domain([d3.min(filtered_indexVals),d3.max(filtered_indexVals)])
-        .range(d3.schemeBrBG[6]);
-
-
-    console.log("COLORSCALE:",colorScale.range());
-
-
-
-var legend = d3.legendColor()
-    .labelFormat(d3.format(",.0f"))
-    //.useClass(true)
-    .title("This placeholder text will eventually access a description of the index")
-    .titleWidth(width/3)
-    .shapeWidth(width/16)
-    .scale(colorScale)
-    .orient("horizontal");
-
-legend_svg.select(".legendQuant")
-    .call(legend);
-
-//console.log("UNPACKED:",unpackedData);
-
-let simulation = d3.forceSimulation(unpackedData)
-    .force('charge', d3.forceManyBody().strength(-0.5).distanceMax(0.5))
-    .force('x', d3.forceX().x(function(d) {
-        return xScale(d['days_since_first_case']);
-    }).strength(0.15))
-    .force("y", d3.forceY(height/2).y(function(d){
-        return yScale(d["event_type"]);
-    }).strength(0.15))
-    .force('collision', d3.forceCollide().radius(6));
-
-
-
-let dots = simulation
-    .on('tick', function() {
-        let u = swarm.selectAll('circle')
-        .data(unpackedData);
-
-        u.join(enter=>
-            enter
-            .append('circle')
-            .attr("class","event_dot")
-            .attr("id",d=>d.policy_id)
-            .attr('r', 5.5)
-            .attr('fill',d => d[index_vars[state.selectedIndex]] === null ? 'grey' : colorScale(d[index_vars[state.selectedIndex]])
-            )
-            .attr('opacity',d => d[index_vars[state.selectedIndex]] === null ? 0.2 : 0.7)
-            .call(enter=>
-                enter
-                .attr('cx', function(d) {
-                    return xScale(d['days_since_first_case']);
-                    //return d.x;
-                })
-                .attr('cy', function(d) {
-                    return d.y;
-                })
-            ),
-            update =>
-            update
-            .attr('cx', function(d) {
-                return xScale(d['days_since_first_case']);
-                //return d.x;
-            })
-            .attr('cy', function(d) {
-                return d.y;
-            })
-            .call(update=>
-                update
-                .transition()
-                .attr('fill',d => d[index_vars[state.selectedIndex]] === null ? 'grey' : colorScale(d[index_vars[state.selectedIndex]])
-                )
-                .attr('opacity',d => d[index_vars[state.selectedIndex]] === null ? 0.2 : 0.7)
-                .duration(1000)),
-            exit => exit.remove()
-        )
-        .on("mouseover", tipMouseover)
-        .on("mouseout", tipMouseout);
-
-        });
-                      
+                        
 };
 
 d3.selectAll(".myCheckbox").on("change",updateTypes);
@@ -369,7 +414,7 @@ function setScales(){
   let selectedPolicies = event_types;
   let filteredData = state.countrydata;
 
-  if (state.selectedCountry !== "All") {
+  if (state.selectedCountry !== " All") {
     filteredData = filteredData[state.selectedCountry];
     days_since_announcement = [];
     days_since_first_case = [];
@@ -502,3 +547,4 @@ var tipMouseout = function(d) {
         .duration(300) // ms
         .style("opacity", 0); // don't care about position!
 };
+
