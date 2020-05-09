@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Narrative Project</title>
+    <header>
+        <h1>Proactive and Reactive Government Responses to COVID-19</h1>
+      </header>
+    <link rel="stylesheet" href="./style_swarm.css">
+  </head>
+  <body>
+    <div id="plots_container"> 
+      <h2>How long did it take governments to initiate policy responses to the pandemic?</h2>
+      <p>The global COVID-19 pandemic set off a cascade of responses by governments around the world. For this project, I want to design a tool that hilights developing policy responses to COVID-19 by governments across the globe. I will draw from data from the Coronanet Research Project that's actively being collected by a team of 200+ researchers from around the world, led by NYU Abu Dhabi, TU Munich, Yale University.
+       </p>
+        <input name="updateButton" 
+        type="button" 
+        value="Update" 
+        onclick="drawPlot()" />
+    
+        <input type="checkbox" class="myCheckbox" value="Closure of Schools" unchecked> Closure of Schools 
+        <input type="checkbox" class="myCheckbox" value="Health Testing" unchecked> Health Testing 
+        <input type="checkbox" class="myCheckbox" value="Public Awareness Campaigns" unchecked> Public Awarness Campaigns 
+        <input type="checkbox" class="myCheckbox" value="Quarantine/Lockdown" unchecked> Quarantine/Lockdown
+        <input type="checkbox" class="myCheckbox" value="Curfew" unchecked> Curfew  
+        <input type="checkbox" class="myCheckbox" value="Other Policy Not Listed Above" unchecked> Other Policies
+        <input type="checkbox" class="myCheckbox" value="Social Distancing" unchecked> Social Distancing 
+        <input type="checkbox" class="myCheckbox" value="Declaration of Emergency" unchecked> Declaration of Emergency   
+        <input type="checkbox" class="myCheckbox" value="Internal Border Restrictions" unchecked> Internal Border Restrictions 
+        <input type="checkbox" class="myCheckbox" value="Restriction of Non-Essential Government Services" unchecked> Restriction of Non-Essential Government Services 
+        <input type="checkbox" class="myCheckbox" value="New Task Force or Bureau" unchecked> New Task Force or Bureau 
+        <input type="checkbox" class="myCheckbox" value="Restriction of Non-Essential Businesses" unchecked> Restriction of Non-Essential Businesses  
+        <input type="checkbox" class="myCheckbox" value="External Border Restrictions" unchecked> External Border Restrictions 
+        <input type="checkbox" class="myCheckbox" value="Restrictions of Mass Gatherings" unchecked> Restrictions of Mass Gatherings 
+        <input type="checkbox" class="myCheckbox" value="Health Monitoring" unchecked> Health Monitoring 
+    
+      <div id="legend"></div>
+      <div id="log_scale_plot"></div>
+  </div>
+
+    
+
+  <div id="hover-content"></div>
+  
+  <!-- <div id="plots_container"> 
+    <h2>How long did it take governments to initiate policy responses to the pandemic?</h2>
+    <p>The global COVID-19 pandemic set off a cascade of responses by governments around the world. For this project, I want to design a tool that hilights developing policy responses to COVID-19 by governments across the globe. I will draw from data from the Coronanet Research Project that's actively being collected by a team of 200+ researchers from around the world, led by NYU Abu Dhabi, TU Munich, Yale University.
+      The data yields detailed information about which governments are responding to the coronavirus, who they are targeting the policies toward, how they are doing it, and when they are doing it. It includes information about the level of government responding (e.g. national, regional/state, local/municipal), the types of actions taken, the compliance mechanisms and the timing of policy responses as it relates to the number of confirmed cases, deaths and recoveries. The researchers are publishing the data alongside other relevant country-level political indices such as press freedoms and citizens' perception of corruption, which may yield interesting ways to analyze and curate how policymaking unfolds differently across the globe. </p>
+    <label for="dropdown"> <b>Select an index</b> </label> 
+    <select id="dropdown" name="dropdown"></select>
+    <div id="legend"></div>
+    <div id="plot_1"></div>
+</div> -->
+
+
+
+   
+
+
+    <!-- Connecting with D3 library-->
+    <script src="../../lib/d3.js"></script>
+    <!--<script src="force-chart.js"></script>  -->
+    <!--<script src="main.js"></script>-->
+
+    <script src="log_policy_chart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+    <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+    <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+
+
+  </body>
+</html>
