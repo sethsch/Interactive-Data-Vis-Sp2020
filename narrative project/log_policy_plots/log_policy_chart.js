@@ -1,7 +1,7 @@
 // set the dimensions for the secondary dot plot for mentions
-const plot2_width = window.innerWidth * 0.7,
-plot2_height = window.innerHeight * 0.7,
-plot2_margins = { top: 40, bottom: 60, left: 120, right: 40 };
+const width = window.innerWidth * 0.7,
+height = window.innerHeight * 0.7,
+margins = { top: 40, bottom: 60, left: 120, right: 40 };
 
 // declare globals that will be used for the secondary plot
 let mentionDot_plot;
@@ -16,6 +16,7 @@ let yScale_mentionDot;
 let logState = {
   casesData: [],
   casesLookup: {},
+  currentCases: 0,
   countrydata: [],
   selectedCountry: "All",
   selectedPolicyTypes: [],
@@ -68,11 +69,11 @@ function init () {
   mentionDot_plot = d3
     .select("#log_scale_plot")
     .append("svg")
-    .attr("width", plot2_width)
-    .attr("height", plot2_height);
+    .attr("width", width)
+    .attr("height", height);
 
   /*mentionDot_plot.append("text")
-    .attr("transform",`translate(${plot2_width/2-20},${plot2_margins.top-20})`)
+    .attr("transform",`translate(${width/2-20},${margins.top-20})`)
     .style("font","16px sans-serif")
     .style("font-family","Avenir")
     .text("Beginning of new policies"); // adding a title to the plot*/
@@ -85,7 +86,7 @@ function init () {
 
 
   createWorldCasesLookup();
-  console.log("LOOKUP CASES BY DATE:",logState.casesLookup);
+  //console.log("LOOKUP CASES BY DATE:",logState.casesLookup);
   var parser = d3.timeParse("%Y-%m-%d");
   var start = parser("2020-02-12");
   var cases = logState.casesLookup[start].Cases;
@@ -139,38 +140,39 @@ function drawPlot () {
     }); 
   };
    
-console.log("STARTS",d3.map(unpackedData,d=>d.date_start));
 
-var parser = d3.timeParse("%Y-%m-%d");
-var lookupdates = Object.keys(logState.casesLookup);
-console.log("DATEA",lookupdates);
-var data_dates = [];
-for (i=0; i<unpackedData.length; i++) {
-  data_dates.push(String(parser(unpackedData[i]["date_start"])))
-};
-console.log("DATADATES",data_dates);
-unpackedData = unpackedData.filter(d => lookupdates.includes(String(parser(d["date_start"])) ));
-console.log("DID WE FILTER?",unpackedData);
+  var parser = d3.timeParse("%Y-%m-%d");
+  var lookupdates = Object.keys(logState.casesLookup);
+  console.log("DATEA",lookupdates);
+  var data_dates = [];
+  for (i=0; i<unpackedData.length; i++) {
+    data_dates.push(String(parser(unpackedData[i]["date_start"])))
+  };
+  //console.log("DATADATES",data_dates);
+  unpackedData = unpackedData.filter(d => lookupdates.includes(String(parser(d["date_start"])) ));
+  //console.log("DID WE FILTER?",unpackedData);
+
+
 
   // Add y scale for days since first annoucnement... this is always at 0
 yScale_mentionDot = d3.scaleLog()
   .domain([10,3500000])
-  .range([plot2_height-plot2_margins.bottom,plot2_margins.top]);
+  .range([height-margins.bottom,margins.top]);
 
 /// add x scale
 xScale_mentionDot = d3.scaleLinear()
   .domain([d3.min(days_since_first_case),d3.max(days_since_first_case)]) // added extra elements for padding
-  .range([ plot2_margins.left, plot2_width - plot2_margins.right]);
+  .range([ margins.left, width - margins.right]);
 
 // draw the axes for the dot plot
 mentionDot_plot.append("g")
   .attr("class", "mentionDot_plot_axis--x")
-  .attr("transform", `translate(0, ${plot2_height-plot2_margins.bottom})`)
+  .attr("transform", `translate(0, ${height-margins.bottom})`)
   .call(d3.axisBottom(xScale_mentionDot))
 
 mentionDot_plot.append("text")
   .attr("class","x-axis-title")
-  .attr("transform",`translate(${plot2_width/2},${plot2_height-20})`)
+  .attr("transform",`translate(${width/2},${height-20})`)
   .style("font","12px sans-serif")
   .style("font-weight","bold")
   .style("font-family","Avenir")
@@ -182,19 +184,37 @@ const yAxis_mentionDot = d3.axisLeft(yScale_mentionDot).ticks(7,",d").tickSize(6
 
 mentionDot_plot.append("g")
   .attr("class", "mentionDot_plot_axis--y")
-  .attr("transform", `translate(${plot2_margins.left}, 0)`)
+  .attr("transform", `translate(${margins.left}, 0)`)
   .call(yAxis_mentionDot)
   //.call(g => g.select(".domain").remove()) // remove the axis line
   //.call(g => g.selectAll(".tick").select("line").remove()); // remove the lines in the ticks
 
 mentionDot_plot.append("text")
   .attr("class","y-axis-title")
-  .attr("transform",`translate(${plot2_margins.left-80},${plot2_height*0.6})rotate(270)`)
+  .attr("transform",`translate(${margins.left-80},${height*0.6})rotate(270)`)
   .style("font","12px sans-serif")
   .style("font-weight","bold")
   .style("font-family","Avenir")
   .text("Log scale of confirmed cases worldwide");
 
+// a rectangle with updated number
+
+
+
+var ptag =  mentionDot_plot.append("text")
+.attr("class","cases-ticker")
+.attr("transform",`translate(${xScale_mentionDot(80)},${yScale_mentionDot(5000)})`)
+
+ptag.transition()
+  .ease(d3.easeLinear)
+  .duration(12000)
+  .tween("text", function(d) {
+    var that = this;
+    var i = d3.interpolate(0, 3500000);  // Number(d.percentage.slice(0, -1))
+    return function(t) {
+        d3.select(that).text(i(t));
+    };
+  })
 
   // add the dots to the plot
   var ment_dots = mentionDot_plot
@@ -211,11 +231,11 @@ mentionDot_plot.append("text")
         //  else if (d["days_since_first_case"] > 0) {return "#E3584D";}
         //})
         .attr("fill","#7C7B7B")
-        .attr("opacity", function(d,i) { if (logState.selectedPolicyTypes.includes(d.event_type)) {return 0.8;}
-        else {return 0.25;}
+        .attr("opacity", function(d,i) { if (logState.selectedPolicyTypes.includes(d.event_type)) {return 0.9;}
+        else {return 0.5;}
         })
         .attr("r", 0)
-        .attr("cx",xScale_mentionDot(-100))
+        .attr("cx", (d,i) => xScale_mentionDot(d["days_since_first_case"]))
         .attr("cy", function(d,i) { 
           var parser = d3.timeParse("%Y-%m-%d");
           var start = parser(d.date_start);
@@ -225,13 +245,12 @@ mentionDot_plot.append("text")
         .call(enter =>
           enter
           .transition()
-          .duration(750)
-          .attr("cx", (d,i) => xScale_mentionDot(d["days_since_first_case"]))
+          .duration(12000)
+          .delay(function(d) {return lookupdates.indexOf(String(parser(d.date_start)))*50;} )
           .attr("r", function(d,i) { if (logState.selectedPolicyTypes.includes(d.event_type)) {return 7;}
             else {return 3.5;}
           })
-          .delay(function(d,i){return xScale_mentionDot(d["days_since_first_case"])*12})
-          ),
+        ),
           update =>
           update
           .call(update=>
@@ -244,13 +263,16 @@ mentionDot_plot.append("text")
             .attr("r", function(d,i) { if (logState.selectedPolicyTypes.includes(d.event_type)) {return 7;}
               else {return 3.5;}
             })
-            .attr("opacity", function(d,i) { if (logState.selectedPolicyTypes.includes(d.event_type)) {return 0.8;}
+            .attr("opacity", function(d,i) { if (logState.selectedPolicyTypes.includes(d.event_type)) {return 0.9;}
             else {return 0.25;}
             })
       )
       );
       
-  ment_dots.on("mouseover",tipMouseover).on("mouseout",tipMouseout);                     
+  ment_dots.on("mouseover",tipMouseover).on("mouseout",tipMouseout);    
+  
+
+  
 }
 
 d3.selectAll(".myCheckbox").on("change",updateTypes);
@@ -265,7 +287,7 @@ function updateTypes(){
           }
         });
     logState.selectedPolicyTypes = choices;
-    console.log("SELECTED POLICIES: ",logState.selectedPolicyTypes);
+    //console.log("SELECTED POLICIES: ",logState.selectedPolicyTypes);
     };
 
 function createWorldCasesLookup(){
