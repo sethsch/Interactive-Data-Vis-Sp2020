@@ -4,6 +4,7 @@ class LogPlot {
     this.width = window.innerWidth * 0.6;
     this.height = window.innerHeight * 0.4;
     this.margins = { top: 50, bottom: 60, left: 120, right: 40 };
+    this.duration = 3000;
  
     this.svg = d3
       .select("#log_plot")
