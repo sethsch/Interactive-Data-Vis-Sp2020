@@ -1,0 +1,6 @@
+// before after line, at the 0 -- christ
+// scale at 21 day increments, no minus signs
+
+// animation in -- bubble size
+
+// add color update pattern for dots on index change
