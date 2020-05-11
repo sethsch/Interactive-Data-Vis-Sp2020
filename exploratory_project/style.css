@@ -4,31 +4,7 @@ body {
     padding: 1em 3em;
   }
   
-/*.dot {
-    cursor: pointer;
-    opacity: 0.7
-  }
-  
-.dot:hover {
-    opacity: 1.0;
-    r: 5.5;
-  }
 
-.line {
-    cursor: pointer;
-  }
-  
-.line:hover {
-    stroke: black;
-  }
-
-.row-label {
-    font-family: "Arial";
-}
-.row-label:hover {
-    font-weight: bold;
-  }
-*/
 h1 {
       font-family: "Arial Black";
   }
@@ -83,31 +59,23 @@ td {
     background-color: white;
   }
 
-.plots_container {
+ 
+#plots_container {
     display: grid;
-    grid-template-columns: 20px 900px auto 400px 20px;
-    grid-template-rows: 25% 100px auto 100px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr, 1fr;
+    column-gap: 2em;
 
 }
-.plot_1 {
-    grid-column-start: 2;
-    grid-column-end: four;
+#plot_1 {
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: span 2;
 }
 
-.d3-table {
-    grid-column-start: 4;
-    grid-column-end: end;
-    grid-row-start: 1; 
-    grid-row-end: 2
+#d3-table, #plot_2 {
+  padding-top: 1em;
 }
 
-.plot_2 {
-    grid-column-start: 4;
-    grid-column-end: end;
-    grid-row-start: 3;
-}
 
 div {
     float: left;

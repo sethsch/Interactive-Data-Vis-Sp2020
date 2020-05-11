@@ -41,7 +41,7 @@ var rd_perc = d3.format(".1%");
 const thresh = 0.025;
 
 // a constant to be used for deciding how many terms to show in the table, maximum
-const numberKwic = 25;
+const numberKwic = 20;
 
  /* APPLICATION STATE
  * */

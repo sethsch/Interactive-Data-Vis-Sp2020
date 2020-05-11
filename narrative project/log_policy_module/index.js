@@ -41,7 +41,9 @@ let state = {
       "Municipal Level Power Sharing Index": "municipal_Index"
     },
   };
-
+let nextState = {
+  selectedIndex: null,
+}
 
 // DATA IMPORT
 Promise.all([
@@ -94,11 +96,11 @@ function init() {
 
 // 2. Dropdown for various indexes for color scaling
   selectIndex = d3.select("#dropdown").on("change", function() {
-      console.log("new selected index is", this.value, "which queries column:",index_vars[this.value]);
+      console.log("new selected index is", this.value, "which queries column:",state.index_vars[this.value]);
       // `this` === the selectElement
       // this.value holds the dropdown value a user just selected
-      state.selectedIndex = this.value;
-      draw(); // re-draw the graph based on this new selection
+      nextState.selectedIndex = this.value;
+      setGlobalState(nextState); // re-draw the graph based on this new selection
     });
 
   // add in dropdown options from the unique values in the data

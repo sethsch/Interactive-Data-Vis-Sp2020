@@ -62,14 +62,14 @@ body {
 
 
 .grid line {
-        stroke: lightgrey;
-        stroke-opacity: 1;
-        stroke-width: 0.75;
-        shape-rendering: crispEdges
-      }
+  stroke: lightgrey;
+  stroke-opacity: 0.8;
+  stroke-width: 0.75;
+  shape-rendering: crispEdges
+}
 .grid path {
-        stroke-width: 0;
-      }
+  stroke-width: 0;
+}
   
 /*Defining chart stylings*/
     
