@@ -26,6 +26,7 @@ df.policy_id = df.policy_id.astype(str)
 df = df[df.country != "MS Zaandam"]
 df = df[df.country != "Holy See"]
 df = df[df.country != "Western Sahara"]
+df = df[df.country != "European Union"]
 
 upd_corr_dict = dict()
 # for any records with corrections and updates, compile a dictionary with counts
@@ -54,20 +55,31 @@ regions.columns
 reg_lookup = dict()
 list(set(regions["ISO-alpha3 Code"].dropna()))
 
-for c in list(set(regions["ISO-alpha3 Code"].dropna())):
+
+## use world bank regions instead:
+regions = pd.read_csv("worldbank_regions_lookup.csv")
+regions.columns
+
+reg_lookup= dict()
+for c in list(set(regions.country)):
+    d = regions[regions.country == c]
+    reg_lookup[c] = d.region.iloc[0]
     
-    """if c == "Taiwan":
+
+"""for c in list(set(regions["ISO-alpha3 Code"].dropna())):
+    
+   if c == "Taiwan":
         c_look = "China"
     elif c == "Brunei Darussalam":
         c_look = "Brunei Darussalam"
-    else: c_look = c.replace("Republic of","").replace("Democratic Peoples Republic of","").replace("Peoples Republic of","").replace("United Republic of ","")"""
+    else: c_look = c.replace("Republic of","").replace("Democratic Peoples Republic of","").replace("Peoples Republic of","").replace("United Republic of ","")
     
     reg_lookup[c] = dict()
     d = regions[regions["ISO-alpha3 Code"]==c]
     reg_lookup[c]["Region"] = d["Region Name"].iloc[0]
     reg_lookup[c]["Sub-region"] = d["Sub-region Name"].iloc[0]
     reg_lookup[c]["Least Developed Countries"] = d["Least Developed Countries (LDC)"].iloc[0]
-    reg_lookup[c]["Developed/Developing Countries"] = d["Developed / Developing Countries"].iloc[0]
+    reg_lookup[c]["Developed/Developing Countries"] = d["Developed / Developing Countries"].iloc[0]"""
 
 
 ## turn the dataset into a json by country so it can be joined in with other map jsons
@@ -81,7 +93,7 @@ for c in list(set(df.country)):
 for c in list(set(df.country)):
     d = df[df.country == c]
     d = d.sort_values(['confirmed_cases'],ascending=True)
-    iso_a3 = list(d["ISO_A3"][d["ISO_A3"].notnull()])
+    """iso_a3 = list(d["ISO_A3"][d["ISO_A3"].notnull()])
     if len(iso_a3) == 0:
         iso_a3 = list(d["ifs"][d["ifs"].notnull()])
     if len(iso_a3) == 0:
@@ -92,7 +104,7 @@ for c in list(set(df.country)):
     if iso_a3 == "TWN": 
         iso_a3 = "CHN"
     if iso_a3 == "KSV":
-        iso_a3 = "SRB"
+        iso_a3 = "SRB" """
 
     
 
@@ -115,7 +127,7 @@ for c in list(set(df.country)):
     covdict[c]["first_case_date"] = first_case_date
     covdict[c]["first_announcement"] = first_announcement
     covdict[c]["first_policystart"] = first_policystart
-    covdict[c]["ISO_A3"] = iso_a3
+    #covdict[c]["ISO_A3"] = iso_a3
     covdict[c]["events"] = dict()
 
     
@@ -152,7 +164,8 @@ for c in list(set(df.country)):
                             "event_description" : record_data.event_description.iloc[0],\
                             "event_type": record_data.type.iloc[0],\
                             "country": c,\
-                            "iso_a3":iso_a3,\
+                            "region": reg_lookup[c],\
+                            #"iso_a3":iso_a3,\
                                 
                             ## note that there are several subcats for a single policy...    
                             #"event_type_subcat" : list(record_data.type_sub_cat),\
@@ -210,7 +223,7 @@ def myconverter(o):
 
 
 import simplejson as json
-with open('ALL_countries_covid_May7.json', 'w') as fp:
+with open('ALL_countries_covid_May13.json', 'w') as fp:
     json.dump(covdict, fp, default=myconverter,ignore_nan=True)
     
 # still requires manual find/replace for 00:00:00 in timestamp from keys

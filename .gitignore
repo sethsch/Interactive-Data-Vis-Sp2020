@@ -22,3 +22,9 @@ exploratory_project/data/regions_years_num_records.csv
 exploratory_project/data/regyear_termMents.csv
 exploratory_project/data/regyear_termMents_stackedready.csv
 exploratory_project/data/term_tot_mentions.csv
+data/filtered_KWIC.csv
+data/filtered_querystats.csv
+data/kwic_keywords.json
+data/regionsyears_KWIC.csv
+data/regyear_termMents.csv
+.vscode/settings.json

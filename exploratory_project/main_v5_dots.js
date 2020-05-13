@@ -40,7 +40,7 @@ var rd_perc = d3.format(".1%");
 const thresh = 0.025;
 
 // a constant to be used for deciding how many terms to show in the table, maximum
-const numberKwic = 25;
+const numberKwic = 20;
 
  /* APPLICATION STATE
  * */
@@ -74,10 +74,10 @@ const color = {2016:"#cc2f56",
    * LOAD DATA
    * */
 Promise.all([
-    d3.csv("./data/filtered_querystats.csv", d3.autoType),
-    d3.json("./data/kwic_keywords.json"),
-    d3.csv("./data/regions_years_num_records.csv",d3.autoType),
-    d3.csv("./data/regyear_termMents.csv",d3.autoType),
+    d3.csv("../data/filtered_querystats.csv", d3.autoType),
+    d3.json("../data/kwic_keywords.json"),
+    d3.csv("../data/regions_years_num_records.csv",d3.autoType),
+    d3.csv("../data/regyear_termMents.csv",d3.autoType),
 ]).then(([queryStats,kwicStats,regTotals,mentTotals]) => {
     state.queryData = queryStats;
     state.kwicData = kwicStats;
@@ -586,31 +586,31 @@ function drawPlot(){
 function synchronizedMouseOver(d) {
                 
     var bar_select = d3.select(this)
-        .attr("stroke-width",3.5);
+        .attr("stroke-width",4.5);
     
     var text_select = d3.select(this)
-        .style("font-size","15px")
+        .style("font-size","16px")
         .style("font-weight","bold");
 
     var dot1_select = d3.select(this)
-        .attr("r", radius*1.3);
+        .attr("r", radius*1.5);
 
     var dot2_select = d3.select(this)
-        .attr("r",radius*1.3);
+        .attr("r",radius*1.5);
 
 
     var bar_resp = d3.select("#"+d.term+String(state.selectedRegion)+String(state.selectedYear1)+String(state.selectedYear2))
-        .attr("stroke-width",3.5);
+        .attr("stroke-width",4.5);
 
     var text_resp = d3.select("#"+ d.term+"_rank"+String(state.selectedRegion)+String(state.selectedYear1)+String(state.selectedYear2))
-        .style("font-size","15px")
+        .style("font-size","16px")
         .style("font-weight","bold");
 
     var dot1_resp = d3.select("#"+d.term+"_"+String(state.selectedRegion)+String(state.selectedYear1))
-        .attr("r",radius*1.3);
+        .attr("r",radius*1.5);
 
     var dot2_resp = d3.select("#"+d.term+"_"+String(state.selectedRegion)+String(state.selectedYear2))
-        .attr("r",radius*1.3);
+        .attr("r",radius*1.5);
 
 
     state.hover.term = d3.select(this).attr("term_id");
@@ -633,7 +633,7 @@ function synchronizedMouseOver(d) {
 
 function synchronizedMouseOut(d) {
 
-    state.hover.term = null;
+    //state.hover.term = null;
    
     var bar_select = d3.select(this)
         .attr("stroke-width",d => Math.abs(d[state.selectedYear2]-d[state.selectedYear1]) > thresh ? 2.5:1);
