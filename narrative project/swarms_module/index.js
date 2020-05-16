@@ -5,6 +5,14 @@ import { SwarmChart } from "./SwarmChart.js";
 
 let swarms = [];
 let selectIndex;
+let policies = {"Restrictions of Mass Gatherings":"#gatherings",
+                "Quarantine/Lockdown":"#quarantine",
+                "Closure of Schools": "#schools",
+                "External Border Restrictions":"#ext_border",
+                "Declaration of Emergency": "#emergency",
+                "Curfew":"#curfew",
+                "Social Distancing":"#socialdist",
+                "Internal Border Restrictions":"#int_border"};
 
 let state = {
     casesData: [],
@@ -17,8 +25,8 @@ let state = {
     logColors: {},
     days_since_first_announcement: [],
     days_since_first_case: [],
-    selectedCountry: ".All",
-    selectedRegion: ".All",
+    selectedCountry: " All",
+    selectedRegion: " All",
     selectedPolicyTypes: [],
     filteredData: [],
     policyType: "null",
@@ -42,14 +50,12 @@ let state = {
       "Municipal Level Power Sharing Index": "municipal_Index"
     },
   };
-let nextState = {
-
-}
+let nextState = {}
 
 // DATA IMPORT
 Promise.all([
     d3.csv("./total-deaths-and-cases-covid-19.csv",d3.autoType),
-    d3.json("./ALL_countries_covid_May13.json", d3.autotype),
+    d3.json("./ALL_countries_covid_May15.json", d3.autotype),
   ]).then(([casesData,countrydata]) => {
     state.casesData = casesData;
     // this step is redundant.. I can just unpack the data 
@@ -83,22 +89,23 @@ state.logColors =  {'Closure of Schools': "#a1def0",
 
 
 function init() {
-    let policies = d3.map(state.unpackedData, function(d){return d.event_type;}).keys() 
-    console.log("MAP",policies);
-
-    state.policyType = "Curfew";
-    var newPlot = new SwarmChart(state,setGlobalState,"#curfew")
+    //let policies = d3.map(state.unpackedData, function(d){return d.event_type;}).keys() 
+    //console.log("MAP",policies);
+  // console.log("POLICIES?",policies)
+   let poltypes = Object.keys(policies);
+   let divs = Object.values(policies);
+   console.log("KEYS:",poltypes,"VALUES:",divs);
+  for (var i = 0; i < divs.length; i++) {
+    let newPlot = new SwarmChart(state,setGlobalState,poltypes[i],divs[i])
     swarms.push(newPlot)
-    /*//let policies = state.selectedPolicyTypes;
-    for (var i=0; i<policies.length; i++) {
-        state.policyType = policies[i];
-        //console.log("INIT SHIFT",state.policyType);
-        var newPlot = new SwarmChart(state,setGlobalState);
-        swarms.push(newPlot);
-    }*/
+  }
 
+  
+    //state.policyType = "Curfew";
+    //var newPlot = new SwarmChart(state,setGlobalState,"#curfew");
+    //swarms.push(newPlot);
 
-// 1. dropdown for countries
+  // 1. dropdown for countries
     let selectCountries = d3.select("#countries_dropdown").on("change", function() {
         console.log("new selected country is:",this.value);
         nextState.selectedCountry = this.value;
@@ -106,7 +113,7 @@ function init() {
     });
 
     let country_list = Object.keys(state.countrydata);
-    country_list.push(".All");
+    country_list.push(" All");
     country_list = country_list.sort(d3.ascending);
     console.log(country_list);
     selectCountries
@@ -116,16 +123,18 @@ function init() {
         .attr("value",d=>d)
         .text(d=>d);
 
-    selectCountries.property("value", ".All");
+    selectCountries.property("value", " All");
 
-// 2. dropdown for regions
-  let selectRegion = d3.select("#region_dropdown").on("change", function() {
-    console.log("new selected region is:",this.value);
-    nextState.selectedRegion = this.value;
-    setGlobalState(nextState);
-  });
+  // 2. dropdown for regions
+    let selectRegion = d3.select("#region_dropdown").on("change", function() {
+      console.log("new selected region is:",this.value);
+      nextState.selectedRegion = this.value;
+      nextState.selectedCountry = " All";
+      selectCountries.property("value"," All");
+      setGlobalState(nextState);
+    });
 
-  let region_list = [".All", "South Asia", "Europe & Central Asia",
+  let region_list = [" All", "South Asia", "Europe & Central Asia",
     "Middle East & North Africa","Sub-Saharan Africa","Latin America & Caribbean",
     "East Asia & Pacific","North America"]
 
@@ -138,14 +147,19 @@ function init() {
     .attr("value",d=>d)
     .text(d=>d);
 
-  selectRegion.property("value", ".All");
+  selectRegion.property("value", " All");
 
   draw();
 }
 
 function draw() {
-
-  swarms[0].draw(state,setGlobalState,"#curfew");
+  let poltypes = Object.keys(policies);
+  let divs = Object.values(policies);
+  //console.log("KEYS:",poltypes,"VALUES:",divs);
+  for (var i = 0; i < divs.length; i++) {
+    swarms[i].draw(state,setGlobalState,poltypes[i],divs[i]);
+  }
+  
 
 }
 
@@ -182,7 +196,7 @@ function unpackData(){
 
   let filteredData = state.countrydata;
 
-  if (state.selectedCountry !== ".All") {
+  if (state.selectedCountry !== " All") {
     filteredData = filteredData[state.selectedCountry];
     var days_since_announcement = [];
     var days_since_first_case = [];

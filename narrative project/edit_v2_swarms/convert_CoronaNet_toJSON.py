@@ -156,6 +156,7 @@ for c in list(set(df.country)):
                 
              # add data for each event record   
             covdict[c]["events"][str(date)][record] = {"policy_id" : record_data.policy_id.iloc[0],\
+                            "record_id": record,\
                             "date_start": record_data.date_start.iloc[0],\
                             "date_end": record_data.date_end.iloc[0],\
                             "days_since_first_case": days_since_first_case.days,\

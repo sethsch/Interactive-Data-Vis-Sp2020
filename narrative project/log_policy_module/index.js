@@ -5,6 +5,14 @@ import { LogPlot } from "./log_policy_chart.js";
 
 let policyPlots = [];
 let selectIndex;
+let policies = {"Restrictions of Mass Gatherings":"#gatherings",
+                "Quarantine/Lockdown":"#quarantine",
+                "Closure of Schools": "#schools",
+                "External Border Restrictions":"#ext_border",
+                "Declaration of Emergency": "#emergency",
+                "Curfew":"#curfew",
+                "Social Distancing":"#socialdist",
+                "Internal Border Restrictions":"#int_border"};
 
 let state = {
     casesData: [],
@@ -21,7 +29,7 @@ let state = {
     selectedPolicyTypes: [],
     filteredData: [],
     policyType: "null",
-    selectedIndex: "Transparency Index",
+    selectedIndex: "Social Globalization Index",
     index_vars: {"Perceptions of Corruption Index": "corrupt_Index",
       "Transparency Index": "transparency_Index",
       "State Fragility Index": "fragility_Index",
@@ -82,17 +90,13 @@ state.selectedPolicyTypes = Object.keys(state.logColors);
 
 function init() {
 
-  let policies = Object.keys(state.logColors);
-  for (var i=0; i<policies.length; i++) {
-    state.policyType = policies[i];
-    //console.log("INIT SHIFT",state.policyType);
-    var newPlot = new LogPlot(state,setGlobalState);
-    policyPlots.push(newPlot);
+  let poltypes = Object.keys(policies);
+  let divs = Object.values(policies);
+  console.log("KEYS:",poltypes,"VALUES:",divs);
+  for (var i = 0; i < divs.length; i++) {
+    let newPlot = new LogPlot(state,setGlobalState,poltypes[i],divs[i])
+    policyPlots.push(newPlot)
   }
-  //policyPlot = new LogPlot(state,setGlobalState);
-  //table = new Table(state, setGlobalState);
-  //barchart = new Barchart(state, setGlobalState);
-  //count = new Count(state, setGlobalState);
 
 // 2. Dropdown for various indexes for color scaling
   selectIndex = d3.select("#dropdown").on("change", function() {
@@ -112,17 +116,18 @@ function init() {
     .text(d => d);
 
   // this ensures that the selected value is the same as what we have in state when we initialize the options
-  selectIndex.property("value", "Transparency Index");
+  selectIndex.property("value", "Social Globalization Index");
 
   draw();
 }
 
 function draw() {
 
-  let policies = Object.keys(state.logColors);
-  for (var i=0; i<policyPlots.length; i++) {
-    state.policyType = policies[i];
-    policyPlots[i].draw(state,setGlobalState);
+  let poltypes = Object.keys(policies);
+  let divs = Object.values(policies);
+  //console.log("KEYS:",poltypes,"VALUES:",divs);
+  for (var i = 0; i < divs.length; i++) {
+    policyPlots[i].draw(state,setGlobalState,poltypes[i],divs[i]);
   }
 
   //policyPlot.draw(state,setGlobalState);

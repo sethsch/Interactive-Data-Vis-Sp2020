@@ -1,13 +1,12 @@
 
 class SwarmChart {
 
-    constructor(state,setGlobalState,div_name) {
-      this.width = window.innerWidth * 0.8;
-      this.height = window.innerHeight * 0.4;
-      this.margins = { top: 80, bottom: 40, left: 40, right: 40 };
-      this.yAxis_startx=60;
-      this.yAxis_starty= -this.margins.top +this.margins.bottom/2;
-      this.duration = 3000;
+    constructor(state,setGlobalState,policyType,div_name) {
+      this.width = window.innerWidth * 0.7;
+      this.height = window.innerHeight * 0.35;
+      this.margins = { top: 60, bottom: 40, left: 80, right: 40 };
+      this.yAxis_startx=60+this.margins.left;
+      this.yAxis_starty= -this.margins.top +this.margins.bottom/2.5;
    
       this.svg = d3
         .select(div_name)
@@ -15,7 +14,7 @@ class SwarmChart {
         .attr("width", this.width)
         .attr("height", this.height);
 
-    this.legend_svg = d3.select("#legend")
+    /*this.legend_svg = d3.select("#legend")
         .append("svg")
         .attr("width",this.width/2)
         .attr("height", 100);
@@ -23,7 +22,7 @@ class SwarmChart {
     this.legend_svg
         .append("g")
         .attr("class", "legendQuant")
-        .attr("transform", "translate(0,20)");
+        .attr("transform", "translate(0,20)");*/
 
     this.wrap = function wrap(text, width) {
             text.each(function() {
@@ -52,7 +51,7 @@ class SwarmChart {
 
     }
   
-    draw(state,setGlobalState,div_name) {
+    draw(state,setGlobalState,policyType,div_name) {
       
         
 
@@ -65,10 +64,9 @@ class SwarmChart {
 
         // Add y scale for days since first annoucnement... this is always at 0
         const yScale = d3.scaleBand()
-            .domain([state.policyType])
+            .domain([policyType])
             .range([this.margins.top,this.height-this.margins.bottom])
-            .paddingOuter(0.2)
-            .paddingInner(0.4);
+            .paddingOuter(0.2);
 
         /// add x scale
         const xScale = d3.scaleLinear()
@@ -76,6 +74,11 @@ class SwarmChart {
             .range([ this.margins.left, this.width-this.margins.right]);
 
         // set up a scale to map to the circle sizes, if we want
+        const baseR = 3;
+        const selR = baseR*1.5;
+        const regR = baseR;
+        const unselR = baseR/2;
+
         const circScale = d3.scaleSqrt()
             .domain([d3.min(state.unpackedData,d=>d["population"]),d3.max(state.unpackedData,d=>d["population"])])
             .range([3,6]);
@@ -83,45 +86,69 @@ class SwarmChart {
         const regions_list = ["South Asia", "Europe & Central Asia",
         "Middle East & North Africa","Sub-Saharan Africa","Latin America & Caribbean",
         "East Asia & Pacific","North America"]
-        //EDIT: to create categoriacl color scale for regions
-        const colorScale = d3.scaleOrdinal()
+        const colorScale_Reg = d3.scaleOrdinal()
             .domain(regions_list)
             .range(d3.schemeCategory10);
 
+        // an alternate color scale for an index
+        var indexVals = state.unpackedData.map(d=>d["soc_global_Index"]);
+        var filtered_indexVals = indexVals.filter(function (el) {
+            return el != null;
+            });
+
+        const scheme = d3.interpolateCividis   ;
+        const colorScale_Glob = d3.scaleSequential()
+            .domain([d3.min(filtered_indexVals),d3.max(filtered_indexVals)])
+            .range([scheme(0),scheme(1)]);
+
         // draw the axes for the dot plot
+
         const xAxis_bottom = this.svg.append("g")
-            .attr("class", "x-axis swarm")
-            .attr("transform", `translate(0, ${this.height-this.margins.bottom})`)
-            .call(d3.axisBottom(xScale))
+            .attr("class", "x-axis")
+            .attr("transform", `translate(0, ${this.height-this.margins.bottom-15})`)
+            .call(d3.axisBottom(xScale).ticks(10).tickFormat(function(d) {
+                if (d === 0) {return "first case";}
+                else {return Math.floor((Math.abs(d)+4)/7)+" weeks"; }
+                }
+            ))
             .call(g => g.select(".domain").remove())
-            .call(g => g.selectAll(".tick").select("line").remove());
-
-        /*const xAxis_top = this.svg.append("g")
-            .attr("class", "x-axis swarm")
-            .attr("transform", `translate(0, ${this.margins.top})`)
-            .call(d3.axisTop(xScale))
-            .call(g => g.select(".domain").remove())
-            .call(g => g.selectAll(".tick").select("line").remove());*/
-
-        const xAxis_titleTop = this.svg.append("text")
-            .attr("class","x-axis-title-top")
-            .attr("transform",`translate(${xScale(0)},10)`)
-            .style("font","14px sans-serif")
-            .style("font-weight","bold")
-            .style("font-family","Avenir")
-            .text("Days since 1st case of COVID-19 in country");
-
-
+            .call(g => g.selectAll(".tick").select("line").remove())
+        
+        xAxis_bottom.selectAll('.tick').select("text")
+            .call(function(t){                
+                t.each(function(d){ // for each one
+                  var self = d3.select(this);
+                  var s = self.text().split(' ');  // get the text and split it
+                  self.text(''); // clear it out
+                  self.append("tspan") // insert two tspans
+                    .attr("class","week-number")
+                    .attr("x", 0)
+                    .attr("dy",".8em")
+                    .text(s[0]);
+                  self.append("tspan")
+                    .attr("class","week-text")
+                    .attr("x", 0)
+                    .attr("dy",".8em")
+                    .text(s[1]);
+                })
+            });
+   
         const yAxis = this.svg.append("g")
             .attr("class", "y axis swarm")
             .call(d3.axisLeft(yScale))
-            .attr("transform",`translate(${this.yAxis_startx},${this.yAxis_starty})`)
-            .style("font","14px sans-serif")
-            .style("font-weight","bold")
-            .style("font-family","Avenir")
+            .attr("transform",`translate(${this.margins.left+40},${this.yAxis_starty})`)
             .call(g => g.select(".domain").remove())
-            .selectAll(".tick text")
-            .call(this.wrap, 150)
+            .call(g => g.selectAll(".tick").select("text").remove());
+            //.selectAll(".tick text")
+            //.call(g => g.select(".tick text").remove())
+            //.call(this.wrap, 150)
+
+        const policyText = this.svg.append("text")
+            .attr("class","policy-type-text")
+            .attr("text-anchor","start")
+            .attr("transform",`translate(${xScale(56)},${this.height-this.margins.bottom*1.75})`)
+            .text(policyType)
+
         
         // modify the tick lines appearance
         this.svg.selectAll(".tick line")
@@ -132,12 +159,24 @@ class SwarmChart {
         // days before and after line
         this.svg.append("line")
             .attr("class","pre-post-line")
-            .style("stroke","#595959")
-            .style("stroke-width",4)
             .attr("x1",xScale(0))
             .attr("x2",xScale(0))
-            .attr("y1",this.margins.top)
-            .attr("y2",this.height-this.margins.bottom);
+            .attr("y1",0)
+            .attr("y2",this.height-this.margins.bottom-10);
+
+        const beforeRange = this.svg.append("text")
+            .attr("class","days-text")
+            .attr("x",xScale(-4))
+            .attr("y",this.height-this.margins.bottom-15)
+            .attr("text-anchor","end")
+            .text("before")
+
+        const afterRange = this.svg.append("text")
+            .attr("class","days-text")
+            .attr("x",xScale(4))
+            .attr("y",this.height-this.margins.bottom-15)
+            .text("after");
+
 
         // rects for coloration of pre-post areas
         /*this.svg.append("rect")
@@ -167,7 +206,7 @@ class SwarmChart {
             .style("font-weight","bold")
             .style("font-family","Avenir")
             .attr("text-anchor","end")
-            .text(state.policyType);
+            .text(policyType);
             //.call(wrap, 180);*/
   
 
@@ -186,18 +225,19 @@ class SwarmChart {
   
     
     // plot only the finally filtered data 
-    state.filteredData = state.unpackedData.filter(d=>d.event_type === state.policyType);
-    
+    let filteredData = state.unpackedData.filter(d=>d.event_type === policyType);
+    let middle = (this.height-this.margins.bottom-this.margins.top)/2;
     // set up the force simulation parameters
-    const simulation = d3.forceSimulation(state.filteredData)
-        .force('charge', d3.forceManyBody().strength(0.8).distanceMax(60))
+    const simulation = d3.forceSimulation(filteredData)
+        .force('charge', d3.forceManyBody().strength(-0.5).distanceMax(12).distanceMin(4))
         .force('x', d3.forceX().x(function(d) {
             return xScale(d['days_since_first_case']);
-        }).strength(0.24))
-        .force("y", d3.forceY(this.height/2).y(function(d){
-            return yScale(d["event_type"]);
+        }).strength(0.7))
+        .force("y", d3.forceY(this.height/4).y(function(d){
+            return middle*1.25;
+            //return yScale(d["event_type"]);
         }).strength(0.12))
-        .force('collision', d3.forceCollide().radius(8).strength(0.9));
+        .force('collision', d3.forceCollide().radius(5).strength(0.6));
 
     let swarm = this.svg;   
     // create the dots for policy events
@@ -205,7 +245,7 @@ class SwarmChart {
     .on('tick', function() {
 
         let u = swarm.selectAll('circle')
-        .data(state.filteredData);
+        .data(filteredData);
 
         u.join(enter=>
             enter
@@ -214,8 +254,8 @@ class SwarmChart {
             .attr("id",d=>d.policy_id)
             .attr("country",d=>d.country)
             .attr("region",d=>d.region)
-            .attr('r', 5)
-            .attr('fill',d => colorScale(d.region))
+            .attr('r', baseR)
+            .attr('fill',d => colorScale_Glob(d["soc_global_Index"]))
             .attr('opacity',0.6)
             .call(enter=>
                 enter
@@ -230,83 +270,53 @@ class SwarmChart {
             update =>
             update
             .attr('cx', function(d) {
-                //return xScale(d['days_since_first_case']);
-                return d.x;
+                return xScale(d['days_since_first_case']);
+                //return d.x;
             })
             .attr('cy', function(d) {
                 return d.y;
             })
             .attr('opacity',function(d) {
-                if ( state.selectedRegion !== ".All" && state.selectedCountry !== ".All") {
-                    if (d.region === state.selectedRegion) {return 0.9;}
-                    else if (d.country === state.selectedCountry) {return 0.9;}
+                if ( state.selectedRegion !== " All" && state.selectedCountry !== " All") {
+                    if (d.country === state.selectedCountry) {return 0.9;}
+                    else if (d.region === state.selectedRegion) {return 0.5;}
                     else {return 0.2;}
                 }
-                else if (state.selectedRegion === ".All" && state.selectedCountry !== ".All") {
+                else if (state.selectedRegion === " All" && state.selectedCountry !== " All") {
                     if (d.country === state.selectedCountry) {return 0.9;}
                     else {return 0.2;}
                 }
-                else if (state.selectedRegion !== ".All" && state.selectedCountry === ".All") {
+                else if (state.selectedRegion !== " All" && state.selectedCountry === " All") {
                         if (d.region === state.selectedRegion) {return 0.9;}
                         else {return 0.2;}
                 }
-                else if (state.selectedRegion === ".All" && state.selectedCountry === ".All") {return 0.9;}
+                else if (state.selectedRegion === " All" && state.selectedCountry === " All") {return 0.9;}
             })
             .attr('r',function(d) {
-                if ( state.selectedRegion !== ".All" && state.selectedCountry !== ".All") {
-                    if (d.region === state.selectedRegion) {return 7;}
-                    else if (d.country === state.selectedCountry) {return 7;}
-                    else {return 1.5;}
+                if ( state.selectedRegion !== " All" && state.selectedCountry !== " All") {
+                    if (d.country === state.selectedCountry) {return selR;}
+                    else if (d.region === state.selectedRegion) {return baseR;}
+                    else {return unselR;}
                 }
-                else if (state.selectedRegion === ".All" && state.selectedCountry !== ".All") {
-                    if (d.country === state.selectedCountry) {return 7;}
-                    else {return 1.5;}
+                else if (state.selectedRegion === " All" && state.selectedCountry !== " All") {
+                    if (d.country === state.selectedCountry) {return selR;}
+                    else {return unselR;}
                 }
-                else if (state.selectedRegion !== ".All" && state.selectedCountry === ".All") {
-                        if (d.region === state.selectedRegion) {return 7;}
-                        else {return 1.5;}
+                else if (state.selectedRegion !== " All" && state.selectedCountry === " All") {
+                        if (d.region === state.selectedRegion) {return selR;}
+                        else {return unselR;}
                 }
-                else if (state.selectedRegion === ".All" && state.selectedCountry === ".All") {return 5;}
+                else if (state.selectedRegion === " All" && state.selectedCountry === " All") {return baseR;}
             })
             .call(update=>
                 update
                 .transition()
-                /*.attr('opacity',function(d) {
-                    if ( state.selectedRegion !== ".All" || state.selectedCountry !== ".All") {
-                        if (d.region === state.selectedRegion) {return 0.9;}
-                        if (d.country === state.selectedCountry) {return 0.9;}
-                        else {return 0.2;}
-                    }
-                    else if (state.selectedRegion === ".All" && state.selectedCountry !== ".All") {
-                        if (d.country === state.selectedCountry) {return 0.9;}
-                        else {return 0.2;}
-                    }
-                    else if (state.selectedRegion !== ".All" && state.selectedCountry === ".All") {
-                            if (d.region === state.selectedRegion) {return 0.9;}
-                            else {return 0.2;}
-                    }
-                    else if (state.selectedRegion === ".All" && state.selectedCountry === ".All") {return 0.9;}
-                })
-                .attr('r',function(d) {
-                    if ( state.selectedRegion !== ".All" || state.selectedCountry !== ".All") {
-                        if (d.region === state.selectedRegion) {return 7;}
-                        if (d.country === state.selectedCountry) {return 7;}
-                        else {return 1.5;}
-                    }
-                    else if (state.selectedRegion === ".All" && state.selectedCountry !== ".All") {
-                        if (d.country === state.selectedCountry) {return 7;}
-                        else {return 1.5;}
-                    }
-                    else if (state.selectedRegion !== ".All" && state.selectedCountry === ".All") {
-                            if (d.region === state.selectedRegion) {return 7;}
-                            else {return 1.5;}
-                    }
-                    else if (state.selectedRegion === ".All" && state.selectedCountry === ".All") {return 5;}
-                })*/
+                .duration(650)
             ),
             exit => exit.remove()
         )
         .on("mouseover", function (d) {
+
             var date_end_clean = "Not yet specified";
             if (String(d.date_end) !== "nan-nan-nan"){
                 date_end_clean = d.date_end;
@@ -315,12 +325,18 @@ class SwarmChart {
             if (String(d.compliance) !== "null"){
                 compliance_clean = d.compliance;
             }
+            var days_case = d.days_since_first_case < 0 ? "<b>"+Math.abs(d.days_since_first_case)+"</b> days before first national case" : "<b>"+d.days_since_first_case+"</b> days after first national case"
+            var days_pol = d.days_since_policies_began < 0 ? "<b>"+Math.abs(d.days_since_policies_began)+"</b> days before first national polices began" : "<b>"+d.days_since_policies_began+"</b> days after first national polices began"
+
             var html  =  "<b>" + d.country + "</b><br/>" +
-                        "<b> Days since first case: </b>"+d.days_since_first_case + "<br/>"+
-                        "<b> Days since first policy: </b>"+d.days_since_policies_began + "<br/>"+
+                         //"<b> Policy ID: " + d.policy_id + "</b><br/>" +
+                         //"<b> Record ID: " + d.record_id + "</b><br/>" +
+                        days_case + "<br/>"+
+                        days_pol + "</br>"+
                         "<b> Date start: </b>"+d.date_start + "<b> Date end: </b>" + date_end_clean + "<br/>"+
-                        d.event_description + "<br/>"+ "<b> Compliance: </b>"+compliance_clean +
-                        "<br/><b> Enforcer: </b>"+d.enforcer 
+                        d.event_description + "<br/>"
+                        //+ "<b> Compliance: </b>"+compliance_clean +
+                        //"<br/><b> Enforcer: </b>"+d.enforcer 
         
             tooltip.html(html)
                 .style("left", (d3.event.pageX + 15) + "px")

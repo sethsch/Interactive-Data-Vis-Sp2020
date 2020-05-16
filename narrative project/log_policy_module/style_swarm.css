@@ -26,38 +26,48 @@ body {
 /*Defining axis stylings*/
 
 .x-axis text,  .y-axis text {
-        font-family: 'Avenir', sans-serif;
-      	font-weight: 100;
-        font-size:10px;
-      	opacity:0.8;
-        fill: #778287;
-      }
-
-.y-axis path, .x-axis path {
-        fill: none;
-        stroke-width: 1;
-        stroke-opacity:1;
-        stroke: #778287;
-      }
-
-.x-axis line, .y-axis line {
-        fill: none;
-        stroke-width: 1;
-        stroke-opacity:1;
-        stroke: #778287;
-      }
-.x-axis-title, .y-axis-title {
-  font-size: 11px;
   font-family: 'Avenir', sans-serif;
-  fill: #313131;
-  font-weight: bold;
+  font-weight: 100;
+  font-size:10px;
+  opacity:1;
+  fill: #778287;
 }
 
-.before-after {
-  font-size: 10px;
+.y-axis-title {
   font-family: 'Avenir', sans-serif;
-  fill: #313131;
-  font-weight: bold;
+  font-weight: 200;
+  font-size:11px;
+  opacity:1;
+  fill: #778287;
+}
+
+.y-axis path, .x-axis path {
+  fill: none;
+  stroke-width: 0;
+  stroke-opacity:1;
+  stroke: #778287;
+}
+
+.x-axis line, .y-axis line {
+  fill: none;
+  stroke-width: 0;
+  stroke-opacity:1;
+  stroke: #778287;
+}
+
+.pre-post-line {
+stroke: #939393;
+stroke-width: 2.5;
+}
+.days-text {
+font-size: 12px;
+fill: #939393;
+}
+.week-number {
+font-size: 10px;
+}
+.week-text {
+font-size: 10px;
 }
 
 

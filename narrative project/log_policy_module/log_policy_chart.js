@@ -1,13 +1,13 @@
 class LogPlot {
 
-  constructor(state,setGlobalState) {
-    this.width = window.innerWidth * 0.4;
+  constructor(state,setGlobalState,policyType,div_name) {
+    this.width = window.innerWidth * 0.6;
     this.height = window.innerHeight * 0.4;
     this.margins = { top: 50, bottom: 60, left: 120, right: 40 };
     this.duration = 3000;
  
     this.svg = d3
-      .select("#log_plot")
+      .select(div_name)
       .append("svg")
       .attr("width", this.width)
       .attr("height", this.height);
@@ -15,11 +15,11 @@ class LogPlot {
   }
 
 
-  draw(state,setGlobalState) {
+  draw(state,setGlobalState,policyType,div_name) {
     
 
 
-    const tooltip = d3.select("#log_plot").append("div")
+    const tooltip = d3.select(div_name).append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
@@ -60,13 +60,33 @@ class LogPlot {
     const xAxis = this.svg.append("g")
       .attr("class", "x-axis")
       .attr("transform", `translate(0, ${this.height-this.margins.bottom})`)
-      .call(d3.axisBottom(xScale))
+      .call(d3.axisBottom(xScale).ticks(10).tickFormat(function(d) {
+          if (d === 0) {return "first case";}
+          else {return Math.floor((Math.abs(d)+4)/7)+" weeks"; }
+          }
+      ))
+      .call(g => g.select(".domain").remove())
+      .call(g => g.selectAll(".tick").select("line").remove())
+  
+      xAxis.selectAll('.tick').select("text")
+        .call(function(t){                
+            t.each(function(d){ // for each one
+              var self = d3.select(this);
+              var s = self.text().split(' ');  // get the text and split it
+              self.text(''); // clear it out
+              self.append("tspan") // insert two tspans
+                .attr("class","week-number")
+                .attr("x", 0)
+                .attr("dy",".8em")
+                .text(s[0]);
+              self.append("tspan")
+                .attr("class","week-text")
+                .attr("x", 0)
+                .attr("dy",".8em")
+                .text(s[1]);
+            })
+        });
 
-    //x Axis title
-    this.svg.append("text")
-      .attr("class","x-axis-title")
-      .attr("transform",`translate(${xScale(-22)},${this.height-this.margins.bottom/2})`)
-      .text("Policy start relative to first local case (days)");
 
     // draw the y axis for the plot
     // ticks parameters set up for the log scale
@@ -74,7 +94,7 @@ class LogPlot {
     const yAxis = this.svg.append("g")
       .attr("class", "y-axis")
       .attr("transform", `translate(${this.margins.left}, 0)`)
-      .call(d3.axisLeft(yScale).ticks(6,",d").tickSize(1,0))
+      .call(d3.axisLeft(yScale).ticks(5,",d").tickSize(1,0))
 
     // add the y axis title
     this.svg.append("text")
@@ -84,12 +104,12 @@ class LogPlot {
 
     function make_y_gridlines() {
         return d3.axisLeft(yScale)
-          .ticks(6)
+          .ticks(5)
       };
 
     //add gridlines
     this.svg.append("g")
-      .data(yScale.ticks(6))
+      .data(yScale.ticks(5))
       .attr("class","grid")
       .attr("transform", `translate(${this.margins.left}, 0)`)
       .style("stroke-dasharray",("5,0"))
@@ -110,33 +130,19 @@ class LogPlot {
 
       // add before and after text instead of axis title
       // move this styling into CSS
-    this.svg.append("text")
-        .attr("class","before-after")
-        .attr("transform",`translate(${xScale(-8)},${this.height-this.margins.bottom-2})`)
-        .text("Before");
+      const beforeRange = this.svg.append("text")
+        .attr("class","days-text")
+        .attr("x",xScale(-4))
+        .attr("y",this.height-this.margins.bottom-15)
+        .attr("text-anchor","end")
+        .text("before")
 
-    this.svg.append("text")
-        .attr("class","before-after")
-        .attr("transform",`translate(${xScale(2)},${this.height-this.margins.bottom-2})`)
-        .text("After");
+    const afterRange = this.svg.append("text")
+        .attr("class","days-text")
+        .attr("x",xScale(4))
+        .attr("y",this.height-this.margins.bottom-15)
+        .text("after");
 
-    
-    // a rectangle with updated number
-    /*const casesTicker =  this.svg.append("text")
-      .attr("class","cases-ticker")
-      .attr("transform",`translate(${xScale(80)},${yScale(100)})`)
-
-    casesTicker.transition()
-      .ease(d3.easeLinear)
-      .duration(this.duration)
-      .tween("text", function(d) {
-        var that = this;
-        // EDIT: change the range here to be consistent with YScale domain
-        var i = d3.interpolate(0, 3500000);  // Number(d.percentage.slice(0, -1))
-        return function(t) {
-            d3.select(that).text(format(i(t))+" cases");
-        };
-      })*/
 
     const wrap = function wrap(text, width) {
         text.each(function() {
@@ -165,20 +171,20 @@ class LogPlot {
     
     const policyText = this.svg.append("text")
       .attr("class","policy-title")
-      .attr("transform",`translate(${xScale(xScale.domain()[1])},${this.margins.top-5})`)
+      .attr("transform",`translate(${xScale(xScale.domain()[1])},${yScale(200)})`)
       .style("font","16px sans-serif")
       .style("font-weight","bold")
       .style("font-family","Avenir")
       .attr("text-anchor","end")
-      .text(state.policyType);
+      .text(policyType);
       //.call(wrap, 180);
 
-    state.filteredData = state.unpackedData.filter(d=>d.event_type === state.policyType);
+    let filteredData = state.unpackedData.filter(d=>d.event_type === policyType);
     // add the dots to the plot
 
     const dots = this.svg
         .selectAll(".event")
-        .data(state.filteredData)
+        .data(filteredData)
         .join(enter =>
           enter
             .append("circle")
@@ -235,12 +241,18 @@ class LogPlot {
         if (String(d.compliance) !== "null"){
             compliance_clean = d.compliance;
         }
+        var days_case = d.days_since_first_case < 0 ? "<b>"+Math.abs(d.days_since_first_case)+"</b> days before first national case" : "<b>"+d.days_since_first_case+"</b> days after first national case"
+        var days_pol = d.days_since_policies_began < 0 ? "<b>"+Math.abs(d.days_since_policies_began)+"</b> days before first national polices began" : "<b>"+d.days_since_policies_began+"</b> days after first national polices began"
+
         var html  =  "<b>" + d.country + "</b><br/>" +
-                    "<b> Days since first case: </b>"+d.days_since_first_case + "<br/>"+
-                    "<b> Days since first policy: </b>"+d.days_since_policies_began + "<br/>"+
+                     //"<b> Policy ID: " + d.policy_id + "</b><br/>" +
+                     //"<b> Record ID: " + d.record_id + "</b><br/>" +
+                    days_case + "<br/>"+
+                    days_pol + "</br>"+
                     "<b> Date start: </b>"+d.date_start + "<b> Date end: </b>" + date_end_clean + "<br/>"+
-                    d.event_description + "<br/>"+ "<b> Compliance: </b>"+compliance_clean +
-                    "<br/><b> Enforcer: </b>"+d.enforcer 
+                    d.event_description + "<br/>"
+                    //+ "<b> Compliance: </b>"+compliance_clean +
+                    //"<br/><b> Enforcer: </b>"+d.enforcer 
     
         tooltip.html(html)
             .style("left", (d3.event.pageX + 15) + "px")
@@ -255,65 +267,6 @@ class LogPlot {
         .duration(300) // ms
         .style("opacity", 0); // don't care about position!
       });    
-
-  /*const zoom = d3.zoom()
-      .scaleExtent([0.5, 32])
-      .on("zoom", zoomed);
-
-  const svgView = d3.create("svg")
-      .attr("viewBox", [0, 0, this.width, this.height]);
-
-  const gGrid = this.svg.append("g");
-
-  let k = 0.6872;
-  const grid = (g, x, y) => g
-  .attr("stroke", "currentColor")
-  .attr("stroke-opacity", 0.1)
-  .call(g => g
-    .selectAll(".x")
-    .data(x.ticks(6))
-    .join(
-      enter => enter.append("line").attr("class", "x").attr("y2", this.height),
-      update => update,
-      exit => exit.remove()
-    )
-      .attr("x1", d => 0.5 + x(d.val))
-      .attr("x2", d => 0.5 + x(d.val)))
-  .call(g => g
-    .selectAll(".y")
-    .data(y.ticks(6 * k))
-    .join(
-      enter => enter.append("line").attr("class", "y").attr("x2", this.width),
-      update => update,
-      exit => exit.remove()
-    )
-      .attr("y1", d => 0.5 + y(d.val))
-      .attr("y2", d => 0.5 + y(d.val)));
-
-
-
-  const gDot = this.svg.append("g")
-      .attr("fill", "none")
-      .attr("stroke-linecap", "round");
-
-
-  const gx = this.svg.append("g");
-
-  const gy = this.svg.append("g");
-
-  this.svg.call(zoom).call(zoom.transform, d3.zoomIdentity);
-
-  function zoomed() {
-    const transform = d3.event.transform;
-    const zx = transform.rescaleX(xScale).interpolate(d3.interpolateRound);
-    const zy = transform.rescaleY(yScale).interpolate(d3.interpolateRound);
-    dots.attr("transform", transform).attr("r", 5 / transform.k);
-    gx.call(xAxis, zx);
-    gy.call(yAxis, zy);
-    gGrid.call(grid, zx, zy);
-  }*/
-
-
 
   }
 } ;

@@ -4,3 +4,24 @@
 // animation in -- bubble size
 
 // add color update pattern for dots on index change
+
+// find the EDIT notes in teh code and revamp where needed
+
+
+One globalization index (story of globalization fo signals, describe an index, describe trump’s theory of being proven right, everyone thinks this process proves them right in a way (but ofc trump is a liar))
+Regions/country dropdown to highlight and dampen cir les
+
+—>find the policy timelines where South Korea and Singapore are way different from U.S. to start with
+
+How do signals get processed geopolitically?
+
+—> how do our conceptions of government efficacy have to do with a governments’ ability to respond to issues affecting a populace or its economy?  This is central to contemporary “debate” around the virtues and vices of nationalism and globalism, and these discourses themselves tie into the credibility of expertise around the world
+
+Beeswarm shows differences in regional activity, where most regions being hit is another encoding of time
+
+—> having just one index as the color scale allows for within-region differences to show up (discuss)
+
+Show some different policies and make the text grabbed from the events themselves, question what it means for the later data to get collected, when we can have re-opening etc.
+
+Show the log plot to suggest that the “global signal” of the outbreak being a pandemic is relevant,
+Show the differences between highly proactive policies and less so (take median, discuss that we’re featuring “new entries” rather than the updates) — 
