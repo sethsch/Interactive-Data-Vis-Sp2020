@@ -285,7 +285,7 @@ class SwarmChart {
             .attr('r', baseR)
             //.attr("r-access",baseR)
             //.attr('fill',d => colorScale_Glob(d["soc_global_Index"]))
-            .attr("fill",d=>colorScale_Reg(d.natl_cases_total))
+            .attr("fill",d=>colorScale_Reg(Math.log10(d.natl_cases_total)))
             .attr('opacity',0.6)
             .call(enter=>
                 enter
