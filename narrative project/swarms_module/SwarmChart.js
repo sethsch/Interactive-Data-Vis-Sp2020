@@ -14,12 +14,12 @@ class SwarmChart {
         .attr("width", this.width)
         .attr("height", this.height);
 
-    /*this.legend_svg = d3.select("#legend")
+    /*this.legend_area = this.svg.select("#legend_1")
         .append("svg")
-        .attr("width",this.width/2)
-        .attr("height", 100);
+        .attr("width",this.width)
+        .attr("height", 120);
 
-    this.legend_svg
+    this.legend_area
         .append("g")
         .attr("class", "legendQuant")
         .attr("transform", "translate(0,20)");*/
@@ -74,32 +74,53 @@ class SwarmChart {
             .range([ this.margins.left, this.width-this.margins.right]);
 
         // set up a scale to map to the circle sizes, if we want
-        const baseR = 3;
+        const baseR = 5;
         const selR = baseR*1.5;
         const regR = baseR;
         const unselR = baseR/2;
 
-        const circScale = d3.scaleSqrt()
+        /*const circScale = d3.scaleSqrt()
             .domain([d3.min(state.unpackedData,d=>d["population"]),d3.max(state.unpackedData,d=>d["population"])])
-            .range([3,6]);
+            .range([3,6]);*/
 
         const regions_list = ["South Asia", "Europe & Central Asia",
         "Middle East & North Africa","Sub-Saharan Africa","Latin America & Caribbean",
         "East Asia & Pacific","North America"]
-        const colorScale_Reg = d3.scaleOrdinal()
-            .domain(regions_list)
-            .range(d3.schemeCategory10);
 
-        // an alternate color scale for an index
+        //const scheme = d3.schemeRdGy;
+        // trying an alternate, where this is populated by national deaths, US current max at 1.5M
+        let natl_cases = Object.values(state.unpackedData.map(d=>d.natl_cases_total));
+        function onlyUnique(value, index, self) { 
+            return self.indexOf(value) === index;
+        }
+        // color scheme setup
+        var unique = natl_cases.filter( onlyUnique ).sort(d3.ascending); // returns ['a', 1, 2, '1']
+        //console.log("uniquedta",unique);
+        let normalized = []
+        for (var i = 0; i<natl_cases.length; i++){
+            let x = natl_cases[i]
+            if (x === 0) {normalized.push(Math.log10(1));}
+            else if (x === null) {normalized.push(Math.log10(1));}
+            else {normalized.push(Math.log10(x))};
+        }
+        const colorsRdGy = ['#b2182b','#ef8a62','#fddbc7','#e0e0e0','#999999','#4d4d4d']
+        const colorsRdBu = ['#67001f','#b2182b','#d6604d','#f4a582','#f7f7f7','#d1e5f0','#92c5de','#4393c3','#2166ac','#053061']
+        //console.log("NATIONAL CASES ARRAY",normalized);
+        const colorScale_Reg = d3.scaleQuantile()
+            .domain(normalized)
+            .range(colorsRdGy.reverse());
+
+
+        
+        /*// an alternate color scale for an index
         var indexVals = state.unpackedData.map(d=>d["soc_global_Index"]);
         var filtered_indexVals = indexVals.filter(function (el) {
             return el != null;
             });
 
-        const scheme = d3.interpolateCividis   ;
         const colorScale_Glob = d3.scaleSequential()
             .domain([d3.min(filtered_indexVals),d3.max(filtered_indexVals)])
-            .range([scheme(0),scheme(1)]);
+            .range([scheme(0),scheme(1)]);*/
 
         // draw the axes for the dot plot
 
@@ -107,7 +128,7 @@ class SwarmChart {
             .attr("class", "x-axis")
             .attr("transform", `translate(0, ${this.height-this.margins.bottom-15})`)
             .call(d3.axisBottom(xScale).ticks(10).tickFormat(function(d) {
-                if (d === 0) {return "first case";}
+                if (d === 0) {return "first national case";}
                 else {return Math.floor((Math.abs(d)+4)/7)+" weeks"; }
                 }
             ))
@@ -125,11 +146,16 @@ class SwarmChart {
                     .attr("x", 0)
                     .attr("dy",".8em")
                     .text(s[0]);
+                self.append("tspan") // insert two tspans
+                    .attr("class","week-number")
+                    .attr("x", 0)
+                    .attr("dy",".8em")
+                    .text(s[1]);
                   self.append("tspan")
                     .attr("class","week-text")
                     .attr("x", 0)
                     .attr("dy",".8em")
-                    .text(s[1]);
+                    .text(s[2]);
                 })
             });
    
@@ -146,7 +172,7 @@ class SwarmChart {
         const policyText = this.svg.append("text")
             .attr("class","policy-type-text")
             .attr("text-anchor","start")
-            .attr("transform",`translate(${xScale(56)},${this.height-this.margins.bottom*1.75})`)
+            .attr("transform",`translate(${xScale(-100)},${this.margins.top-15})`)
             .text(policyType)
 
         
@@ -211,16 +237,17 @@ class SwarmChart {
   
 
     // add the legend
+
     /*const legend = d3.legendColor()
             .labelFormat(d3.format(",.0f")) // EDIT
-            //.useClass(true)
-            .title("This placeholder text will eventually access a description of the index")
-            .titleWidth(this.width/3)
-            .shapeWidth(this.width/16)
-            .scale(colorScale)
+            .useClass(true)
+            .title("Red = many natl cases @ policy; Black = few")
+            .titleWidth(this.width/4)
+            .shapeWidth(this.width/8)
+            .scale(colorScale_Reg)
             .orient("horizontal");
 
-    this.legend_svg.select(".legendQuant")
+    this.legend_area.select(".legendQuant")
             .call(legend);*/
   
     
@@ -257,7 +284,8 @@ class SwarmChart {
             .attr("policyStart",d=>d.date_start)
             .attr('r', baseR)
             //.attr("r-access",baseR)
-            .attr('fill',d => colorScale_Glob(d["soc_global_Index"]))
+            //.attr('fill',d => colorScale_Glob(d["soc_global_Index"]))
+            .attr("fill",d=>colorScale_Reg(d.natl_cases_total))
             .attr('opacity',0.6)
             .call(enter=>
                 enter
@@ -279,6 +307,7 @@ class SwarmChart {
                 return d.y;
             })
             .attr('opacity',function(d) {
+                if (!state.selectedPolicies.includes(d.policy_id)) {return 0.2;}
                 if ( state.selectedRegion !== " All" && state.selectedCountry !== " All") {
                     if (d.country === state.selectedCountry) {return 0.9;}
                     else if (d.region === state.selectedRegion) {return 0.5;}
@@ -295,7 +324,7 @@ class SwarmChart {
                 else if (state.selectedRegion === " All" && state.selectedCountry === " All") {return 0.9;}
             })
             .attr('r',function(d) {
-                if (!state.selectedPolicies.includes(d.policy_id)) {return 0.2;}
+                if (!state.selectedPolicies.includes(d.policy_id)) {return 1.75;}
                 else if ( state.selectedRegion !== " All" && state.selectedCountry !== " All") {
                     if (d.country === state.selectedCountry) {return selR;}
                     else if (d.region === state.selectedRegion) {return baseR;}
@@ -324,6 +353,7 @@ class SwarmChart {
             // since we're doing a lot with the radius already, we can show its size bigger like this
             // because otherwise the constant simulation update messes with the hover
             var fillC = d3.select(this).attr("fill")
+            //var fillC = "#e3c96b"
             d3.select(this)
                 .attr("stroke", fillC)
                 .attr('stroke-width', 4)

@@ -5,14 +5,24 @@ import { SwarmChart } from "./SwarmChart.js";
 
 let swarms = [];
 let selectIndex;
-let policies = {"Restrictions of Mass Gatherings":"#gatherings",
-                "Quarantine/Lockdown":"#quarantine",
-                "Closure of Schools": "#schools",
-                "External Border Restrictions":"#ext_border",
-                "Declaration of Emergency": "#emergency",
-                "Curfew":"#curfew",
-                "Social Distancing":"#socialdist",
-                "Internal Border Restrictions":"#int_border"};
+let policies = {'Health Monitoring': '#health_monitor',
+                'Public Awareness Measures': '#public_aw',
+                'Other Policy Not Listed Above': '#other_pol',
+                'Health Resources': '#health_rsrc',
+                'New Task Force, Bureau or Administrative Configuration': '#task_fc',
+                'External Border Restrictions': '#ext_border',
+                'Internal Border Restrictions': '#int_border',
+                'Restrictions of Mass Gatherings': '#mass_gath',
+                'Restriction of Non-Essential Government Services': '#gov_serv',
+                'Declaration of Emergency': '#emergency',
+                'Closure of Schools': '#schools',
+                'Restriction of Non-Essential Businesses': '#business',
+                'Health Testing': '#health_test',
+                'Social Distancing': '#soc_dist',
+                'Quarantine/Lockdown': '#lockdown',
+                'Curfew': '#curfew',
+                'Hygiene': '#hygeine',
+                'Anti-Disinformation Measures': '#disinfo'};
 
 let state = {
     casesData: [],
@@ -58,7 +68,7 @@ let nextState = {}
 Promise.all([
     //d3.csv("./total-deaths-and-cases-covid-19.csv",d3.autoType),
     d3.csv("./full_data_OWIDMay16.csv",d3.autoType),
-    d3.json("./ALL_countries_covid_May15.json", d3.autotype),
+    d3.json("./ALL_countries_covid_May16.json", d3.autotype),
   ]).then(([casesData,countrydata]) => {
     state.casesData = casesData;
     // this step is redundant.. I can just unpack the data 
@@ -118,14 +128,20 @@ function init() {
   var sliderRange = d3
     .sliderBottom()
     .min(Math.log10(100))
-    .max(Math.log10(1000000))
-    .width(400)
+    .max(Math.log10(5000000))
+    .width(800)
     .tickFormat((d,i) => {
-      return sliderFormat(Math.pow(10,d));
+      if (Math.pow(10,d) === 1000000) {return "1M";}
+      else if (Math.pow(10,d) > 1000000 && Math.pow(10,d) < 5000000) {return " ";}
+      else if (Math.pow(10,d) === 5000000) {return "5M"}
+      else if (Math.pow(10,d)=== 100) {return " ";}
+      else if (Math.pow(10,d) === 1000) {return ">1000";}
+      else {return sliderFormat(Math.pow(10,d));}
     })
-    .ticks(8)
-    .default([Math.log10(100), Math.log10(1000000)])
-    .fill('#2196f3')
+    //.ticks(8)
+    .tickValues([2,3,4,5,5.39,5.699,6,6.4,6.7])
+    .default([Math.log10(100), Math.log10(5000000)])
+    .fill('#0e0e0e')
     .on('onchange', val => {
       //d3.select('p#value-range').text(val.map(d3.format("s")).join('-'));
       filterPolicies(val)
@@ -133,9 +149,10 @@ function init() {
     });
 
   var gRange = d3
-    .select('div#slider-range')
+    .selectAll("#slider-range")
+    //.select('div#slider-range')
     .append('svg')
-    .attr('width', 500)
+    .attr('width', 900)
     .attr('height', 100)
     .append('g')
     .attr('transform', 'translate(30,30)');
@@ -150,7 +167,7 @@ function init() {
   );*/
 
   // 1. dropdown for countries
-    let selectCountries = d3.select("#countries_dropdown").on("change", function() {
+    let selectCountries = d3.selectAll("#countries_dropdown").on("change", function() {
         console.log("new selected country is:",this.value);
         nextState.selectedCountry = this.value;
         setGlobalState(nextState);
@@ -170,7 +187,7 @@ function init() {
     selectCountries.property("value", " All");
 
   // 2. dropdown for regions
-    let selectRegion = d3.select("#region_dropdown").on("change", function() {
+    let selectRegion = d3.selectAll("#region_dropdown").on("change", function() {
       console.log("new selected region is:",this.value);
       nextState.selectedRegion = this.value;
       nextState.selectedCountry = " All";

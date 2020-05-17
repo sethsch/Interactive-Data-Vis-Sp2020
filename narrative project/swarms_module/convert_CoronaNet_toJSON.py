@@ -138,76 +138,80 @@ for c in list(set(df.country)):
         day_data = d[d.date_announced == date]
         covdict[c]["events"][str(date)] = dict()
         # should this happen by record or by policy?
-        for record in list(set(day_data.record_id)):
-            record_data = day_data[day_data.record_id == record]
+        for policy in list(set(day_data.policy_id)):
+            policy_data = day_data[day_data.policy_id == policy]
             
             if first_case_date == "No confirmed cases":
                 days_since_first_case = "null" 
             else:
-                days_since_first_case = pd.Timestamp(record_data.date_announced.iloc[0]) - pd.Timestamp(first_case_date)
+                days_since_first_case = pd.Timestamp(policy_data.date_announced.iloc[0]) - pd.Timestamp(first_case_date)
             if first_policystart == "No policy start data":
                 days_since_policies_began = "null"
             else:
-                days_since_policies_began = pd.Timestamp(record_data.date_announced.iloc[0]) - pd.Timestamp(first_policystart)
+                days_since_policies_began = pd.Timestamp(policy_data.date_announced.iloc[0]) - pd.Timestamp(first_policystart)
             if first_announcement == "No policy announcements data":
                 days_since_first_announcement = "null"
             else:
-                days_since_first_announcement = pd.Timestamp(record_data.date_announced.iloc[0]) - pd.Timestamp(first_announcement)
+                days_since_first_announcement = pd.Timestamp(policy_data.date_announced.iloc[0]) - pd.Timestamp(first_announcement)
                 
-             # add data for each event record   
-            covdict[c]["events"][str(date)][record] = {"policy_id" : record_data.policy_id.iloc[0],\
-                            "date_start": record_data.date_start.iloc[0],\
-                            "date_end": record_data.date_end.iloc[0],\
+             # add data for each event policy   
+            covdict[c]["events"][str(date)][policy] = {"policy_id" : policy,\
+                            "record_id": policy_data.record_id.iloc[0],\
+                            "date_start": policy_data.date_start.iloc[0],\
+                            "date_end": policy_data.date_end.iloc[0],\
                             "days_since_first_case": days_since_first_case.days,\
                             "days_since_first_announcement": days_since_first_announcement.days,\
                             "days_since_policies_began": days_since_policies_began.days,\
-                            "event_description" : record_data.event_description.iloc[0],\
-                            "event_type": record_data.type.iloc[0],\
+                            "event_description" : policy_data.event_description.iloc[0],\
+                            "event_type": policy_data.type.iloc[0],\
                             "country": c,\
                             "region": reg_lookup[c],\
+                            "natl_cases_total": policy_data.confirmed_cases.iloc[0],\
+                            "natl_deaths_total": policy_data.deaths.iloc[0],\
+                            "natl_recovered": policy_data.recovered.iloc[0],\
                             #"iso_a3":iso_a3,\
                                 
                             ## note that there are several subcats for a single policy...    
-                            #"event_type_subcat" : list(record_data.type_sub_cat),\
-                            "entry_type": record_data.entry_type.iloc[0],\
-                            #"index_high_est": record_data.index_high_est.iloc[0],\
-                            #"index_med_est": record_data.index_med_est.iloc[0],\
-                            #"index_low_est": record_data.index_low_est.iloc[0],\
-                            #"index_country_rank": record_data.index_country_rank.iloc[0],\
-                            "domestic_policy": record_data.domestic_policy.iloc[0],\
-                            #"province": record_data.province.iloc[0],\
-                            #"city": record_data.city.iloc[0],\
-                            #"target_country": record_data.target_country.iloc[0],\
-                            #"target_geog_level": record_data.target_geog_level.iloc[0],\
-                            #"target_region": record_data.target_region.iloc[0],\
-                            #"target_province": record_data.target_province.iloc[0],\
-                            #"target_city": record_data.target_city.iloc[0],\
-                            #"target_other": record_data.target_other.iloc[0],\
-                            #"target_who_what": record_data.target_who_what.iloc[0],\
-                            #"target_direction": record_data.target_direction.iloc[0],\
-                            #"travel_mechanism": record_data.travel_mechanism.iloc[0],\
-                            "compliance": record_data.compliance.iloc[0],\
-                            "enforcer": record_data.enforcer.iloc[0],\
-                            "GDP_percap": record_data.gdppc_WDI_PW.iloc[0],\
-                            "population": record_data.pop_WDI_PW.iloc[0],\
-                            "corrupt_Index": record_data.ti_cpi_TI.iloc[0],\
-                            "transparency_Index": record_data.transparencyindex_HR.iloc[0],\
-                            "humanrights_Index": record_data.latentmean_FA.iloc[0],\
-                            "fragility_Index": record_data.sfi_SFI.iloc[0],\
-                            "eco_global_Index": record_data.eco_glob_KOF.iloc[0],\
-                            "soc_global_Index": record_data.soc_glob_KOF.iloc[0],\
-                            "far_right_voters": record_data.FarRight_IO.iloc[0],\
-                            "poli_global_Index": record_data.poli_glob_KOF.iloc[0],\
-                            "overall_global_Index": record_data.overallGlob_index_KOF.iloc[0],\
-                            "polyarchy_dem_Index": record_data.v2x_polyarchy_VDEM.iloc[0],\
-                            "contraining_Index": record_data.constraining_IDC.iloc[0],\
-                            "dispersive_Index": record_data.dispersive_IDC.iloc[0],\
-                            "inclusive_Index": record_data.inclusive_IDC.iloc[0],\
-                            "free_press_rank": record_data.Rank_FP.iloc[0],\
-                            "news_wb": record_data.news_WB.iloc[0],\
-                            "ext_labor_openness": record_data.ExternalLaborOpenness_IO.iloc[0],\
-                            "state_Index": record_data.state_IDC.iloc[0],\
-                            "municpal_Index": record_data.muni_IDC.iloc[0]
+                            #"event_type_subcat" : list(policy_data.type_sub_cat),\
+                            "entry_type": policy_data.entry_type.iloc[0],\
+                            #"index_high_est": policy_data.index_high_est.iloc[0],\
+                            #"index_med_est": policy_data.index_med_est.iloc[0],\
+                            #"index_low_est": policy_data.index_low_est.iloc[0],\
+                            #"index_country_rank": policy_data.index_country_rank.iloc[0],\
+                            "domestic_policy": policy_data.domestic_policy.iloc[0],\
+                            #"province": policy_data.province.iloc[0],\
+                            #"city": policy_data.city.iloc[0],\
+                            #"target_country": policy_data.target_country.iloc[0],\
+                            #"target_geog_level": policy_data.target_geog_level.iloc[0],\
+                            #"target_region": policy_data.target_region.iloc[0],\
+                            #"target_province": policy_data.target_province.iloc[0],\
+                            #"target_city": policy_data.target_city.iloc[0],\
+                            #"target_other": policy_data.target_other.iloc[0],\
+                            #"target_who_what": policy_data.target_who_what.iloc[0],\
+                            #"target_direction": policy_data.target_direction.iloc[0],\
+                            #"travel_mechanism": policy_data.travel_mechanism.iloc[0],\
+                            "compliance": policy_data.compliance.iloc[0],\
+                            "enforcer": policy_data.enforcer.iloc[0],\
+                            "GDP_percap": policy_data.gdppc_WDI_PW.iloc[0],\
+                            "population": policy_data.pop_WDI_PW.iloc[0],\
+                            #"corrupt_Index": policy_data.ti_cpi_TI.iloc[0],\
+                            #"transparency_Index": policy_data.transparencyindex_HR.iloc[0],\
+                            #"humanrights_Index": policy_data.latentmean_FA.iloc[0],\
+                            #"fragility_Index": policy_data.sfi_SFI.iloc[0],\
+                            "eco_global_Index": policy_data.eco_glob_KOF.iloc[0],\
+                            "soc_global_Index": policy_data.soc_glob_KOF.iloc[0]
+                            #"far_right_voters": policy_data.FarRight_IO.iloc[0],\
+                            #"poli_global_Index": policy_data.poli_glob_KOF.iloc[0],\
+                            #"overall_global_Index": policy_data.overallGlob_index_KOF.iloc[0],\
+                            #"polyarchy_dem_Index": policy_data.v2x_polyarchy_VDEM.iloc[0],\
+                            #"contraining_Index": policy_data.constraining_IDC.iloc[0],\
+                            #"dispersive_Index": policy_data.dispersive_IDC.iloc[0],\
+                            #"inclusive_Index": policy_data.inclusive_IDC.iloc[0],\
+                            #"free_press_rank": policy_data.Rank_FP.iloc[0],\
+                            #"news_wb": policy_data.news_WB.iloc[0],\
+                            #"ext_labor_openness": policy_data.ExternalLaborOpenness_IO.iloc[0],\
+                            #"state_Index": policy_data.state_IDC.iloc[0],\
+                            #"municpal_Index": policy_data.muni_IDC.iloc[0]
                             }
                                     
             
@@ -223,7 +227,7 @@ def myconverter(o):
 
 
 import simplejson as json
-with open('ALL_countries_covid_May13.json', 'w') as fp:
+with open('ALL_countries_covid_May16.json', 'w') as fp:
     json.dump(covdict, fp, default=myconverter,ignore_nan=True)
     
 # still requires manual find/replace for 00:00:00 in timestamp from keys

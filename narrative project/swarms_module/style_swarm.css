@@ -8,25 +8,20 @@ Titillium Web
 #h1 {
   font-size: 50px;
   margin: 100px 100px 100px 100px;
-  font-family: 'Baskerville', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: 400;
-  font-variant: small-caps slashed-zero;
-  color: #f206d3;
   }
   
 #h2 {
   font-size: 20px;
   margin: 0px 0px 0px 0px;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: 400;
-  font-variant: small-caps slashed-zero;
-  color: #478adb;
   }
   
 #link {
-	font-family: 'Bebas Neue', sans-serif;
+	font-family: Montserrat, sans-serif;
   font-size: 6px;
-  font-variant: small-caps slashed-zero;
 	margin: 8px 10px 2px 4px;
   color: #778287;
 }
@@ -38,14 +33,14 @@ a:link, a:visited, a:active {
 }
   
 body {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: Montserrat, sans-serif;
   background-color:white;
 }
           
 /*Defining axis stylings*/
 
 .x-axis text,  .y-axis text {
-        font-family: 'Bebas Neue', sans-serif;
+        font-family: Montserrat, sans-serif;
       	font-weight: 200;
         font-size:10px;
       	opacity:1;
@@ -83,7 +78,7 @@ body {
   fill: #414141;
 }
 .policy-type-text {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 16px;
   font-weight: bold;
 
@@ -100,6 +95,9 @@ body {
   font-size: 12px;
 }
 
+.slider {
+  fill: #0e0e0e
+}
 .tooltip {
   position: absolute;
   font-size: 12px;
