@@ -374,7 +374,13 @@ class SwarmChart {
                     //+ "<b> Compliance: </b>"+compliance_clean +
                     //"<br/><b> Enforcer: </b>"+d.enforcer 
         
+            var coordinates= d3.mouse(this);
+            var x = coordinates[0];
+            var y = coordinates[1];        
+            
             tooltip.html(html)
+                //.style("left", (x + 15) + "px")
+                //.style("top", (y - 28) + "px")
                 .style("left", (d3.event.pageX + 15) + "px")
                 .style("top", (d3.event.pageY - 28) + "px")
               .transition()
