@@ -16,9 +16,11 @@ let policies = {"Restrictions of Mass Gatherings":"#gatherings",
 
 let state = {
     casesData: [],
+    allCountryCases: [],
     casesLookup: {},
     lookupdates: [],
-    parser: null,
+    timeFormat: d3.timeFormat("%Y-%m-%d"),
+    timeParser: d3.timeParse("%Y-%-m-%-d"),
     currentCases: 0,
     countrydata: [],
     unpackedData: [],
@@ -27,7 +29,7 @@ let state = {
     days_since_first_case: [],
     selectedCountry: " All",
     selectedRegion: " All",
-    selectedPolicyTypes: [],
+    selectedPolicies: [],
     filteredData: [],
     policyType: "null",
     selectedIndex: "Transparency Index",
@@ -54,7 +56,8 @@ let nextState = {}
 
 // DATA IMPORT
 Promise.all([
-    d3.csv("./total-deaths-and-cases-covid-19.csv",d3.autoType),
+    //d3.csv("./total-deaths-and-cases-covid-19.csv",d3.autoType),
+    d3.csv("./full_data_OWIDMay16.csv",d3.autoType),
     d3.json("./ALL_countries_covid_May15.json", d3.autotype),
   ]).then(([casesData,countrydata]) => {
     state.casesData = casesData;
@@ -104,6 +107,47 @@ function init() {
     //state.policyType = "Curfew";
     //var newPlot = new SwarmChart(state,setGlobalState,"#curfew");
     //swarms.push(newPlot);
+
+  // slider and radio buttons to view the global cases signal
+
+  let logScale = d3.scaleLog().domain([10, 5000000])
+  let logFormat10 = logScale.tickFormat(5)
+  let sliderFormat = d3.format(".2s");
+  
+
+  var sliderRange = d3
+    .sliderBottom()
+    .min(Math.log10(100))
+    .max(Math.log10(1000000))
+    .width(400)
+    .tickFormat((d,i) => {
+      return sliderFormat(Math.pow(10,d));
+    })
+    .ticks(8)
+    .default([Math.log10(100), Math.log10(1000000)])
+    .fill('#2196f3')
+    .on('onchange', val => {
+      //d3.select('p#value-range').text(val.map(d3.format("s")).join('-'));
+      filterPolicies(val)
+      console.log(val);
+    });
+
+  var gRange = d3
+    .select('div#slider-range')
+    .append('svg')
+    .attr('width', 500)
+    .attr('height', 100)
+    .append('g')
+    .attr('transform', 'translate(30,30)');
+
+  gRange.call(sliderRange);
+
+  /*d3.select('p#value-range').text(
+    sliderRange
+      .value()
+      .map(d3.format("s"))
+      .join('-')
+  );*/
 
   // 1. dropdown for countries
     let selectCountries = d3.select("#countries_dropdown").on("change", function() {
@@ -171,23 +215,30 @@ function setGlobalState(nextState) {
 }
 // Creates a lookup table for global cases
 function createWorldCasesLookup(){
-    state.casesData = state.casesData.filter(d=>d.Entity === "World");
-    //console.log("CASES WORLD",state.casesData);
-  
-    var parser = d3.timeParse("%d-%b-%y");
-  
-    //date format needs to be "2020-2-24" to match policy data
-    for(var i = 0; i < state.casesData.length; i++){
-      // obj = Object
-      var key = parser(state.casesData[i]["Date"]);
-      var cases = state.casesData[i]["Total confirmed cases (cases)"];
-      let deaths =state.casesData[i]["Total confirmed deaths (deaths)"];
-      if (deaths === null) {deaths = 0;};
-      state.casesLookup[key] = {"Cases" : cases, "Deaths": deaths};
-  
-    };
-    
+  state.allCountryCases = state.casesData;
+  state.casesData = state.casesData.filter(d=>d.location === "World");
+  //console.log("CASES WORLD",state.casesData);
+
+  //var parser = d3.timeFormat("%Y-%m-%d")
+
+  //date format needs to be "2020-2-24" to match policy data
+  for(var i = 0; i < state.casesData.length; i++){
+    // obj = Object
+    var key = String(state.timeFormat(state.casesData[i]["date"]));
+    //var key = state.casesData[i]["date"];
+
+    var cases = state.casesData[i]["total_cases"];
+    var deaths =state.casesData[i]["total_deaths"];
+    var new_deaths =state.casesData[i]["new_deaths"];
+    var new_cases =state.casesData[i]["new_cases"];
+
+    if (deaths === null) {deaths = 0;};
+    state.casesLookup[key] = {"Cases" : cases, "Deaths": deaths,
+                              "New_cases": new_cases, "New_deaths":new_deaths};
+
   };
+  
+};
 // Unpacks the JSON stylized data... back into CSV style data
 // This is unnecessary if I just read the data as a CSV...
 // I initially re-stylized the data as JSON to accomodate geographic display...
@@ -243,4 +294,42 @@ function unpackData(){
 // Gives us only the new entries
 function filterData() {
     state.unpackedData = state.unpackedData.filter(d=>d.entry_type === "new_entry");
+    state.selectedPolicies = Object.values(state.unpackedData.map(d=>d.policy_id));
+}
+
+function filterPolicies(val) {
+
+  // get the indices of the dates where the global cases total was within the range
+  var worldCases = Object.values(state.casesData.map(d=>d.total_cases));
+  console.log("MATHPOWVAL0",Math.pow(10,val[0]),"MATHPOWVAL1",Math.pow(10,val[1]))
+  var val0_index = worldCases.findIndex(function(number) {
+    return number > Math.pow(10,val[0]);
+  });
+  var val0_date = state.casesData[val0_index].date
+  var val1_index = worldCases.findIndex(function(number) {
+    return number > Math.pow(10,val[1]);
+  });
+  var val1_date = state.casesData[val1_index].date
+
+  var dateRange = [state.timeFormat(val0_date),state.timeFormat(val1_date)]
+
+  console.log("DATE RANGE", dateRange)
+  console.log("VAL0",val[0],"VAL0INDEX",val0_index,"LOOKUPDATE",val0_date);
+
+  // get all policy data within the time range
+  let rangedData = state.unpackedData.filter(function(d) {
+    let date = state.timeFormat(state.timeParser(d.date_start))
+    return date >= dateRange[0] && date <= dateRange[1];
+  } )
+  console.log(rangedData);
+  // get the list of policies and add it to state
+  let policies = Object.values(rangedData.map(d=>d.policy_id));
+  state.selectedPolicies = policies;
+  console.log("DO WE HAVE A LIST O POLICEIS?",policies);
+
+  //let date_val1 = casesLookup
+  //let date_val2 =
+  //let range_data = state.unpackedData.filter(d)
+  //let policy_ids = state.unpackedData.map(d=>d.policy_id).values
+  //console.log("LIS OF IDS",policy_ids);
 }

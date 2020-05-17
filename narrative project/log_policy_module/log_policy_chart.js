@@ -19,12 +19,17 @@ class LogPlot {
     
 
 
-    const tooltip = d3.select(div_name).append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
+    const tooltip = d3.select(div_name)
+      .append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
 
     const format = d3.format(".3s");
-    
+    const baseR = 3;
+    const selR = baseR*1.5;
+    const regR = baseR;
+    const unselR = baseR/2;
+
   // circScale can be used for....
     const circScale = d3.scaleSqrt()
       .domain([d3.min(state.unpackedData, d=>d.GDP_percap), d3.max(state.unpackedData,d=>d.GDP_percap)])
@@ -42,13 +47,13 @@ class LogPlot {
   
     const colorScale = d3.scaleQuantize()
         .domain([d3.min(filtered_indexVals),d3.max(filtered_indexVals)])
-        .range(d3.schemeBrBG[6]);
+        .range(d3.schemeBrBG[4]);
 
     //console.log("CIRCLE DOMAIN",circScale.domain());
 
     const yScale = d3.scaleLog()
       //EDIT: configure take the cases data domain
-      .domain([10,3500000])
+      .domain([10,10000000])
       .range([this.height-this.margins.bottom,this.margins.top]);
 
     /// add x scale
@@ -99,7 +104,7 @@ class LogPlot {
     // add the y axis title
     this.svg.append("text")
       .attr("class","y-axis-title")
-      .attr("transform",`translate(${this.margins.left-70},${this.margins.top+10})`)
+      .attr("transform",`translate(${this.margins.left-70},${this.margins.top-10})`)
       .text("Global cases");
 
     function make_y_gridlines() {
@@ -190,25 +195,26 @@ class LogPlot {
             .append("circle")
             .attr("class","event")
             .attr("id", (d,i) =>String(d.policy_id)+"_"+String(d.record_id))
+            .attr("country",d=>d.country)
+            .attr("policyStart",d=>d.date_start)
             // EDIT: probably want to stylize with CSS to make it more flexible
             //.attr("fill",d=>state.logColors[d.event_type])
             .attr("fill",d=>colorScale( d[state.index_vars[state.selectedIndex]] ) )
             // EDIT: this opacity highlighting function can change if we're doing small multiples...
-            .attr("opacity", 0.6)
+            .attr("opacity", 0.9)
             .attr("r", 0)
             .attr("cx", d=>xScale(d.days_since_first_case))
             .attr("cy", function(d,i) { 
-              var parser = d3.timeParse("%Y-%m-%d");
-              var start = parser(d.date_start);
-              var cases = state.casesLookup[start].Cases;
+              var start = state.timeFormat(state.timeParser(d.date_start));
+              var cases = state.casesLookup[start]["Cases"];
               return yScale(cases);})
             .call(enter =>
               enter
               .transition()
               .duration(500)
-              .attr("r", 4)
-              .delay(function(d) {return state.lookupdates.indexOf(String(state.parser(d.date_start)))*10;} )
-
+              .attr("r", baseR)
+              .attr("r-access",baseR)
+              .delay(function(d) {return state.lookupdates.indexOf(state.timeFormat(state.timeParser(d.date_start)))*10;} )
           ),
         update =>
           update
@@ -216,23 +222,52 @@ class LogPlot {
               update
               .transition()
               .duration(500)
-              .attr('fill',d => d[state.index_vars[state.selectedIndex]] === null ? 'grey' : colorScale(d[state.index_vars[state.selectedIndex]]))
-              //.attr('opacity',d => d[state.index_vars[state.selectedIndex]] === null ? 0.2 : 0.7)
-              /*.attr("fill", function(d,i) { 
-                if (state.selectedPolicyTypes.includes(d.event_type)) {return state.logColors[d["event_type"]];}
-                else {return "#7C7B7B";}
-              })
-              .attr("r", function(d,i) { 
-                if (state.selectedPolicyTypes.includes(d.event_type)) {return 7;}
-                else {return 3.5;}
-              })
-              .attr("opacity", function(d,i) { 
-                if (state.selectedPolicyTypes.includes(d.event_type)) {return 0.9;}
-                else {return 0.25;}*/
+              .attr('opacity',function(d) {
+                if ( state.selectedRegion !== " All" && state.selectedCountry !== " All") {
+                    if (d.country === state.selectedCountry) {return 0.9;}
+                    else if (d.region === state.selectedRegion) {return 0.5;}
+                    else {return 0.2;}
+                }
+                else if (state.selectedRegion === " All" && state.selectedCountry !== " All") {
+                    if (d.country === state.selectedCountry) {return 0.9;}
+                    else {return 0.2;}
+                }
+                else if (state.selectedRegion !== " All" && state.selectedCountry === " All") {
+                        if (d.region === state.selectedRegion) {return 0.9;}
+                        else {return 0.2;}
+                }
+                else if (state.selectedRegion === " All" && state.selectedCountry === " All") {return 0.9;}
+                })
+                .attr('r',function(d) {
+                    if ( state.selectedRegion !== " All" && state.selectedCountry !== " All") {
+                        if (d.country === state.selectedCountry) {return selR;}
+                        else if (d.region === state.selectedRegion) {return baseR;}
+                        else {return unselR;}
+                    }
+                    else if (state.selectedRegion === " All" && state.selectedCountry !== " All") {
+                        if (d.country === state.selectedCountry) {return selR;}
+                        else {return unselR;}
+                    }
+                    else if (state.selectedRegion !== " All" && state.selectedCountry === " All") {
+                            if (d.region === state.selectedRegion) {return selR;}
+                            else {return unselR;}
+                    }
+                    else if (state.selectedRegion === " All" && state.selectedCountry === " All") {return baseR;}
+                })
+                .attr("r-access",function(){return d3.select(this).attr("r");})
               )
         );
       // Add the mouseover features
       dots.on("mouseover", function (d) {
+        var r = d3.select(this).attr("r")
+        d3.select(this).attr("r",r*1.5);
+        var country = d3.select(this).attr("country")
+        var parse = d3.timeParse("%Y-%m-%d")
+        var format = d3.timeFormat("%Y-%m-%d")
+        var policyStart = format(parse(d3.select(this).attr("policyStart")))
+
+        console.log('POLICY START',(policyStart));
+
         var date_end_clean = "Not yet specified";
         if (String(d.date_end) !== "nan-nan-nan"){
             date_end_clean = d.date_end;
@@ -244,16 +279,39 @@ class LogPlot {
         var days_case = d.days_since_first_case < 0 ? "<b>"+Math.abs(d.days_since_first_case)+"</b> days before first national case" : "<b>"+d.days_since_first_case+"</b> days after first national case"
         var days_pol = d.days_since_policies_began < 0 ? "<b>"+Math.abs(d.days_since_policies_began)+"</b> days before first national polices began" : "<b>"+d.days_since_policies_began+"</b> days after first national polices began"
 
+        var locationData = state.allCountryCases.filter(d=>d.location===country)
+        locationData = locationData.filter(d=>state.timeFormat(d.date) === policyStart)
+        console.log("LCATION DATA",locationData)
+    
+        if(locationData.length > 0) {
+          var location_totalcases = locationData[0].total_cases
+          var location_totaldeaths = locationData[0].total_deaths
+          var location_newcases = locationData[0].new_cases
+          var location_newdeaths = locationData[0].new_deaths
+        }
+        else {
+          var location_totalcases = "? "
+          var location_totaldeaths = "? "
+          var location_newcases = "? "
+          var location_newdeaths = "? "
+        }
+        
+
         var html  =  "<b>" + d.country + "</b><br/>" +
                      //"<b> Policy ID: " + d.policy_id + "</b><br/>" +
                      //"<b> Record ID: " + d.record_id + "</b><br/>" +
                     days_case + "<br/>"+
                     days_pol + "</br>"+
                     "<b> Date start: </b>"+d.date_start + "<b> Date end: </b>" + date_end_clean + "<br/>"+
+                    "<b> New cases on date: </b>" + location_newcases+ " <b>Total cases on date: </b>" + location_totalcases+ "<br/>"+
+                    "<b> New deaths on date: </b>" + location_newdeaths+ " <b>Total deaths on date: </b>" + location_totaldeaths + "<br/>"+
                     d.event_description + "<br/>"
                     //+ "<b> Compliance: </b>"+compliance_clean +
                     //"<br/><b> Enforcer: </b>"+d.enforcer 
-    
+        var coordinates= d3.mouse(this);
+        var x = coordinates[0];
+        var y = coordinates[1];
+
         tooltip.html(html)
             .style("left", (d3.event.pageX + 15) + "px")
             .style("top", (d3.event.pageY - 28) + "px")
@@ -263,6 +321,9 @@ class LogPlot {
       });
       
       dots.on("mouseout", function () {
+        var r = d3.select(this).attr("r-access")
+        d3.select(this).attr("r",r);
+
         tooltip.transition()
         .duration(300) // ms
         .style("opacity", 0); // don't care about position!

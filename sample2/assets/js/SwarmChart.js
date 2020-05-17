@@ -55,7 +55,7 @@ class SwarmChart {
       
         
 
-        const tooltip = d3.select("#tooltip")
+        const tooltip = d3.select("#tooltip_"+div_name)
             .attr("class", "tooltip")
             .style("opacity", 0);
 

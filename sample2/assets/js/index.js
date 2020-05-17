@@ -51,10 +51,11 @@ let state = {
     },
   };
 let nextState = {}
+
 // DATA IMPORT
 Promise.all([
-    d3.csv("/sample_narrative_post/assets/data/total-deaths-and-cases-covid-19.csv",d3.autoType),
-    d3.json("/sample_narrative_post/assets/data/ALL_countries_covid_May15.json", d3.autotype),
+    d3.csv("./assets/data/total-deaths-and-cases-covid-19.csv",d3.autoType),
+    d3.json("./assets/data/ALL_countries_covid_May15.json", d3.autotype),
   ]).then(([casesData,countrydata]) => {
     state.casesData = casesData;
     // this step is redundant.. I can just unpack the data 

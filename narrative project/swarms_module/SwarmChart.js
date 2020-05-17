@@ -254,7 +254,9 @@ class SwarmChart {
             .attr("id",d=>d.policy_id)
             .attr("country",d=>d.country)
             .attr("region",d=>d.region)
+            .attr("policyStart",d=>d.date_start)
             .attr('r', baseR)
+            //.attr("r-access",baseR)
             .attr('fill',d => colorScale_Glob(d["soc_global_Index"]))
             .attr('opacity',0.6)
             .call(enter=>
@@ -293,7 +295,8 @@ class SwarmChart {
                 else if (state.selectedRegion === " All" && state.selectedCountry === " All") {return 0.9;}
             })
             .attr('r',function(d) {
-                if ( state.selectedRegion !== " All" && state.selectedCountry !== " All") {
+                if (!state.selectedPolicies.includes(d.policy_id)) {return 0.2;}
+                else if ( state.selectedRegion !== " All" && state.selectedCountry !== " All") {
                     if (d.country === state.selectedCountry) {return selR;}
                     else if (d.region === state.selectedRegion) {return baseR;}
                     else {return unselR;}
@@ -308,6 +311,7 @@ class SwarmChart {
                 }
                 else if (state.selectedRegion === " All" && state.selectedCountry === " All") {return baseR;}
             })
+            //.attr("r-access",function(){return d3.select(this).attr("r");})
             .call(update=>
                 update
                 .transition()
@@ -316,6 +320,18 @@ class SwarmChart {
             exit => exit.remove()
         )
         .on("mouseover", function (d) {
+
+            // since we're doing a lot with the radius already, we can show its size bigger like this
+            // because otherwise the constant simulation update messes with the hover
+            var fillC = d3.select(this).attr("fill")
+            d3.select(this)
+                .attr("stroke", fillC)
+                .attr('stroke-width', 4)
+
+            var country = d3.select(this).attr("country")
+            var parse = d3.timeParse("%Y-%m-%d")
+            var format = d3.timeFormat("%Y-%m-%d")
+            var policyStart = format(parse(d3.select(this).attr("policyStart")))
 
             var date_end_clean = "Not yet specified";
             if (String(d.date_end) !== "nan-nan-nan"){
@@ -328,15 +344,35 @@ class SwarmChart {
             var days_case = d.days_since_first_case < 0 ? "<b>"+Math.abs(d.days_since_first_case)+"</b> days before first national case" : "<b>"+d.days_since_first_case+"</b> days after first national case"
             var days_pol = d.days_since_policies_began < 0 ? "<b>"+Math.abs(d.days_since_policies_began)+"</b> days before first national polices began" : "<b>"+d.days_since_policies_began+"</b> days after first national polices began"
 
+            var locationData = state.allCountryCases.filter(d=>d.location===country)
+            locationData = locationData.filter(d=>state.timeFormat(d.date) === policyStart)
+            console.log("LCATION DATA",locationData)
+        
+            if(locationData.length > 0) {
+              var location_totalcases = locationData[0].total_cases
+              var location_totaldeaths = locationData[0].total_deaths
+              var location_newcases = locationData[0].new_cases
+              var location_newdeaths = locationData[0].new_deaths
+            }
+            else {
+              var location_totalcases = "? "
+              var location_totaldeaths = "? "
+              var location_newcases = "? "
+              var location_newdeaths = "? "
+            }
+
+
             var html  =  "<b>" + d.country + "</b><br/>" +
-                         //"<b> Policy ID: " + d.policy_id + "</b><br/>" +
-                         //"<b> Record ID: " + d.record_id + "</b><br/>" +
-                        days_case + "<br/>"+
-                        days_pol + "</br>"+
-                        "<b> Date start: </b>"+d.date_start + "<b> Date end: </b>" + date_end_clean + "<br/>"+
-                        d.event_description + "<br/>"
-                        //+ "<b> Compliance: </b>"+compliance_clean +
-                        //"<br/><b> Enforcer: </b>"+d.enforcer 
+                    //"<b> Policy ID: " + d.policy_id + "</b><br/>" +
+                    //"<b> Record ID: " + d.record_id + "</b><br/>" +
+                    days_case + "<br/>"+
+                    days_pol + "</br>"+
+                    "<b> Date start: </b>"+d.date_start + "<b> Date end: </b>" + date_end_clean + "<br/>"+
+                    "<b> New cases on date: </b>" + location_newcases+ " <b>Total cases on date: </b>" + location_totalcases+ "<br/>"+
+                    "<b> New deaths on date: </b>" + location_newdeaths+ " <b>Total deaths on date: </b>" + location_totaldeaths + "<br/>"+
+                    d.event_description + "<br/>"
+                    //+ "<b> Compliance: </b>"+compliance_clean +
+                    //"<br/><b> Enforcer: </b>"+d.enforcer 
         
             tooltip.html(html)
                 .style("left", (d3.event.pageX + 15) + "px")
@@ -346,6 +382,9 @@ class SwarmChart {
                 .style("opacity", .9) // started as 0!
         })
         .on("mouseout", function () {
+            
+            d3.select(this).attr("stroke","none");
+
             tooltip.transition()
             .duration(300) // ms
             .style("opacity", 0); // don't care about position!

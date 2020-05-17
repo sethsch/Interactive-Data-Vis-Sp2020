@@ -16,17 +16,21 @@ let policies = {"Restrictions of Mass Gatherings":"#gatherings",
 
 let state = {
     casesData: [],
+    allCountryCases: [],
     casesLookup: {},
     lookupdates: [],
-    parser: null,
+    timeFormat: d3.timeFormat("%Y-%m-%d"),
+    timeParser: d3.timeParse("%Y-%-m-%-d"),
+    postFilt: [],
     currentCases: 0,
     countrydata: [],
     unpackedData: [],
     logColors: {},
     days_since_first_announcement: [],
     days_since_first_case: [],
-    selectedCountry: "All",
+    selectedCountry: " All",
     selectedPolicyTypes: [],
+    selectedRegion: " All",
     filteredData: [],
     policyType: "null",
     selectedIndex: "Social Globalization Index",
@@ -50,13 +54,13 @@ let state = {
     },
   };
 let nextState = {
-  selectedIndex: null,
 }
 
 // DATA IMPORT
 Promise.all([
-    d3.csv("./total-deaths-and-cases-covid-19.csv",d3.autoType),
-    d3.json("./ALL_countries_covid_v5.json", d3.autotype),
+    //d3.csv("./total-deaths-and-cases-covid-19.csv",d3.autoType),
+    d3.csv("./full_data_OWIDMay16.csv",d3.autoType),
+    d3.json("./ALL_countries_covid_May15.json", d3.autotype),
   ]).then(([casesData,countrydata]) => {
     state.casesData = casesData;
     // this step is redundant.. I can just unpack the data 
@@ -118,6 +122,75 @@ function init() {
   // this ensures that the selected value is the same as what we have in state when we initialize the options
   selectIndex.property("value", "Social Globalization Index");
 
+// 1. dropdown for countries
+let selectCountries = d3.select("#countries_dropdown").on("change", function() {
+  console.log("new selected country is:",this.value);
+  nextState.selectedCountry = this.value;
+  setGlobalState(nextState);
+});
+
+let country_list = Object.keys(state.countrydata);
+let region_list = ["South Asia", "Europe & Central Asia",
+  "Middle East & North Africa","Sub-Saharan Africa","Latin America & Caribbean",
+  "East Asia & Pacific","North America"];
+console.log("LETS SEEEEE",d3.map(state.unpackedData,d=>d.region).keys())
+let grouped_countries = {};
+for (var i=0; i<region_list.length;i++){
+  let filt_df = state.unpackedData.filter(d=>d.region===region_list[i])
+  grouped_countries[region_list[i]] = d3.map(filt_df,d=>d.country).keys();
+}
+console.log("DISD THE LSOAOK",grouped_countries);
+country_list.push(" All");
+country_list = country_list.sort(d3.ascending);
+console.log(country_list);
+/*selectCountries
+  .selectAll("optgroup")
+  .data(region_list)
+  .join("optgroup")
+  .attr("class",d=>d.replace("&","").split(" ").join("_")+"options")
+  .attr("label",d=>d)
+
+
+for (var i = 0; i<region_list.length;i++) {
+selectCountries.select("."+region_list[i].replace("&","").split(" ").join("_")+"options")
+  .selectAll("option")
+  .data(grouped_countries[region_list[i]].sort(d3.ascending))
+  .join("option")
+  .attr("value",d=>d)
+  .text(d=>d);
+}*/
+selectCountries
+  .selectAll("option")
+  .data(country_list)
+  .join("option")
+  .attr("value",d=>d)
+  .text(d=>d);
+
+selectCountries.property("value", " All");
+
+region_list.push(" All");
+// 2. dropdown for regions
+let selectRegion = d3.select("#region_dropdown").on("change", function() {
+    console.log("new selected region is:",this.value);
+    nextState.selectedRegion = this.value;
+    nextState.selectedCountry = " All";
+    selectCountries.property("value"," All");
+    setGlobalState(nextState);
+});
+
+region_list = region_list.sort(d3.ascending);
+
+selectRegion
+  .selectAll("option")
+  .data(region_list)
+  .join("option")
+  .attr("value",d=>d)
+  .text(d=>d);
+
+selectRegion.property("value", " All");
+
+
+
   draw();
 }
 
@@ -143,19 +216,26 @@ function setGlobalState(nextState) {
 }
 // Creates a lookup table for global cases
 function createWorldCasesLookup(){
-    state.casesData = state.casesData.filter(d=>d.Entity === "World");
+    state.allCountryCases = state.casesData;
+    state.casesData = state.casesData.filter(d=>d.location === "World");
     //console.log("CASES WORLD",state.casesData);
   
-    var parser = d3.timeParse("%d-%b-%y");
+    //var parser = d3.timeFormat("%Y-%m-%d")
   
     //date format needs to be "2020-2-24" to match policy data
     for(var i = 0; i < state.casesData.length; i++){
       // obj = Object
-      var key = parser(state.casesData[i]["Date"]);
-      var cases = state.casesData[i]["Total confirmed cases (cases)"];
-      let deaths =state.casesData[i]["Total confirmed deaths (deaths)"];
+      var key = String(state.timeFormat(state.casesData[i]["date"]));
+      //var key = state.casesData[i]["date"];
+
+      var cases = state.casesData[i]["total_cases"];
+      var deaths =state.casesData[i]["total_deaths"];
+      var new_deaths =state.casesData[i]["new_deaths"];
+      var new_cases =state.casesData[i]["new_cases"];
+
       if (deaths === null) {deaths = 0;};
-      state.casesLookup[key] = {"Cases" : cases, "Deaths": deaths};
+      state.casesLookup[key] = {"Cases" : cases, "Deaths": deaths,
+                                "New_cases": new_cases, "New_deaths":new_deaths};
   
     };
     
@@ -168,7 +248,7 @@ function unpackData(){
 
   let filteredData = state.countrydata;
 
-  if (state.selectedCountry !== "All") {
+  if (state.selectedCountry !== " All") {
     filteredData = filteredData[state.selectedCountry];
     var days_since_announcement = [];
     var days_since_first_case = [];
@@ -214,17 +294,22 @@ function unpackData(){
 }
 // Validates the date range between cases and policy datasets
 function filterData() {
-  state.parser = d3.timeParse("%Y-%m-%d");
+ 
+
   state.lookupdates = Object.keys(state.casesLookup);
-  //console.log("DATEA",lookupdates);
+  console.log("DATEA",state.lookupdates);
   var data_dates = [];
   for (var i=0; i<state.unpackedData.length; i++) {
-    data_dates.push(String(state.parser(state.unpackedData[i]["date_start"])))
+
+    data_dates.push(state.timeFormat(state.timeParser(state.unpackedData[i]["date_start"])))
   };
-  //console.log("DATADATES",data_dates);
-  state.unpackedData = state.unpackedData.filter(d => state.lookupdates.includes(String(state.parser(d["date_start"])) ));
-  //console.log("DID WE FILTER?",unpackedData);
+  console.log("DATADATES",data_dates);
+  state.unpackedData = state.unpackedData.filter(d => state.lookupdates.includes(state.timeFormat(state.timeParser(d["date_start"])) ));
+  //console.log("DID WE FILTER?",state.postFilt,state.unpackedData);
+
 }
+
+
 function updateTypes(){
     var choices = [];
     d3.selectAll(".myCheckbox").each(function(d){
