@@ -332,7 +332,7 @@ class SwarmChart {
                 else if ( state.selectedRegion !== " All" && state.selectedCountry !== " All") {
                     if (d.country === state.selectedCountry) {return selR;}
                     else if (d.region === state.selectedRegion) {return baseR;}
-                    else {return unselR;}
+                    else {return 0;}
                 }
                 else if (state.selectedRegion === " All" && state.selectedCountry !== " All") {
                     if (d.country === state.selectedCountry) {return selR;}
