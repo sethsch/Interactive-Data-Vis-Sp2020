@@ -1,29 +1,108 @@
-<!DOCTYPE html>
-  <head>
+<!DOCTYPE html><head>
     <meta charset="utf-8">
     <title>Exploratory Project</title>
     <header>
-        <h1>Explore trending keywords in new grant descriptions</h1>
+        <h1>Explore keyword trends in new grants</h1>
+		<p style="width:70%">What issues and concerns were featured in new grants? The dashboard below offers insight into the frequency of key terms by year and region, as well as the associated words and phrases that appear within paragraphs where these terms are featured.</p>
       </header>
-    <link rel="stylesheet" href="./style.css">
+    
+  <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <label for="dropdown">  Region of Benefit </label>
-    <select id="dropdown_reg" name="dropdown_reg"></select>
 
-    <div id="year_menus">
-      <label for="dropdown"> Year 1 </label>
-        <select id="dropdown_y1" name="dropdown_y1"></select>
-      <label for="dropdown"> Year 2 </label>
-        <select id="dropdown_y2" name="dropdown_y2"></select>
+    <div id="options_items">
+      <div class="container" style="height: 50px;">
+          <div id="optrow1" class="row" style="height: 50px;">
+              <div class="col-md-3" style="height: 50px;">
+                  <label class="dropdown_label" for="dropdown"> Year 1 </label>
+                  <select id="dropdown_y1" class="opt_item" name="dropdown_y1"></select>
+              </div>
+              <div class="col-md-3" style="height: 50px;">
+                  <label class="dropdown_label" for="dropdown"> Year 2 </label>
+                  <select id="dropdown_y2" class="opt_item" name="dropdown_y2"></select>
+              </div>
+              <div class="col-md-3" style="height: 50px;">
+                <div id="legend" class="opt_item"></div>
+              </div>
+              <div class="col-md-3" style="height: 50px;"></div>
+          </div>
+          <div id="optrow2" class="row" style="height: 50px;">
+            <div class="col-md-3" style="height: 50px;">
+              <label class="dropdown_label" for="dropdown">  Region of Benefit </label>
+              <select id="dropdown_reg" class="opt_item" name="dropdown_reg"></select>
+            </div>
+            <div class="col-md-3" style="height: 50px;">
+                <div></div>
+            </div>
+            <div class="col-md-3" style="height: 50px;">
+                <label class="dropdown_label" for="dropdown">  Sort order </label>
+                <select id="dropdown_sort" class="opt_item" name="dropdown_sort"></select>
+            </div>
+            <div class="col-md-3" style="height: 50px;">
+                <input name="updateButton" 
+                type="button" 
+                class="opt_item"
+                value="Update" 
+                onclick="drawPlot()" /> 
+              </div>
+            </div>
+        </div>
+      </div>
+         
+
+
+<!-- 
+  <div id="buttons_container">
+    <div id="buttons_spacer"></div>
+    <div id="sort_buttons">
+      <div> 
+        <input name="sort_az" 
+        id="sort_az"
+        class="sorter"
+        type="button" 
+        value="Sort A-Z" 
+        onclick="sortTrends('AZ');drawPlot();" />
+      </div>
+      <div>
+        <input name="sort_desc" 
+        id="sort_desc"
+        class="sorter"
+        type="button" 
+        value="Descending by Year 2 frequency" 
+        onclick="sortTrends('descending');drawPlot();" />
+      </div>
+      <div>
+        <input name="sort_asc" 
+        id="sort_asc"
+        class="sorter"
+        type="button" 
+        value="Ascending by Year 2 frequency" 
+        onclick="sortTrends('ascending');drawPlot();"  />
+      </div>
+      <div>
+        <input name="sort_highlow" 
+        id="sort_highlow"
+        class="sorter"
+        type="button" 
+        value="Sort by % change" 
+        onclick="sortTrends('high_low');drawPlot();"  />
+      </div>
     </div>
-    <input name="updateButton" 
-    type="button" 
-    value="Update" 
-    onclick="drawPlot()" />
+    <div id="buttons_spacer"></div> 
+  </div>-->
+
+  <!-- <div id="slider" class="row align-items-center">
+    <div class="col-sm-2"><p id="value-simple"></p></div>
+    <div class="col-sm"><div id="slider-simple"></div></div>
+  </div> -->
+
+
+
 
     <div id="plots_container"> 
-      <div id="plot_1"></div>
+      <div id="plot1_window">
+        <div id="plot_1"></div>
+      </div>
       <div id="table"> 
         <table id="d3-table"></table>
       </div>
@@ -33,8 +112,10 @@
 
 
     <script src="../lib/d3.js"></script>
-    <script src="main_v6_random.js"></script>
+    <script src="main_v7_portfolio.js"></script>
     <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+    <script src="https://unpkg.com/d3-simple-slider"></script>
+
 
 
   </body>

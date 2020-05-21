@@ -1,0 +1,176 @@
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 1em 3em;
+}
+
+h1 {
+  font-family: "Arial Black";
+}
+
+label {
+  font: 14px sans-serif;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  float: left;
+}
+
+.term_header {
+  padding: 0 0.5em;
+  text-align: center;
+  font: 16px sans-serif;
+  font-weight: bold;
+  height: 18px;
+}
+
+.table_subtitle {
+  font: 11px sans-serif;
+  font-weight: normal;
+  font-style: italic;
+  font-variant: small-caps;
+  border-bottom: solid 3.5px black;
+  vertical-align: middle;
+}
+
+tr {
+  line-height: 1.55;
+}
+
+.table-body {
+  font: 11px sans-serif;
+  text-transform: lowercase;
+}
+
+#col-id {
+  border-bottom: solid 1px black;
+  line-height: 1.75;
+  font: 14px sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  text-align: left;
+  padding: 0 0.5em;
+  background-color: white;
+}
+
+.buttons_container {
+  display: grid;
+  grid-template-columns: 0.2fr, 0.2fr, 0.2fr, 0.2fr, 0.2fr;
+  grid-template-rows: 1fr, 1fr;
+  column-gap: 0.5em;
+}
+
+#buttons_spacer {
+  grid-row-start: 3;
+  grid-row-end: 3;
+  height: 10px;
+  width: 100%;
+}
+
+#sort_buttons {
+  grid-row-start: 2;
+}
+
+.sorter {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.year_options_container {
+  display: grid;
+  grid-template-columns: 0.5fr, 0.5fr, 0.2fr;
+  grid-template-rows: 1fr, 1fr, 1fr;
+  width: 70%;
+}
+
+#year_dropdowns {
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+#legend {
+  grid-row-start: 2;
+  grid-column-start: 1;
+}
+
+#reg_dropdown {
+  grid-row-start: 1;
+  grid-column-start: 2;
+}
+
+#sort_dropdown {
+  grid-row-start: 2;
+  grid-column-start: 2;
+}
+
+#update_button {
+  grid-row-start: 2;
+  grid-column-start: 3;
+}
+
+#plots_container {
+  display: grid;
+  grid-template-columns: 1fr 0.2fr 1fr;
+  grid-template-rows: 0.33fr, 0.2fr, 0.5fr;
+  column-gap: 2em;
+  cursor: pointer;
+}
+
+#plot1_window {
+  overflow: scroll;
+  height: 70vh;
+  width: 55vw;
+}
+
+#plot_1 {
+  grid-row-start: 1;
+  grid-row-end: span 2;
+}
+
+#d3-table {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+}
+
+#plot_2 {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-row-end: span 1;
+}
+
+div {
+  float: left;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  text-size-adjust: auto;
+  padding: 2px;
+  width: 150px;
+  min-height: min-content;
+  max-height: fit-content+20px;
+  max-width: fit-content+20px;
+  font: 15px sans-serif;
+  color: white;
+  background: darkslategray;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.stacked_plot_axis--y {
+  font-variant: small-caps;
+}
+
+.stacked_plot_axis--x {
+  font-weight: bold;
+}
+

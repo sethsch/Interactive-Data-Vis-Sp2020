@@ -10,10 +10,10 @@ h1 {
   }
 
 label {
-  font: 12px sans-serif;
-  text-transform: lowercase;
-  font-weight: bold;
-}
+    font: 18px sans-serif;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
 
 table {
     border-collapse: collapse;
@@ -33,7 +33,7 @@ table {
   font-weight: normal;
   font-style: italic;
   font-variant: small-caps;
-  border-bottom: solid 3.5px black;
+  /*border-bottom: solid 3.5px black;*/
   vertical-align: middle;
 }
   
@@ -42,40 +42,123 @@ tr {
   }
 
 .table-body {
-    font: 11px sans-serif;
-    text-transform: uppercase;
+    font: 12px sans-serif;
+    text-transform: lowercase;
 }
   
 #col-id {
-    border-bottom: solid 1px black;
+    border-bottom: solid 3px black;
     line-height: 1.75;
     font: 14px sans-serif;
     font-weight: bold;
+    text-align: center;
 }
 
 td {
-    text-align: center;
+    text-align: left;
     padding: 0 0.5em;
     background-color: white;
   }
 
- 
-#plots_container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr, 1fr;
-    column-gap: 2em;
-    cursor: pointer;
+/*.buttons_container {
+  display: grid;
+  grid-template-columns: 0.2fr, 0.2fr, 0.2fr, 0.2fr, 0.2fr;
+  grid-template-rows: 1fr, 1fr;
+  column-gap: 0.5em;
+}
+#buttons_spacer {
+  grid-row-start: 3;
+  grid-row-end: 3;
+  height: 10px;
+  width: 100%;
+}
+#sort_buttons {
+  grid-row-start: 2;
+}
 
+.sorter {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+
+.year_options_container {
+  display: grid;
+  grid-template-columns: 0.5fr, 0.5fr, 0.2fr;
+  grid-template-rows: 1fr, 1fr, 1fr;
+  width: 70%;
+}
+
+#year_dropdowns {
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+#legend {
+  grid-row-start: 2;
+  grid-column-start: 1;
+}
+#reg_dropdown {
+  grid-row-start: 1;
+  grid-column-start: 2;
+
+}
+#sort_dropdown {
+  grid-row-start: 2;
+  grid-column-start: 2;
+}
+#update_button {
+  grid-row-start: 2;
+  grid-column-start: 3;
+}
+*/
+
+#options_items {
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+  grid-template-rows: 1fr,1fr;
+}
+.opt_item {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+#legend{
+  margin-top: 0px;
+  margin-left: 15px;
+}
+  
+#plots_container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr, 1fr;
+  column-gap: 2em;
+  cursor: pointer;
+
+}
+#plot1_window {
+  overflow: scroll;
+  height: 85vh;
+  width: 60vw;
+  grid-row-start: 1;
+  grid-row-end: span 2;
 }
 #plot_1 {
-    grid-row-start: 1;
-    grid-row-end: span 2;
+  grid-row-start: 1;
+  grid-row-end: span 2;
 }
 
-#d3-table, #plot_2 {
-  padding-top: 1em;
+#d3-table{
+ grid-row-start:1;
+ grid-column-start:1;
+
+} 
+#plot_2 {
+  grid-row-start:2;
+  grid-column-start:2;
 }
+
+
+
 
 
 div {
@@ -92,7 +175,7 @@ div.tooltip {
     min-height: min-content;
     max-height: fit-content+20px;
     max-width: fit-content+20px;							
-    font: 15px sans-serif;
+    font: 14px sans-serif;
     color: white;	
     background: darkslategray;	
     border: 0px;		
