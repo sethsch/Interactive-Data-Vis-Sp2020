@@ -28,3 +28,10 @@ data/kwic_keywords.json
 data/regionsyears_KWIC.csv
 data/regyear_termMents.csv
 .vscode/settings.json
+getdepth/getdepth.js
+getdepth/gloss.csv
+getdepth/index.html
+getdepth/gloss.json
+getdepth/unpack_try1
+getdepth/unpack_try2.py
+.DS_Store
