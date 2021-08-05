@@ -1,0 +1,33 @@
+body {
+  /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 1em 3em;
+}
+
+#tooltip {
+  display: block;
+  height: 50px;
+}
+
+
+
+.legend .label {
+  font-size: 11px;
+}
+.legend tspan {
+  padding-left: 20px;
+}
+
+path.district {
+  stroke: rgb(106, 106, 106);
+  stroke-width: 0.75px;
+  fill-opacity: 0.6;
+
+}
+
+path.district:hover{
+  fill-opacity: 1;
+  stroke: rgb(12, 12, 12);
+  stroke-width: 2px;
+}
+

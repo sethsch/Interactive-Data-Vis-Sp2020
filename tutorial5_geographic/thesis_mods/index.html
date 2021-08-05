@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- this is the title that goes in the browser tab name  -->
+    <title>Interactive Data Visualization Tutorial</title>
+
+    <!-- custom font: https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Tutorial 5</h1>
+      <h2>Geographic</h2>
+    </header>
+    <div class="legend" id="legend"></div>
+    <!--<select name="dropdown" id="dropdown"></select>-->
+    <select class="selectpicker" name="dropdown" id="dropdown" multiple data-live-search="true">
+    
+    </select>
+
+
+    <!-- all we need is an element to select -->
+    <div id="hover-content"></div>
+
+    <div id="d3-container"> </div>
+    
+
+    <!-- this is the line that loads in d3 -->
+    <script src='https://unpkg.com/simple-statistics@7.4.0/dist/simple-statistics.min.js'></script>
+
+    <script src="../../lib/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+
+    <script src="//unpkg.com/topojson@3/dist/topojson.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+    <!-- this is the line that loads in the main js script -->
+    <script src="./main.js"></script>
+  </body>
+</html>
